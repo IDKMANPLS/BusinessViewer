@@ -51,6 +51,26 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Plumber",
+          name: "My Businesses Website",
+          telephone: "+1111111111",
+          areaServed: "Redlands, California",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Redlands",
+            addressRegion: "CA",
+            addressCountry: "US",
+          },
+          openingHours: ["Mo-Fr 07:00-19:00", "Sa 08:00-16:00"],
+          aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "312" },
+        }),
+      },
+    ],
   }),
   component: Index,
 });
@@ -69,6 +89,53 @@ const gallery = [
   { src: workRepipe, alt: "Completed copper repipe work under a Redlands home" },
   { src: workBathroom, alt: "Bathroom after a full fixture and plumbing upgrade" },
   { src: workFaucet, alt: "New chrome kitchen faucet installed on a quartz countertop" },
+];
+
+const promises = [
+  { icon: Timer, title: "Same-day service", desc: "Most Redlands calls booked within a few hours." },
+  { icon: Receipt, title: "Flat-rate quotes", desc: "You approve the price before any work starts." },
+  { icon: BadgeCheck, title: "Licensed & insured", desc: "Background-checked techs, fully bonded." },
+  { icon: ShieldCheck, title: "Warranty backed", desc: "Parts and workmanship guaranteed in writing." },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Water heater died on a Sunday night. They picked up on the second ring and had hot water back before noon Monday. Price matched the quote exactly.",
+    name: "Marisol R.",
+    place: "Redlands",
+  },
+  {
+    quote:
+      "Whole-house repipe done in two days. Crew laid down drop cloths every morning and cleaned up better than they found it.",
+    name: "Dan K.",
+    place: "Yucaipa",
+  },
+  {
+    quote:
+      "Slab leak found in twenty minutes with no guesswork and no holes in the wrong wall. Honest people.",
+    name: "Priya S.",
+    place: "Loma Linda",
+  },
+];
+
+const faqs = [
+  {
+    q: "Do you charge for emergency callouts after hours?",
+    a: "We quote a flat rate up front, nights and weekends included. You will always know the price before we start work.",
+  },
+  {
+    q: "How fast can you get here?",
+    a: "Most Redlands, Loma Linda and Mentone calls are handled the same day. True emergencies — burst pipes, no water, sewage backups — go to the front of the line 24/7.",
+  },
+  {
+    q: "Are your plumbers licensed?",
+    a: "Yes. Every technician is licensed, bonded, insured and background-checked before they set foot on your property.",
+  },
+  {
+    q: "Do you warranty your work?",
+    a: "All parts and workmanship are covered by a written warranty, and we come back at no charge if something related fails.",
+  },
 ];
 
 function Index() {
