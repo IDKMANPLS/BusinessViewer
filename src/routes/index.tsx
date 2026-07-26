@@ -540,7 +540,22 @@ function Index() {
         <div className="border-t border-brand-foreground/15 px-4 py-5 text-center text-xs text-brand-foreground/60">
           © {new Date().getFullYear()} My Businesses Website · Redlands, CA · {PHONE_DISPLAY}
         </div>
+        <div className="h-20 md:hidden" />
       </footer>
+
+      {/* Sticky mobile call bar */}
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 p-3 shadow-float backdrop-blur md:hidden">
+        <div className="grid grid-cols-[1fr_auto] gap-2">
+          <Button asChild size="lg" className="h-12 bg-copper font-bold text-copper-foreground hover:bg-copper/90">
+            <a href={PHONE_HREF}>
+              <Phone className="size-5" /> Call {PHONE_DISPLAY}
+            </a>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="h-12 font-semibold">
+            <a href="#contact">Quote</a>
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
