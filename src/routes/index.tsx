@@ -12,6 +12,13 @@ import {
   Hammer,
   AlertTriangle,
   CheckCircle2,
+  Star,
+  BadgeCheck,
+  Timer,
+  Receipt,
+  ChevronDown,
+  Menu,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
