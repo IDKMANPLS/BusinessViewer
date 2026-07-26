@@ -220,6 +220,7 @@ function Index() {
           height={1000}
           className="absolute inset-0 size-full object-cover opacity-25"
         />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_15%_10%,transparent,color-mix(in_oklab,var(--brand-deep)_75%,transparent))]" />
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-foreground/25 px-3 py-1 text-xs font-semibold uppercase tracking-widest">
             <ShieldCheck className="size-4" /> Licensed · Bonded · Insured
@@ -261,6 +262,21 @@ function Index() {
               </div>
             ))}
           </dl>
+        </div>
+      </section>
+
+      {/* Promise strip */}
+      <section aria-label="Why homeowners call us" className="border-b border-border bg-card">
+        <div className="mx-auto grid max-w-6xl gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+          {promises.map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="flex items-start gap-3 bg-card px-4 py-6">
+              <Icon className="mt-0.5 size-6 shrink-0 text-copper" />
+              <div className="min-w-0">
+                <p className="font-display text-lg font-bold uppercase leading-tight">{title}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
