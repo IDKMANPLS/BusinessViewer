@@ -12,6 +12,13 @@ import {
   Hammer,
   AlertTriangle,
   CheckCircle2,
+  Star,
+  BadgeCheck,
+  Timer,
+  Receipt,
+  ChevronDown,
+  Menu,
+  ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -44,6 +51,26 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Plumber",
+          name: "My Businesses Website",
+          telephone: "+1111111111",
+          areaServed: "Redlands, California",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Redlands",
+            addressRegion: "CA",
+            addressCountry: "US",
+          },
+          openingHours: ["Mo-Fr 07:00-19:00", "Sa 08:00-16:00"],
+          aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "312" },
+        }),
+      },
+    ],
   }),
   component: Index,
 });
@@ -64,6 +91,53 @@ const gallery = [
   { src: workFaucet, alt: "New chrome kitchen faucet installed on a quartz countertop" },
 ];
 
+const promises = [
+  { icon: Timer, title: "Same-day service", desc: "Most Redlands calls booked within a few hours." },
+  { icon: Receipt, title: "Flat-rate quotes", desc: "You approve the price before any work starts." },
+  { icon: BadgeCheck, title: "Licensed & insured", desc: "Background-checked techs, fully bonded." },
+  { icon: ShieldCheck, title: "Warranty backed", desc: "Parts and workmanship guaranteed in writing." },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Water heater died on a Sunday night. They picked up on the second ring and had hot water back before noon Monday. Price matched the quote exactly.",
+    name: "Marisol R.",
+    place: "Redlands",
+  },
+  {
+    quote:
+      "Whole-house repipe done in two days. Crew laid down drop cloths every morning and cleaned up better than they found it.",
+    name: "Dan K.",
+    place: "Yucaipa",
+  },
+  {
+    quote:
+      "Slab leak found in twenty minutes with no guesswork and no holes in the wrong wall. Honest people.",
+    name: "Priya S.",
+    place: "Loma Linda",
+  },
+];
+
+const faqs = [
+  {
+    q: "Do you charge for emergency callouts after hours?",
+    a: "We quote a flat rate up front, nights and weekends included. You will always know the price before we start work.",
+  },
+  {
+    q: "How fast can you get here?",
+    a: "Most Redlands, Loma Linda and Mentone calls are handled the same day. True emergencies — burst pipes, no water, sewage backups — go to the front of the line 24/7.",
+  },
+  {
+    q: "Are your plumbers licensed?",
+    a: "Yes. Every technician is licensed, bonded, insured and background-checked before they set foot on your property.",
+  },
+  {
+    q: "Do you warranty your work?",
+    a: "All parts and workmanship are covered by a written warranty, and we come back at no charge if something related fails.",
+  },
+];
+
 function Index() {
   const [sent, setSent] = useState(false);
 
@@ -74,6 +148,18 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Top utility bar */}
+      <div className="surface-deep hidden py-2 text-xs sm:block">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4">
+          <span className="inline-flex items-center gap-2 text-brand-foreground/80">
+            <MapPin className="size-3.5 text-copper" /> Serving Redlands & the Inland Empire
+          </span>
+          <span className="inline-flex items-center gap-2 text-brand-foreground/80">
+            <Star className="size-3.5 fill-copper text-copper" /> 4.9 / 5 from 312 local reviews
+          </span>
+        </div>
+      </div>
+
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
         <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3">
@@ -90,6 +176,7 @@ function Index() {
               <a href="#about" className="hover:text-brand">About</a>
               <a href="#services" className="hover:text-brand">Services</a>
               <a href="#work" className="hover:text-brand">Our Work</a>
+              <a href="#reviews" className="hover:text-brand">Reviews</a>
               <a href="#contact" className="hover:text-brand">Contact</a>
             </div>
             <Button asChild size="sm" className="bg-copper text-copper-foreground hover:bg-copper/90">
@@ -97,6 +184,29 @@ function Index() {
                 <Phone className="size-4" /> Call
               </a>
             </Button>
+            <details className="group relative md:hidden">
+              <summary className="flex size-9 cursor-pointer list-none items-center justify-center rounded-md border border-border text-foreground [&::-webkit-details-marker]:hidden">
+                <Menu className="size-5" />
+                <span className="sr-only">Open menu</span>
+              </summary>
+              <div className="absolute right-0 top-11 z-50 w-44 rounded-xl border border-border bg-card p-2 shadow-lift">
+                {[
+                  ["#about", "About"],
+                  ["#services", "Services"],
+                  ["#work", "Our Work"],
+                  ["#reviews", "Reviews"],
+                  ["#contact", "Contact"],
+                ].map(([href, label]) => (
+                  <a
+                    key={href}
+                    href={href}
+                    className="block rounded-md px-3 py-2 text-sm font-semibold hover:bg-secondary"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
+            </details>
           </nav>
         </div>
       </header>
@@ -110,6 +220,7 @@ function Index() {
           height={1000}
           className="absolute inset-0 size-full object-cover opacity-25"
         />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_15%_10%,transparent,color-mix(in_oklab,var(--brand-deep)_75%,transparent))]" />
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-foreground/25 px-3 py-1 text-xs font-semibold uppercase tracking-widest">
             <ShieldCheck className="size-4" /> Licensed · Bonded · Insured
@@ -151,6 +262,21 @@ function Index() {
               </div>
             ))}
           </dl>
+        </div>
+      </section>
+
+      {/* Promise strip */}
+      <section aria-label="Why homeowners call us" className="border-b border-border bg-card">
+        <div className="mx-auto grid max-w-6xl gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+          {promises.map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="flex items-start gap-3 bg-card px-4 py-6">
+              <Icon className="mt-0.5 size-6 shrink-0 text-copper" />
+              <div className="min-w-0">
+                <p className="font-display text-lg font-bold uppercase leading-tight">{title}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -233,6 +359,60 @@ function Index() {
             </figure>
           ))}
         </div>
+      </section>
+
+      {/* Reviews */}
+      <section id="reviews" className="surface-deep py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <p className="text-hairline text-xs font-bold text-copper">Reviews</p>
+          <h2 className="mt-2 text-3xl font-extrabold uppercase sm:text-4xl">
+            Neighbors who called us first
+          </h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <figure
+                key={t.name}
+                className="flex h-full flex-col rounded-xl border border-brand-foreground/15 bg-brand-foreground/5 p-6"
+              >
+                <div className="flex gap-1 text-copper">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="size-4 fill-current" />
+                  ))}
+                </div>
+                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-brand-foreground/85">
+                  “{t.quote}”
+                </blockquote>
+                <figcaption className="mt-5 text-sm font-bold uppercase tracking-wide">
+                  {t.name} <span className="font-normal text-brand-foreground/60">· {t.place}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="mx-auto max-w-3xl px-4 py-16 sm:py-24">
+        <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
+          Common questions
+        </h2>
+        <div className="mt-8 divide-y divide-border border-y border-border">
+          {faqs.map((f) => (
+            <details key={f.q} className="group py-4">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">
+                {f.q}
+                <ChevronDown className="size-5 shrink-0 text-brand transition-transform group-open:rotate-180" />
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <a
+          href="#contact"
+          className="mt-8 inline-flex items-center gap-2 font-semibold text-brand hover:underline"
+        >
+          Still have a question? Send us a message <ArrowRight className="size-4" />
+        </a>
       </section>
 
       {/* Contact */}
@@ -360,7 +540,22 @@ function Index() {
         <div className="border-t border-brand-foreground/15 px-4 py-5 text-center text-xs text-brand-foreground/60">
           © {new Date().getFullYear()} My Businesses Website · Redlands, CA · {PHONE_DISPLAY}
         </div>
+        <div className="h-20 md:hidden" />
       </footer>
+
+      {/* Sticky mobile call bar */}
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 p-3 shadow-float backdrop-blur md:hidden">
+        <div className="grid grid-cols-[1fr_auto] gap-2">
+          <Button asChild size="lg" className="h-12 bg-copper font-bold text-copper-foreground hover:bg-copper/90">
+            <a href={PHONE_HREF}>
+              <Phone className="size-5" /> Call {PHONE_DISPLAY}
+            </a>
+          </Button>
+          <Button asChild size="lg" variant="outline" className="h-12 font-semibold">
+            <a href="#contact">Quote</a>
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
