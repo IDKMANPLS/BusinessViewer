@@ -361,6 +361,60 @@ function Index() {
         </div>
       </section>
 
+      {/* Reviews */}
+      <section id="reviews" className="surface-deep py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <p className="text-hairline text-xs font-bold text-copper">Reviews</p>
+          <h2 className="mt-2 text-3xl font-extrabold uppercase sm:text-4xl">
+            Neighbors who called us first
+          </h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <figure
+                key={t.name}
+                className="flex h-full flex-col rounded-xl border border-brand-foreground/15 bg-brand-foreground/5 p-6"
+              >
+                <div className="flex gap-1 text-copper">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="size-4 fill-current" />
+                  ))}
+                </div>
+                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-brand-foreground/85">
+                  “{t.quote}”
+                </blockquote>
+                <figcaption className="mt-5 text-sm font-bold uppercase tracking-wide">
+                  {t.name} <span className="font-normal text-brand-foreground/60">· {t.place}</span>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="mx-auto max-w-3xl px-4 py-16 sm:py-24">
+        <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
+          Common questions
+        </h2>
+        <div className="mt-8 divide-y divide-border border-y border-border">
+          {faqs.map((f) => (
+            <details key={f.q} className="group py-4">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">
+                {f.q}
+                <ChevronDown className="size-5 shrink-0 text-brand transition-transform group-open:rotate-180" />
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <a
+          href="#contact"
+          className="mt-8 inline-flex items-center gap-2 font-semibold text-brand hover:underline"
+        >
+          Still have a question? Send us a message <ArrowRight className="size-4" />
+        </a>
+      </section>
+
       {/* Contact */}
       <section id="contact" className="bg-secondary/60 py-16 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-2">
