@@ -148,6 +148,18 @@ function Index() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      {/* Top utility bar */}
+      <div className="surface-deep hidden py-2 text-xs sm:block">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4">
+          <span className="inline-flex items-center gap-2 text-brand-foreground/80">
+            <MapPin className="size-3.5 text-copper" /> Serving Redlands & the Inland Empire
+          </span>
+          <span className="inline-flex items-center gap-2 text-brand-foreground/80">
+            <Star className="size-3.5 fill-copper text-copper" /> 4.9 / 5 from 312 local reviews
+          </span>
+        </div>
+      </div>
+
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
         <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3">
@@ -164,6 +176,7 @@ function Index() {
               <a href="#about" className="hover:text-brand">About</a>
               <a href="#services" className="hover:text-brand">Services</a>
               <a href="#work" className="hover:text-brand">Our Work</a>
+              <a href="#reviews" className="hover:text-brand">Reviews</a>
               <a href="#contact" className="hover:text-brand">Contact</a>
             </div>
             <Button asChild size="sm" className="bg-copper text-copper-foreground hover:bg-copper/90">
@@ -171,6 +184,29 @@ function Index() {
                 <Phone className="size-4" /> Call
               </a>
             </Button>
+            <details className="group relative md:hidden">
+              <summary className="flex size-9 cursor-pointer list-none items-center justify-center rounded-md border border-border text-foreground [&::-webkit-details-marker]:hidden">
+                <Menu className="size-5" />
+                <span className="sr-only">Open menu</span>
+              </summary>
+              <div className="absolute right-0 top-11 z-50 w-44 rounded-xl border border-border bg-card p-2 shadow-lift">
+                {[
+                  ["#about", "About"],
+                  ["#services", "Services"],
+                  ["#work", "Our Work"],
+                  ["#reviews", "Reviews"],
+                  ["#contact", "Contact"],
+                ].map(([href, label]) => (
+                  <a
+                    key={href}
+                    href={href}
+                    className="block rounded-md px-3 py-2 text-sm font-semibold hover:bg-secondary"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
+            </details>
           </nav>
         </div>
       </header>
