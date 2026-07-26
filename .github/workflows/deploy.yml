@@ -25,7 +25,10 @@ jobs:
 
       - run: npm run build
 
-      - uses: actions/upload-pages-artifact@v5
+      - run: ls -la
+      - run: find . -maxdepth 2 -type d
+
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
@@ -37,4 +40,4 @@ jobs:
       name: github-pages
 
     steps:
-      - uses: actions/deploy-pages@v5
+      - uses: actions/deploy-pages@v4
