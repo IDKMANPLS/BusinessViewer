@@ -1,37 +1,15 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
-import {
-  Phone,
-  Clock,
-  MapPin,
-  ShieldCheck,
-  Wrench,
-  Droplets,
-  Flame,
-  ShowerHead,
-  Hammer,
-  AlertTriangle,
-  CheckCircle2,
-  Star,
-  BadgeCheck,
-  Timer,
-  Receipt,
-  ChevronDown,
-  Menu,
-  ArrowRight,
-} from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Phone, ShieldCheck, Star, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import heroImg from "@/assets/hero-plumber.jpg";
-import workWaterheater from "@/assets/work-waterheater.jpg";
-import workRepipe from "@/assets/work-repipe.jpg";
-import workBathroom from "@/assets/work-bathroom.jpg";
-import workFaucet from "@/assets/work-faucet.jpg";
-
-const PHONE_DISPLAY = "+1 111 111 111";
-const PHONE_HREF = "tel:+1111111111";
+import {
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  services,
+  gallery,
+  promises,
+  testimonials,
+} from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -75,142 +53,9 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const services = [
-  { icon: Droplets, title: "Drain Cleaning", desc: "Hydro-jetting and snaking for slow or blocked kitchen, bath and main lines." },
-  { icon: Flame, title: "Water Heater Repair & Install", desc: "Tank and tankless diagnostics, replacements and yearly maintenance." },
-  { icon: AlertTriangle, title: "24/7 Emergency Plumbing", desc: "Burst pipes, overflows and no-water calls answered day or night." },
-  { icon: Wrench, title: "Leak Detection & Repair", desc: "Slab, wall and under-sink leaks located without tearing up your home." },
-  { icon: Hammer, title: "Repiping & Sewer Lines", desc: "Copper and PEX repipes, sewer camera inspection and line replacement." },
-  { icon: ShowerHead, title: "Fixture Installation", desc: "Faucets, toilets, garbage disposals, showers and water filtration." },
-];
-
-const gallery = [
-  { src: workWaterheater, alt: "Newly installed tankless water heater with copper piping" },
-  { src: workRepipe, alt: "Completed copper repipe work under a Redlands home" },
-  { src: workBathroom, alt: "Bathroom after a full fixture and plumbing upgrade" },
-  { src: workFaucet, alt: "New chrome kitchen faucet installed on a quartz countertop" },
-];
-
-const promises = [
-  { icon: Timer, title: "Same-day service", desc: "Most Redlands calls booked within a few hours." },
-  { icon: Receipt, title: "Flat-rate quotes", desc: "You approve the price before any work starts." },
-  { icon: BadgeCheck, title: "Licensed & insured", desc: "Background-checked techs, fully bonded." },
-  { icon: ShieldCheck, title: "Warranty backed", desc: "Parts and workmanship guaranteed in writing." },
-];
-
-const testimonials = [
-  {
-    quote:
-      "Water heater died on a Sunday night. They picked up on the second ring and had hot water back before noon Monday. Price matched the quote exactly.",
-    name: "Marisol R.",
-    place: "Redlands",
-  },
-  {
-    quote:
-      "Whole-house repipe done in two days. Crew laid down drop cloths every morning and cleaned up better than they found it.",
-    name: "Dan K.",
-    place: "Yucaipa",
-  },
-  {
-    quote:
-      "Slab leak found in twenty minutes with no guesswork and no holes in the wrong wall. Honest people.",
-    name: "Priya S.",
-    place: "Loma Linda",
-  },
-];
-
-const faqs = [
-  {
-    q: "Do you charge for emergency callouts after hours?",
-    a: "We quote a flat rate up front, nights and weekends included. You will always know the price before we start work.",
-  },
-  {
-    q: "How fast can you get here?",
-    a: "Most Redlands, Loma Linda and Mentone calls are handled the same day. True emergencies — burst pipes, no water, sewage backups — go to the front of the line 24/7.",
-  },
-  {
-    q: "Are your plumbers licensed?",
-    a: "Yes. Every technician is licensed, bonded, insured and background-checked before they set foot on your property.",
-  },
-  {
-    q: "Do you warranty your work?",
-    a: "All parts and workmanship are covered by a written warranty, and we come back at no charge if something related fails.",
-  },
-];
-
 function Index() {
-  const [sent, setSent] = useState(false);
-
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSent(true);
-  }
-
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Top utility bar */}
-      <div className="surface-deep hidden py-2 text-xs sm:block">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-4">
-          <span className="inline-flex items-center gap-2 text-brand-foreground/80">
-            <MapPin className="size-3.5 text-copper" /> Serving Redlands & the Inland Empire
-          </span>
-          <span className="inline-flex items-center gap-2 text-brand-foreground/80">
-            <Star className="size-3.5 fill-copper text-copper" /> 4.9 / 5 from 312 local reviews
-          </span>
-        </div>
-      </div>
-
-      {/* Header */}
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/90 backdrop-blur">
-        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3">
-          <a href="#top" className="min-w-0">
-            <span className="block truncate font-display text-xl font-extrabold uppercase tracking-tight text-brand-deep">
-              My Businesses Website
-            </span>
-            <span className="block truncate text-xs text-muted-foreground">
-              Plumbing · Redlands, California
-            </span>
-          </a>
-          <nav className="flex shrink-0 items-center gap-6">
-            <div className="hidden gap-6 text-sm font-semibold md:flex">
-              <a href="#about" className="hover:text-brand">About</a>
-              <a href="#services" className="hover:text-brand">Services</a>
-              <a href="#work" className="hover:text-brand">Our Work</a>
-              <a href="#reviews" className="hover:text-brand">Reviews</a>
-              <a href="#contact" className="hover:text-brand">Contact</a>
-            </div>
-            <Button asChild size="sm" className="bg-copper text-copper-foreground hover:bg-copper/90">
-              <a href={PHONE_HREF}>
-                <Phone className="size-4" /> Call
-              </a>
-            </Button>
-            <details className="group relative md:hidden">
-              <summary className="flex size-9 cursor-pointer list-none items-center justify-center rounded-md border border-border text-foreground [&::-webkit-details-marker]:hidden">
-                <Menu className="size-5" />
-                <span className="sr-only">Open menu</span>
-              </summary>
-              <div className="absolute right-0 top-11 z-50 w-44 rounded-xl border border-border bg-card p-2 shadow-lift">
-                {[
-                  ["#about", "About"],
-                  ["#services", "Services"],
-                  ["#work", "Our Work"],
-                  ["#reviews", "Reviews"],
-                  ["#contact", "Contact"],
-                ].map(([href, label]) => (
-                  <a
-                    key={href}
-                    href={href}
-                    className="block rounded-md px-3 py-2 text-sm font-semibold hover:bg-secondary"
-                  >
-                    {label}
-                  </a>
-                ))}
-              </div>
-            </details>
-          </nav>
-        </div>
-      </header>
-
+    <>
       {/* Hero */}
       <section id="top" className="surface-deep relative overflow-hidden">
         <img
@@ -247,7 +92,7 @@ function Index() {
               variant="outline"
               className="h-14 border-brand-foreground/40 bg-transparent text-base font-semibold text-brand-foreground hover:bg-brand-foreground/10 hover:text-brand-foreground"
             >
-              <a href="#contact">Request a quote</a>
+              <Link to="/contact">Request a quote</Link>
             </Button>
           </div>
           <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 text-sm">
@@ -281,43 +126,10 @@ function Index() {
       </section>
 
       {/* About */}
-      <section id="about" className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-        <div className="grid gap-10 md:grid-cols-[1fr_1.1fr] md:items-center">
-          <img
-            src={workFaucet}
-            alt="Finished fixture installation by our Redlands plumbing team"
-            width={1024}
-            height={768}
-            loading="lazy"
-            className="w-full rounded-xl border border-border object-cover shadow-lift"
-          />
-          <div>
-            <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">About us</h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              My Businesses Website is a family-run plumbing company based right here in Redlands,
-              California, serving homeowners and small businesses across the Inland Empire for over
-              twenty years. Every technician is licensed, background-checked, and shows up on time
-              with the parts needed to finish the job in one visit.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              We answer the phone at 2 a.m. the same way we do at 2 p.m. — with a straight answer, a
-              flat-rate quote before any work starts, and a warranty you can hold us to.
-            </p>
-            <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-              {["Upfront flat-rate pricing", "Same-day appointments", "Workmanship warranty", "Local, family owned"].map((f) => (
-                <li key={f} className="flex items-center gap-2 font-medium">
-                  <CheckCircle2 className="size-5 shrink-0 text-brand" /> {f}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
       {/* Services */}
       <section id="services" className="bg-secondary/60 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">Our services</h2>
+          <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">What we do</h2>
           <p className="mt-3 max-w-xl text-muted-foreground">
             Residential and light commercial plumbing, from a dripping faucet to a full repipe.
           </p>
@@ -335,6 +147,12 @@ function Index() {
               </div>
             ))}
           </div>
+          <Link
+            to="/services"
+            className="mt-8 inline-flex items-center gap-2 font-semibold text-brand hover:underline"
+          >
+            See all services <ArrowRight className="size-4" />
+          </Link>
         </div>
       </section>
 
@@ -359,6 +177,12 @@ function Index() {
             </figure>
           ))}
         </div>
+        <Link
+          to="/ourwork"
+          className="mt-8 inline-flex items-center gap-2 font-semibold text-brand hover:underline"
+        >
+          View the full gallery <ArrowRight className="size-4" />
+        </Link>
       </section>
 
       {/* Reviews */}
@@ -369,7 +193,7 @@ function Index() {
             Neighbors who called us first
           </h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {testimonials.map((t) => (
+            {testimonials.slice(0, 3).map((t) => (
               <figure
                 key={t.name}
                 className="flex h-full flex-col rounded-xl border border-brand-foreground/15 bg-brand-foreground/5 p-6"
@@ -388,174 +212,14 @@ function Index() {
               </figure>
             ))}
           </div>
+          <Link
+            to="/customerreviews"
+            className="mt-8 inline-flex items-center gap-2 font-semibold text-copper hover:underline"
+          >
+            Read all customer reviews <ArrowRight className="size-4" />
+          </Link>
         </div>
       </section>
-
-      {/* FAQ */}
-      <section id="faq" className="mx-auto max-w-3xl px-4 py-16 sm:py-24">
-        <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-          Common questions
-        </h2>
-        <div className="mt-8 divide-y divide-border border-y border-border">
-          {faqs.map((f) => (
-            <details key={f.q} className="group py-4">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">
-                {f.q}
-                <ChevronDown className="size-5 shrink-0 text-brand transition-transform group-open:rotate-180" />
-              </summary>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
-            </details>
-          ))}
-        </div>
-        <a
-          href="#contact"
-          className="mt-8 inline-flex items-center gap-2 font-semibold text-brand hover:underline"
-        >
-          Still have a question? Send us a message <ArrowRight className="size-4" />
-        </a>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="bg-secondary/60 py-16 sm:py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-2">
-          <div>
-            <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">Get in touch</h2>
-            <p className="mt-3 text-muted-foreground">
-              Need a plumber today? Calling is the fastest way to reach us — otherwise send a message
-              and we'll respond within the hour during business hours.
-            </p>
-            <div className="mt-8 space-y-4">
-              <a
-                href={PHONE_HREF}
-                className="flex items-center gap-4 rounded-xl border border-border bg-card p-5 shadow-lift"
-              >
-                <Phone className="size-6 shrink-0 text-brand" />
-                <span className="min-w-0">
-                  <span className="block text-xs uppercase tracking-widest text-muted-foreground">
-                    Call us
-                  </span>
-                  <span className="block truncate font-display text-2xl font-extrabold">
-                    {PHONE_DISPLAY}
-                  </span>
-                </span>
-              </a>
-              <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-5">
-                <MapPin className="size-6 shrink-0 text-brand" />
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                    Service area
-                  </p>
-                  <p className="font-semibold">
-                    Redlands, Loma Linda, Yucaipa, Mentone, Highland, San Bernardino & surrounding
-                    Inland Empire
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-5">
-                <Clock className="size-6 shrink-0 text-brand" />
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">Hours</p>
-                  <p className="font-semibold">Mon–Fri 7am–7pm · Sat 8am–4pm · 24/7 emergencies</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-xl border border-border bg-card p-6 shadow-lift sm:p-8">
-            {sent ? (
-              <div className="flex h-full flex-col items-center justify-center py-10 text-center">
-                <CheckCircle2 className="size-12 text-brand" />
-                <h3 className="mt-4 text-2xl font-bold uppercase">Message sent</h3>
-                <p className="mt-2 text-muted-foreground">
-                  Thanks — we'll be in touch shortly. For urgent issues, call {PHONE_DISPLAY}.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <h3 className="text-2xl font-bold uppercase">Request service</h3>
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input id="name" name="name" required placeholder="Adriana Leit" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    required
-                    placeholder="+1 111 111 111"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">How can we help?</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={5}
-                    placeholder="Tell us what's going on with your plumbing..."
-                  />
-                </div>
-                <Button type="submit" size="lg" className="w-full bg-brand text-brand-foreground hover:bg-brand-deep">
-                  Send message
-                </Button>
-              </form>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="surface-deep">
-        <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:grid-cols-3">
-          <div>
-            <h2 className="font-display text-xl font-extrabold uppercase">My Businesses Website</h2>
-            <p className="mt-2 text-sm text-brand-foreground/75">
-              Licensed plumbing contractor based in Redlands, California.
-            </p>
-            <a
-              href={PHONE_HREF}
-              className="mt-4 inline-flex items-center gap-2 font-display text-xl font-bold text-copper"
-            >
-              <Phone className="size-5" /> {PHONE_DISPLAY}
-            </a>
-          </div>
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-copper">Hours</h3>
-            <ul className="mt-3 space-y-1 text-sm text-brand-foreground/80">
-              <li>Monday–Friday: 7:00am – 7:00pm</li>
-              <li>Saturday: 8:00am – 4:00pm</li>
-              <li>Sunday: Emergency calls only</li>
-              <li>24/7 emergency line</li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-copper">Service area</h3>
-            <p className="mt-3 text-sm text-brand-foreground/80">
-              Redlands · Loma Linda · Yucaipa · Mentone · Highland · San Bernardino · Calimesa
-            </p>
-          </div>
-        </div>
-        <div className="border-t border-brand-foreground/15 px-4 py-5 text-center text-xs text-brand-foreground/60">
-          © {new Date().getFullYear()} My Businesses Website · Redlands, CA · {PHONE_DISPLAY}
-        </div>
-        <div className="h-20 md:hidden" />
-      </footer>
-
-      {/* Sticky mobile call bar */}
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 p-3 shadow-float backdrop-blur md:hidden">
-        <div className="grid grid-cols-[1fr_auto] gap-2">
-          <Button asChild size="lg" className="h-12 bg-copper font-bold text-copper-foreground hover:bg-copper/90">
-            <a href={PHONE_HREF}>
-              <Phone className="size-5" /> Call {PHONE_DISPLAY}
-            </a>
-          </Button>
-          <Button asChild size="lg" variant="outline" className="h-12 font-semibold">
-            <a href="#contact">Quote</a>
-          </Button>
-        </div>
-      </div>
-    </div>
+    </>
   );
 }
