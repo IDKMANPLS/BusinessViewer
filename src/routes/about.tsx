@@ -18,7 +18,34 @@ export const Route = createFileRoute("/about")({
         content: "Licensed, family-owned plumbers serving Redlands, CA for over twenty years.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/about" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/about" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About Our Redlands Plumbing Company",
+          description:
+            "Family-run, licensed plumbers serving Redlands and the Inland Empire for 20+ years.",
+          mainEntity: {
+            "@type": "Plumber",
+            name: "My Businesses Website",
+            telephone: "+1111111111",
+            foundingDate: "2005",
+            areaServed: "Redlands, California",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Redlands",
+              addressRegion: "CA",
+              addressCountry: "US",
+            },
+          },
+        }),
+      },
     ],
   }),
   component: AboutPage,
