@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { StickyCallBar } from "@/components/site/StickyCallBar";
+import { PageTransition } from "@/components/site/PageTransition";
 
 function NotFoundComponent() {
   return (
@@ -80,14 +81,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "My Businesses Website | Plumbing in Redlands, CA" },
+      {
+        name: "description",
+        content:
+          "Licensed Redlands plumbers for drain cleaning, water heaters, repiping and 24/7 emergency plumbing.",
+      },
+      { name: "author", content: "My Businesses Website" },
+      { property: "og:site_name", content: "My Businesses Website" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -132,7 +135,9 @@ function RootComponent() {
         <SiteHeader />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <main>
-          <Outlet />
+          <PageTransition>
+            <Outlet />
+          </PageTransition>
         </main>
         <SiteFooter />
         <StickyCallBar />
