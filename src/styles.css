@@ -289,22 +289,30 @@
 }
 
 @utility shine-text {
-  background-image: linear-gradient(
-    100deg,
-    currentColor 40%,
-    var(--copper) 50%,
-    currentColor 60%
-  );
-  background-size: 250% 100%;
-  background-position: 100% 0;
-  transition: background-position 0.7s ease-out;
+  transition: color 0.2s ease-out;
 
   &:hover,
   &:focus-visible {
-    background-position: 0 0;
+    background-image: linear-gradient(
+      100deg,
+      var(--shine-base, var(--foreground)) 35%,
+      var(--copper) 50%,
+      var(--shine-base, var(--foreground)) 65%
+    );
+    background-size: 250% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    animation: text-shine 0.9s ease-out;
+  }
+}
+
+@keyframes text-shine {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
   }
 }
 
@@ -316,5 +324,8 @@
   .shine::after {
     animation: none !important;
     opacity: 0 !important;
+  }
+  .shine-text:hover {
+    animation: none !important;
   }
 }

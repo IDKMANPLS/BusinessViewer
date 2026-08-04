@@ -83,7 +83,7 @@ function Index() {
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-foreground/25 px-3 py-1 text-xs font-semibold uppercase tracking-widest">
             <ShieldCheck className="size-4" /> Licensed · Bonded · Insured
           </span>
-          <h1 className="shine-text mt-5 max-w-2xl text-4xl font-extrabold uppercase leading-[1.05] sm:text-6xl">
+          <h1 className="shine-text [--shine-base:var(--brand-foreground)] mt-5 max-w-2xl text-4xl font-extrabold uppercase leading-[1.05] sm:text-6xl">
             Redlands plumbing done right the first time
           </h1>
           <p className="mt-4 max-w-xl text-base text-brand-foreground/80 sm:text-lg">
@@ -202,7 +202,7 @@ function Index() {
       <section id="reviews" className="surface-deep py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
           <p className="text-hairline text-xs font-bold text-copper">Reviews</p>
-          <h2 className="shine-text mt-2 inline-block text-3xl font-extrabold uppercase sm:text-4xl">
+          <h2 className="shine-text [--shine-base:var(--brand-foreground)] mt-2 inline-block text-3xl font-extrabold uppercase sm:text-4xl">
             Neighbors who called us first
           </h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
