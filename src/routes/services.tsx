@@ -68,7 +68,7 @@ function ServicesPage() {
         title="Everything from a dripping faucet to a full repipe"
         intro="Residential and light commercial plumbing, quoted flat-rate before we pick up a wrench."
       >
-        <Button asChild size="lg" className="mt-8 h-14 bg-copper text-base font-bold text-copper-foreground hover:bg-copper/90">
+        <Button asChild size="lg" className="shine mt-8 h-14 bg-copper text-base font-bold text-copper-foreground hover:bg-copper/90">
           <a href={PHONE_HREF}>
             <Phone className="size-5" /> Call Now · {PHONE_DISPLAY}
           </a>
@@ -80,7 +80,7 @@ function ServicesPage() {
           {services.map(({ icon: Icon, title, desc }) => (
             <div
               key={title}
-              className="rounded-xl border border-border bg-card p-6 transition-shadow hover:shadow-lift"
+              className="shine rounded-xl border border-border bg-card p-6 transition-shadow hover:shadow-lift"
             >
               <span className="inline-flex size-11 items-center justify-center rounded-lg bg-brand/10 text-brand">
                 <Icon className="size-6" />
@@ -94,7 +94,7 @@ function ServicesPage() {
 
       <section className="bg-secondary/60 py-16 sm:py-24">
         <div className="mx-auto max-w-3xl px-4">
-          <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
+          <h2 className="shine-text rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
             Common questions
           </h2>
           <div className="mt-8 divide-y divide-border border-y border-border">

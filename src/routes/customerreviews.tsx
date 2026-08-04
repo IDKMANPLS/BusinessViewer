@@ -71,7 +71,7 @@ function ReviewsPage() {
           {testimonials.map((t) => (
             <figure
               key={t.name}
-              className="flex h-full flex-col rounded-xl border border-border bg-card p-6 shadow-lift"
+              className="shine flex h-full flex-col rounded-xl border border-border bg-card p-6 shadow-lift"
             >
               <div className="flex gap-1 text-copper">
                 {Array.from({ length: 5 }).map((_, i) => (

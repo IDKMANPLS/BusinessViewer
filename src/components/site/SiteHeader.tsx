@@ -35,13 +35,13 @@ export function SiteHeader() {
                   to={l.to}
                   activeOptions={{ exact: l.to === "/" }}
                   activeProps={{ className: "text-brand" }}
-                  className="hover:text-brand"
+                  className="shine-text hover:text-brand"
                 >
                   {l.label}
                 </Link>
               ))}
             </div>
-            <Button asChild size="sm" className="bg-copper text-copper-foreground hover:bg-copper/90">
+            <Button asChild size="sm" className="shine bg-copper text-copper-foreground hover:bg-copper/90">
               <a href={PHONE_HREF}>
                 <Phone className="size-4" /> Call
               </a>

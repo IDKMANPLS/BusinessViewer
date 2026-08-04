@@ -89,11 +89,11 @@ function ContactPage() {
       <section className="bg-secondary/60 py-16 sm:py-24">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">Reach us</h2>
+            <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">Reach us</h2>
             <div className="mt-8 space-y-4">
               <a
                 href={PHONE_HREF}
-                className="flex items-center gap-4 rounded-xl border border-border bg-card p-5 shadow-lift"
+                className="shine flex items-center gap-4 rounded-xl border border-border bg-card p-5 shadow-lift"
               >
                 <Phone className="size-6 shrink-0 text-brand" />
                 <span className="min-w-0">

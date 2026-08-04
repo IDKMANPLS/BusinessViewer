@@ -71,7 +71,7 @@ function AboutPage() {
             className="w-full rounded-xl border border-border object-cover shadow-lift"
           />
           <div>
-            <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">Who we are</h2>
+            <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">Who we are</h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               My Businesses Website is a family-run plumbing company based right here in Redlands,
               California, serving homeowners and small businesses across the Inland Empire for over
