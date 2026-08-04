@@ -27,16 +27,22 @@ export const Route = createFileRoute("/")({
           "Fast, reliable plumbing across Redlands and the Inland Empire. Drain cleaning, water heaters, leak repair and 24/7 emergency service.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
+        children: JSON.stringify([
+          {
           "@context": "https://schema.org",
           "@type": "Plumber",
           name: "My Businesses Website",
           telephone: "+1111111111",
+          description:
+            "Licensed Redlands plumbers for drain cleaning, water heaters, repiping and 24/7 emergency plumbing.",
+          priceRange: "$$",
           areaServed: "Redlands, California",
           address: {
             "@type": "PostalAddress",
@@ -46,7 +52,14 @@ export const Route = createFileRoute("/")({
           },
           openingHours: ["Mo-Fr 07:00-19:00", "Sa 08:00-16:00"],
           aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "312" },
-        }),
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "My Businesses Website",
+            url: "/",
+          },
+        ]),
       },
     ],
   }),
