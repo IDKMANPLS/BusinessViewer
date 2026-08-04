@@ -17,7 +17,27 @@ export const Route = createFileRoute("/ourwork")({
         content: "See completed plumbing projects across Redlands and the Inland Empire.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/ourwork" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/ourwork" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          name: "Our Work | Redlands Plumbing Photo Gallery",
+          description:
+            "Photos of completed plumbing jobs around Redlands, Loma Linda and Yucaipa.",
+          about: { "@type": "Plumber", name: "My Businesses Website" },
+          associatedMedia: gallery.map((g) => ({
+            "@type": "ImageObject",
+            name: g.alt,
+            caption: g.alt,
+          })),
+        }),
+      },
     ],
   }),
   component: OurWorkPage,

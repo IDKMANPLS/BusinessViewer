@@ -27,16 +27,22 @@ export const Route = createFileRoute("/")({
           "Fast, reliable plumbing across Redlands and the Inland Empire. Drain cleaning, water heaters, leak repair and 24/7 emergency service.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
+        children: JSON.stringify([
+          {
           "@context": "https://schema.org",
           "@type": "Plumber",
           name: "My Businesses Website",
           telephone: "+1111111111",
+          description:
+            "Licensed Redlands plumbers for drain cleaning, water heaters, repiping and 24/7 emergency plumbing.",
+          priceRange: "$$",
           areaServed: "Redlands, California",
           address: {
             "@type": "PostalAddress",
@@ -46,7 +52,14 @@ export const Route = createFileRoute("/")({
           },
           openingHours: ["Mo-Fr 07:00-19:00", "Sa 08:00-16:00"],
           aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "312" },
-        }),
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "My Businesses Website",
+            url: "/",
+          },
+        ]),
       },
     ],
   }),
@@ -70,7 +83,7 @@ function Index() {
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-foreground/25 px-3 py-1 text-xs font-semibold uppercase tracking-widest">
             <ShieldCheck className="size-4" /> Licensed · Bonded · Insured
           </span>
-          <h1 className="mt-5 max-w-2xl text-4xl font-extrabold uppercase leading-[1.05] sm:text-6xl">
+          <h1 className="shine-text [--shine-base:var(--brand-foreground)] mt-5 max-w-2xl text-4xl font-extrabold uppercase leading-[1.05] sm:text-6xl">
             Redlands plumbing done right the first time
           </h1>
           <p className="mt-4 max-w-xl text-base text-brand-foreground/80 sm:text-lg">
@@ -80,7 +93,7 @@ function Index() {
             <Button
               asChild
               size="lg"
-              className="h-14 bg-copper text-base font-bold text-copper-foreground shadow-lift hover:bg-copper/90"
+              className="shine h-14 bg-copper text-base font-bold text-copper-foreground shadow-lift hover:bg-copper/90"
             >
               <a href={PHONE_HREF}>
                 <Phone className="size-5" /> Call Now · {PHONE_DISPLAY}
@@ -90,7 +103,7 @@ function Index() {
               asChild
               size="lg"
               variant="outline"
-              className="h-14 border-brand-foreground/40 bg-transparent text-base font-semibold text-brand-foreground hover:bg-brand-foreground/10 hover:text-brand-foreground"
+              className="shine h-14 border-brand-foreground/40 bg-transparent text-base font-semibold text-brand-foreground hover:bg-brand-foreground/10 hover:text-brand-foreground"
             >
               <Link to="/contact">Request a quote</Link>
             </Button>
@@ -129,7 +142,7 @@ function Index() {
       {/* Services */}
       <section id="services" className="bg-secondary/60 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">What we do</h2>
+          <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">What we do</h2>
           <p className="mt-3 max-w-xl text-muted-foreground">
             Residential and light commercial plumbing, from a dripping faucet to a full repipe.
           </p>
@@ -137,7 +150,7 @@ function Index() {
             {services.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="rounded-xl border border-border bg-card p-6 transition-shadow hover:shadow-lift"
+                className="shine rounded-xl border border-border bg-card p-6 transition-shadow hover:shadow-lift"
               >
                 <span className="inline-flex size-11 items-center justify-center rounded-lg bg-brand/10 text-brand">
                   <Icon className="size-6" />
@@ -158,7 +171,7 @@ function Index() {
 
       {/* Gallery */}
       <section id="work" className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-        <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">Recent work</h2>
+        <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">Recent work</h2>
         <p className="mt-3 max-w-xl text-muted-foreground">
           A look at completed jobs around Redlands, Loma Linda and Yucaipa.
         </p>
@@ -189,7 +202,7 @@ function Index() {
       <section id="reviews" className="surface-deep py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
           <p className="text-hairline text-xs font-bold text-copper">Reviews</p>
-          <h2 className="mt-2 text-3xl font-extrabold uppercase sm:text-4xl">
+          <h2 className="shine-text [--shine-base:var(--brand-foreground)] mt-2 inline-block text-3xl font-extrabold uppercase sm:text-4xl">
             Neighbors who called us first
           </h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">

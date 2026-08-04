@@ -203,3 +203,129 @@
     color: var(--color-foreground);
   }
 }
+
+/* ---------- Motion: page load reveal ---------- */
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes veil-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sheen-sweep {
+  from {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  to {
+    transform: translateX(220%) skewX(-18deg);
+  }
+}
+
+@utility page-enter {
+  animation: veil-in 0.35s ease-out both;
+
+  & > * {
+    animation: rise-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  & > *:nth-child(1) {
+    animation-delay: 0.02s;
+  }
+  & > *:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  & > *:nth-child(3) {
+    animation-delay: 0.18s;
+  }
+  & > *:nth-child(4) {
+    animation-delay: 0.26s;
+  }
+  & > *:nth-child(n + 5) {
+    animation-delay: 0.34s;
+  }
+}
+
+/* ---------- Shine: sweeping highlight on hover ---------- */
+
+@utility shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      100deg,
+      transparent 25%,
+      color-mix(in oklab, white 55%, transparent) 50%,
+      transparent 75%
+    );
+    transform: translateX(-120%) skewX(-18deg);
+    opacity: 0;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    opacity: 1;
+    animation: sheen-sweep 0.85s ease-out;
+  }
+}
+
+@utility shine-text {
+  transition: color 0.2s ease-out;
+
+  &:hover,
+  &:focus-visible {
+    background-image: linear-gradient(
+      100deg,
+      var(--shine-base, var(--foreground)) 35%,
+      var(--copper) 50%,
+      var(--shine-base, var(--foreground)) 65%
+    );
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: text-shine 0.9s ease-out;
+  }
+}
+
+@keyframes text-shine {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter,
+  .page-enter > * {
+    animation: none !important;
+  }
+  .shine::after {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+  .shine-text:hover {
+    animation: none !important;
+  }
+}
