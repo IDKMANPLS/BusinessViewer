@@ -19,7 +19,42 @@ export const Route = createFileRoute("/services")({
         content: "Full residential and light commercial plumbing services with flat-rate pricing.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/services" },
       { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/services" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify([
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "OfferCatalog",
+            name: "Plumbing services in Redlands, CA",
+            itemListElement: services.map((s, i) => ({
+              "@type": "Offer",
+              position: i + 1,
+              itemOffered: {
+                "@type": "Service",
+                name: s.title,
+                description: s.desc,
+                serviceType: s.title,
+                areaServed: "Redlands, California",
+                provider: { "@type": "Plumber", name: "My Businesses Website" },
+              },
+            })),
+          },
+        ]),
+      },
     ],
   }),
   component: ServicesPage,
