@@ -1,21 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { promises, workFaucet } from "@/lib/site-data";
+import { promises, workInterior } from "@/lib/site-data";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Our Redlands Plumbing Company | My Businesses Website" },
+      { title: "About Our Redlands Painting Company | Redlands Painting" },
       {
         name: "description",
         content:
-          "Family-run, licensed plumbers serving Redlands and the Inland Empire for 20+ years with flat-rate pricing and a written workmanship warranty.",
+          "Family-run, licensed painters serving Redlands and the Inland Empire for 20+ years with flat-rate pricing and a written workmanship warranty.",
       },
-      { property: "og:title", content: "About Our Redlands Plumbing Company" },
+      { property: "og:title", content: "About Our Redlands Painting Company" },
       {
         property: "og:description",
-        content: "Licensed, family-owned plumbers serving Redlands, CA for over twenty years.",
+        content: "Licensed, family-owned painters serving Redlands, CA for over twenty years.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/about" },
@@ -28,12 +28,12 @@ export const Route = createFileRoute("/about")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "AboutPage",
-          name: "About Our Redlands Plumbing Company",
+          name: "About Our Redlands Painting Company",
           description:
-            "Family-run, licensed plumbers serving Redlands and the Inland Empire for 20+ years.",
+            "Family-run, licensed painters serving Redlands and the Inland Empire for 20+ years.",
           mainEntity: {
-            "@type": "Plumber",
-            name: "My Businesses Website",
+            "@type": "HousePainter",
+            name: "Redlands Painting",
             telephone: "+1111111111",
             foundingDate: "2005",
             areaServed: "Redlands, California",
@@ -56,15 +56,15 @@ function AboutPage() {
     <>
       <PageHero
         eyebrow="About us"
-        title="Twenty years of Redlands plumbing, one honest crew"
-        intro="Family owned, locally staffed, and answering the phone at 2 a.m. the same way we do at 2 p.m."
+        title="Twenty years of Redlands painting, one careful crew"
+        intro="Family owned, locally staffed, and obsessive about the prep work nobody else wants to do."
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <div className="grid gap-10 md:grid-cols-[1fr_1.1fr] md:items-center">
           <img
-            src={workFaucet}
-            alt="Finished fixture installation by our Redlands plumbing team"
+            src={workInterior}
+            alt="Interior repainted in warm greige by our Redlands painting team"
             width={1024}
             height={768}
             loading="lazy"
@@ -73,17 +73,17 @@ function AboutPage() {
           <div>
             <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">Who we are</h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              My Businesses Website is a family-run plumbing company based right here in Redlands,
+              Redlands Painting is a family-run painting company based right here in Redlands,
               California, serving homeowners and small businesses across the Inland Empire for over
-              twenty years. Every technician is licensed, background-checked, and shows up on time
-              with the parts needed to finish the job in one visit.
+              twenty years. Every painter is licensed, background-checked, and shows up on time with
+              the ladders, sprayers and masking to keep your job moving.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              We give a straight answer, a flat-rate quote before any work starts, and a warranty you
-              can hold us to. No upsells, no surprise line items, no waiting around all afternoon.
+              We give a straight answer, a flat-rate quote before a drop of paint goes on, and a
+              warranty you can hold us to. No upsells, no surprise line items, no skipped prep.
             </p>
             <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-              {["Upfront flat-rate pricing", "Same-day appointments", "Workmanship warranty", "Local, family owned"].map((f) => (
+              {["Upfront flat-rate pricing", "Free color consultation", "Workmanship warranty", "Local, family owned"].map((f) => (
                 <li key={f} className="flex items-center gap-2 font-medium">
                   <CheckCircle2 className="size-5 shrink-0 text-brand" /> {f}
                 </li>
@@ -93,7 +93,7 @@ function AboutPage() {
               to="/contact"
               className="mt-8 inline-flex items-center gap-2 font-semibold text-brand hover:underline"
             >
-              Book a visit <ArrowRight className="size-4" />
+              Book a free estimate <ArrowRight className="size-4" />
             </Link>
           </div>
         </div>

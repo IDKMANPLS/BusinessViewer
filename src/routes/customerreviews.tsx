@@ -6,16 +6,16 @@ import { testimonials } from "@/lib/site-data";
 export const Route = createFileRoute("/customerreviews")({
   head: () => ({
     meta: [
-      { title: "Customer Reviews | Redlands Plumbers Rated 4.9/5" },
+      { title: "Customer Reviews | Redlands Painters Rated 4.9/5" },
       {
         name: "description",
         content:
-          "Read 4.9-star reviews from Redlands, Yucaipa, Loma Linda and Highland homeowners about our plumbing repairs, water heaters and emergency service.",
+          "Read 4.9-star reviews from Redlands, Yucaipa, Loma Linda and Highland homeowners about our interior, exterior and cabinet painting work.",
       },
-      { property: "og:title", content: "Customer Reviews | Redlands Plumbers Rated 4.9/5" },
+      { property: "og:title", content: "Customer Reviews | Redlands Painters Rated 4.9/5" },
       {
         property: "og:description",
-        content: "What Inland Empire neighbors say about our plumbing work.",
+        content: "What Inland Empire neighbors say about our painting work.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/customerreviews" },
@@ -27,8 +27,8 @@ export const Route = createFileRoute("/customerreviews")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Plumber",
-          name: "My Businesses Website",
+          "@type": "HousePainter",
+          name: "Redlands Painting",
           telephone: "+1111111111",
           areaServed: "Redlands, California",
           address: {
@@ -63,7 +63,7 @@ function ReviewsPage() {
       <PageHero
         eyebrow="Customer reviews"
         title="4.9 out of 5 from 312 local reviews"
-        intro="Neighbors across Redlands and the Inland Empire on what it's like to have us in their home."
+        intro="Neighbors across Redlands and the Inland Empire on what it's like to have our painters in their home."
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
