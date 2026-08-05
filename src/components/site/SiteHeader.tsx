@@ -24,7 +24,7 @@ export function SiteHeader() {
               {BUSINESS_NAME}
             </span>
             <span className="block truncate text-xs text-muted-foreground">
-              Plumbing · Redlands, California
+              Painting Contractors · Redlands, California
             </span>
           </Link>
           <nav className="flex shrink-0 items-center gap-6">

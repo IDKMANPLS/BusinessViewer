@@ -9,7 +9,7 @@ export function SiteFooter() {
         <div>
           <h2 className="font-display text-xl font-extrabold uppercase">{BUSINESS_NAME}</h2>
           <p className="mt-2 text-sm text-brand-foreground/75">
-            Licensed plumbing contractor based in Redlands, California.
+            Licensed painting contractor based in Redlands, California.
           </p>
           <a
             href={PHONE_HREF}
@@ -21,10 +21,10 @@ export function SiteFooter() {
         <div>
           <h3 className="text-sm font-bold uppercase tracking-widest text-copper">Hours</h3>
           <ul className="mt-3 space-y-1 text-sm text-brand-foreground/80">
-            <li>Monday–Friday: 7:00am – 7:00pm</li>
+            <li>Monday–Friday: 7:00am – 6:00pm</li>
             <li>Saturday: 8:00am – 4:00pm</li>
-            <li>Sunday: Emergency calls only</li>
-            <li>24/7 emergency line</li>
+            <li>Sunday: Closed</li>
+            <li>Free estimates by appointment</li>
           </ul>
         </div>
         <div>
