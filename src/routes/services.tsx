@@ -7,16 +7,16 @@ import { services, faqs, PHONE_DISPLAY, PHONE_HREF } from "@/lib/site-data";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Plumbing Services in Redlands, CA | My Businesses Website" },
+      { title: "Painting Services in Redlands, CA | Redlands Painting" },
       {
         name: "description",
         content:
-          "Drain cleaning, water heater repair, leak detection, repiping, fixture installs and 24/7 emergency plumbing across Redlands and the Inland Empire.",
+          "Interior and exterior house painting, cabinet refinishing, deck staining, stucco repair and commercial painting across Redlands and the Inland Empire.",
       },
-      { property: "og:title", content: "Plumbing Services in Redlands, CA" },
+      { property: "og:title", content: "Painting Services in Redlands, CA" },
       {
         property: "og:description",
-        content: "Full residential and light commercial plumbing services with flat-rate pricing.",
+        content: "Full residential and commercial painting services with flat-rate pricing.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/services" },
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/services")({
           {
             "@context": "https://schema.org",
             "@type": "OfferCatalog",
-            name: "Plumbing services in Redlands, CA",
+            name: "Painting services in Redlands, CA",
             itemListElement: services.map((s, i) => ({
               "@type": "Offer",
               position: i + 1,
@@ -49,7 +49,7 @@ export const Route = createFileRoute("/services")({
                 description: s.desc,
                 serviceType: s.title,
                 areaServed: "Redlands, California",
-                provider: { "@type": "Plumber", name: "My Businesses Website" },
+                provider: { "@type": "HousePainter", name: "Redlands Painting" },
               },
             })),
           },
@@ -65,8 +65,8 @@ function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Everything from a dripping faucet to a full repipe"
-        intro="Residential and light commercial plumbing, quoted flat-rate before we pick up a wrench."
+        title="Everything from one accent wall to a whole exterior"
+        intro="Residential and commercial painting, quoted flat-rate before we open a can."
       >
         <Button asChild size="lg" className="shine mt-8 h-14 bg-copper text-base font-bold text-copper-foreground hover:bg-copper/90">
           <a href={PHONE_HREF}>

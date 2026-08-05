@@ -7,16 +7,16 @@ import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/site-data";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us | Redlands Plumber · +1 111 111 111" },
+      { title: "Contact Us | Redlands Painters · +1 111 111 111" },
       {
         name: "description",
         content:
-          "Call +1 111 111 111 or send a message for same-day plumbing in Redlands, Loma Linda, Yucaipa, Mentone, Highland and San Bernardino.",
+          "Call +1 111 111 111 or send a message for a free painting estimate in Redlands, Loma Linda, Yucaipa, Mentone, Highland and San Bernardino.",
       },
-      { property: "og:title", content: "Contact Us | Redlands Plumber" },
+      { property: "og:title", content: "Contact Us | Redlands Painters" },
       {
         property: "og:description",
-        content: "Phone, hours and service area for our Redlands plumbing team.",
+        content: "Phone, hours and service area for our Redlands painting team.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/contact" },
@@ -29,10 +29,10 @@ export const Route = createFileRoute("/contact")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ContactPage",
-          name: "Contact Us | Redlands Plumber",
+          name: "Contact Us | Redlands Painters",
           mainEntity: {
-            "@type": "Plumber",
-            name: "My Businesses Website",
+            "@type": "HousePainter",
+            name: "Redlands Painting",
             telephone: "+1111111111",
             address: {
               "@type": "PostalAddress",
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/contact")({
                 "@type": "OpeningHoursSpecification",
                 dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
                 opens: "07:00",
-                closes: "19:00",
+                closes: "18:00",
               },
               {
                 "@type": "OpeningHoursSpecification",
@@ -82,7 +82,7 @@ function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Get in touch"
+        title="Get a free painting estimate"
         intro="Calling is the fastest way to reach us — otherwise send a message and we'll respond within the hour during business hours."
       />
 
@@ -121,7 +121,7 @@ function ContactPage() {
                 <Clock className="size-6 shrink-0 text-brand" />
                 <div>
                   <p className="text-xs uppercase tracking-widest text-muted-foreground">Hours</p>
-                  <p className="font-semibold">Mon–Fri 7am–7pm · Sat 8am–4pm · 24/7 emergencies</p>
+                  <p className="font-semibold">Mon–Fri 7am–6pm · Sat 8am–4pm · Free estimates</p>
                 </div>
               </div>
             </div>
