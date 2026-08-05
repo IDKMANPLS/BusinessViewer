@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, ShieldCheck, Star, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-plumber.jpg";
+import heroImg from "@/assets/hero-painter.jpg";
 import {
   PHONE_DISPLAY,
   PHONE_HREF,
@@ -14,17 +14,17 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "My Businesses Website | Plumbing in Redlands, CA" },
+      { title: "Redlands Painting | House Painters in Redlands, CA" },
       {
         name: "description",
         content:
-          "Licensed Redlands plumbers for drain cleaning, water heaters, repiping and 24/7 emergency plumbing. Call +1 111 111 111 for same-day service.",
+          "Licensed Redlands house painters for interior and exterior painting, cabinet refinishing and deck staining. Call +1 111 111 111 for a free estimate.",
       },
-      { property: "og:title", content: "My Businesses Website | Plumbing in Redlands, CA" },
+      { property: "og:title", content: "Redlands Painting | House Painters in Redlands, CA" },
       {
         property: "og:description",
         content:
-          "Fast, reliable plumbing across Redlands and the Inland Empire. Drain cleaning, water heaters, leak repair and 24/7 emergency service.",
+          "Careful, reliable painting across Redlands and the Inland Empire. Interiors, exteriors, cabinets, decks and stucco repair.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -37,11 +37,11 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify([
           {
           "@context": "https://schema.org",
-          "@type": "Plumber",
-          name: "My Businesses Website",
+          "@type": "HousePainter",
+          name: "Redlands Painting",
           telephone: "+1111111111",
           description:
-            "Licensed Redlands plumbers for drain cleaning, water heaters, repiping and 24/7 emergency plumbing.",
+            "Licensed Redlands house painters for interior and exterior painting, cabinet refinishing and deck staining.",
           priceRange: "$$",
           areaServed: "Redlands, California",
           address: {
@@ -50,13 +50,13 @@ export const Route = createFileRoute("/")({
             addressRegion: "CA",
             addressCountry: "US",
           },
-          openingHours: ["Mo-Fr 07:00-19:00", "Sa 08:00-16:00"],
+          openingHours: ["Mo-Fr 07:00-18:00", "Sa 08:00-16:00"],
           aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "312" },
           },
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "My Businesses Website",
+            name: "Redlands Painting",
             url: "/",
           },
         ]),
@@ -73,7 +73,7 @@ function Index() {
       <section id="top" className="surface-deep relative overflow-hidden">
         <img
           src={heroImg}
-          alt="Licensed plumber servicing a kitchen sink in Redlands, California"
+          alt="Licensed painter rolling fresh paint on a home exterior in Redlands, California"
           width={1600}
           height={1000}
           className="absolute inset-0 size-full object-cover opacity-25"
@@ -84,10 +84,11 @@ function Index() {
             <ShieldCheck className="size-4" /> Licensed · Bonded · Insured
           </span>
           <h1 className="shine-text [--shine-base:var(--brand-foreground)] mt-5 max-w-2xl text-4xl font-extrabold uppercase leading-[1.05] sm:text-6xl">
-            Redlands plumbing done right the first time
+            Redlands painting done right the first time
           </h1>
           <p className="mt-4 max-w-xl text-base text-brand-foreground/80 sm:text-lg">
-            Same-day repairs, honest pricing, and 24/7 emergency service across the Inland Empire.
+            Interior and exterior painting with real prep work, honest pricing and clean job sites
+            across the Inland Empire.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button
@@ -105,13 +106,13 @@ function Index() {
               variant="outline"
               className="shine h-14 border-brand-foreground/40 bg-transparent text-base font-semibold text-brand-foreground hover:bg-brand-foreground/10 hover:text-brand-foreground"
             >
-              <Link to="/contact">Request a quote</Link>
+              <Link to="/contact">Get a free estimate</Link>
             </Button>
           </div>
           <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 text-sm">
             {[
               ["20+", "Years serving Redlands"],
-              ["24/7", "Emergency callouts"],
+              ["1,200+", "Homes painted"],
               ["100%", "Upfront pricing"],
             ].map(([k, v]) => (
               <div key={v}>
@@ -144,7 +145,8 @@ function Index() {
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">What we do</h2>
           <p className="mt-3 max-w-xl text-muted-foreground">
-            Residential and light commercial plumbing, from a dripping faucet to a full repipe.
+            Residential and commercial painting, from a single accent wall to a whole exterior
+            repaint.
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map(({ icon: Icon, title, desc }) => (
@@ -173,7 +175,7 @@ function Index() {
       <section id="work" className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">Recent work</h2>
         <p className="mt-3 max-w-xl text-muted-foreground">
-          A look at completed jobs around Redlands, Loma Linda and Yucaipa.
+          A look at completed paint jobs around Redlands, Loma Linda and Yucaipa.
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {gallery.map((g) => (
