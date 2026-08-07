@@ -42,7 +42,7 @@ export function ContactForm() {
               name="message"
               required
               rows={5}
-              placeholder="Tell us what you'd like painted..."
+              placeholder="Tell us about the roof or the leak..."
             />
           </div>
           <Button type="submit" size="lg" className="w-full bg-brand text-brand-foreground hover:bg-brand-deep">

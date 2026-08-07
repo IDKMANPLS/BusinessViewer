@@ -9,7 +9,7 @@ export function SiteFooter() {
         <div>
           <h2 className="font-display text-xl font-extrabold uppercase">{BUSINESS_NAME}</h2>
           <p className="mt-2 text-sm text-brand-foreground/75">
-            Licensed painting contractor based in Redlands, California.
+            Licensed roofing contractor based in Redlands, California.
           </p>
           <a
             href={PHONE_HREF}
@@ -24,7 +24,7 @@ export function SiteFooter() {
             <li>Monday–Friday: 7:00am – 6:00pm</li>
             <li>Saturday: 8:00am – 4:00pm</li>
             <li>Sunday: Closed</li>
-            <li>Free estimates by appointment</li>
+            <li>Free roof inspections by appointment</li>
           </ul>
         </div>
         <div>

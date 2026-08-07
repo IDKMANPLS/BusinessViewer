@@ -7,16 +7,16 @@ import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/site-data";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us | Redlands Painters · +1 111 111 111" },
+      { title: "Contact Us | Redlands Roofers · +1 111 111 111" },
       {
         name: "description",
         content:
-          "Call +1 111 111 111 or send a message for a free painting estimate in Redlands, Loma Linda, Yucaipa, Mentone, Highland and San Bernardino.",
+          "Call +1 111 111 111 or send a message for a free roof inspection in Redlands, Loma Linda, Yucaipa, Mentone, Highland and San Bernardino.",
       },
-      { property: "og:title", content: "Contact Us | Redlands Painters" },
+      { property: "og:title", content: "Contact Us | Redlands Roofers" },
       {
         property: "og:description",
-        content: "Phone, hours and service area for our Redlands painting team.",
+        content: "Phone, hours and service area for our Redlands roofing team.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/contact" },
@@ -29,10 +29,10 @@ export const Route = createFileRoute("/contact")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ContactPage",
-          name: "Contact Us | Redlands Painters",
+          name: "Contact Us | Redlands Roofers",
           mainEntity: {
-            "@type": "HousePainter",
-            name: "Redlands Painting",
+            "@type": "RoofingContractor",
+            name: "Roofing Demo Website",
             telephone: "+1111111111",
             address: {
               "@type": "PostalAddress",
@@ -82,7 +82,7 @@ function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Get a free painting estimate"
+        title="Get a free roof inspection"
         intro="Calling is the fastest way to reach us — otherwise send a message and we'll respond within the hour during business hours."
       />
 
@@ -121,7 +121,7 @@ function ContactPage() {
                 <Clock className="size-6 shrink-0 text-brand" />
                 <div>
                   <p className="text-xs uppercase tracking-widest text-muted-foreground">Hours</p>
-                  <p className="font-semibold">Mon–Fri 7am–6pm · Sat 8am–4pm · Free estimates</p>
+                  <p className="font-semibold">Mon–Fri 7am–6pm · Sat 8am–4pm · Emergency tarping</p>
                 </div>
               </div>
             </div>
