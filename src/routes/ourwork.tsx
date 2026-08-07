@@ -5,16 +5,16 @@ import { gallery } from "@/lib/site-data";
 export const Route = createFileRoute("/ourwork")({
   head: () => ({
     meta: [
-      { title: "Our Work | Redlands Painting Photo Gallery" },
+      { title: "Our Work | Redlands Roofing Photo Gallery" },
       {
         name: "description",
         content:
-          "Photos of completed painting jobs around Redlands, Loma Linda and Yucaipa: exteriors, interiors, cabinet refinishing and deck staining.",
+          "Photos of completed roofing jobs around Redlands, Loma Linda and Yucaipa: shingle re-roofs, tile restoration, flat commercial roofs and new gutters.",
       },
-      { property: "og:title", content: "Our Work | Redlands Painting Photo Gallery" },
+      { property: "og:title", content: "Our Work | Redlands Roofing Photo Gallery" },
       {
         property: "og:description",
-        content: "See completed painting projects across Redlands and the Inland Empire.",
+        content: "See completed roofing projects across Redlands and the Inland Empire.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/ourwork" },
@@ -27,10 +27,10 @@ export const Route = createFileRoute("/ourwork")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ImageGallery",
-          name: "Our Work | Redlands Painting Photo Gallery",
+          name: "Our Work | Redlands Roofing Photo Gallery",
           description:
-            "Photos of completed painting jobs around Redlands, Loma Linda and Yucaipa.",
-          about: { "@type": "HousePainter", name: "Redlands Painting" },
+            "Photos of completed roofing jobs around Redlands, Loma Linda and Yucaipa.",
+          about: { "@type": "RoofingContractor", name: "Roofing Demo Website" },
           associatedMedia: gallery.map((g) => ({
             "@type": "ImageObject",
             name: g.alt,
@@ -48,8 +48,8 @@ function OurWorkPage() {
     <>
       <PageHero
         eyebrow="Our work"
-        title="Recent paint jobs around the Inland Empire"
-        intro="A look at finished exteriors, interiors, cabinets and decks in Redlands, Loma Linda, Yucaipa and Mentone homes."
+        title="Recent roofing jobs around the Inland Empire"
+        intro="A look at finished shingle re-roofs, tile restorations, flat roofs and gutter work in Redlands, Loma Linda, Yucaipa and Mentone."
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">

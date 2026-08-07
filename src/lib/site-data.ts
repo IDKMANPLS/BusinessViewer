@@ -1,83 +1,83 @@
 import {
   Home,
-  PaintRoller,
-  Brush,
   Layers,
-  Sparkles,
+  Wrench,
+  CloudRain,
+  Search,
   Building2,
   ShieldCheck,
   BadgeCheck,
   Timer,
   Receipt,
 } from "lucide-react";
-import workExterior from "@/assets/work-exterior.jpg";
-import workInterior from "@/assets/work-interior.jpg";
-import workCabinets from "@/assets/work-cabinets.jpg";
-import workDeck from "@/assets/work-deck.jpg";
+import workShingle from "@/assets/work-shingle.jpg";
+import workTile from "@/assets/work-tile.jpg";
+import workFlatRoof from "@/assets/work-flatroof.jpg";
+import workGutters from "@/assets/work-gutters.jpg";
 
 export const PHONE_DISPLAY = "+1 111 111 111";
 export const PHONE_HREF = "tel:+1111111111";
-export const BUSINESS_NAME = "Redlands Painting";
+export const BUSINESS_NAME = "Roofing Demo Website";
 
 export const services = [
-  { icon: Home, title: "Exterior House Painting", desc: "Stucco, siding and trim prepped, primed and finished in premium exterior coatings." },
-  { icon: PaintRoller, title: "Interior Painting", desc: "Walls, ceilings, baseboards and crown molding with clean lines and covered floors." },
-  { icon: Brush, title: "Cabinet Refinishing", desc: "Sprayed kitchen and bath cabinets in a factory-smooth, durable finish." },
-  { icon: Layers, title: "Deck & Fence Staining", desc: "Sanding, sealing and staining to protect wood from Inland Empire sun." },
-  { icon: Sparkles, title: "Drywall & Stucco Repair", desc: "Patching, texture matching and caulking so the new paint lays flat." },
-  { icon: Building2, title: "Commercial Painting", desc: "Offices, retail and apartment turnovers painted on nights and weekends." },
+  { icon: Home, title: "Roof Replacement", desc: "Full tear-off and re-roof in architectural shingle, tile or metal with new underlayment." },
+  { icon: Wrench, title: "Roof Repair", desc: "Cracked tiles, lifted shingles, flashing and vent boots fixed fast before the next storm." },
+  { icon: Search, title: "Leak Detection", desc: "We trace the water back to the real entry point instead of guessing and patching." },
+  { icon: Layers, title: "Tile & Shingle Roofing", desc: "Clay and concrete tile restoration plus premium composition shingle systems." },
+  { icon: Building2, title: "Flat & Commercial Roofing", desc: "TPO and modified bitumen membranes for flat roofs, offices, retail and apartments." },
+  { icon: CloudRain, title: "Gutters & Ventilation", desc: "Seamless gutters, downspouts and attic ventilation to move water and heat out." },
 ];
 
 export const gallery = [
-  { src: workExterior, alt: "Freshly painted beige exterior with white trim on a Redlands home" },
-  { src: workInterior, alt: "Living room repainted in warm greige with crisp white molding" },
-  { src: workCabinets, alt: "Kitchen cabinets refinished in a sprayed warm white finish" },
-  { src: workDeck, alt: "Backyard deck and pergola freshly stained and sealed" },
+  { src: workShingle, alt: "New charcoal architectural shingle roof installed on a Redlands home" },
+  { src: workTile, alt: "Restored terracotta clay tile roof on a Spanish style house" },
+  { src: workFlatRoof, alt: "Flat commercial roof finished with a new white TPO membrane" },
+  { src: workGutters, alt: "New seamless gutters and downspout installed along a roofline" },
 ];
 
-export { workInterior };
+export { workTile };
 
 export const promises = [
-  { icon: Timer, title: "On-schedule crews", desc: "We start when we say and finish when we promise." },
-  { icon: Receipt, title: "Flat-rate quotes", desc: "You approve the price before any work starts." },
-  { icon: BadgeCheck, title: "Licensed & insured", desc: "Background-checked painters, fully bonded." },
-  { icon: ShieldCheck, title: "Warranty backed", desc: "Prep and workmanship guaranteed in writing." },
+  { icon: Timer, title: "Emergency tarping", desc: "Active leak? We get a crew out and the roof dried in fast." },
+  { icon: Receipt, title: "Flat-rate quotes", desc: "You approve the price before any tear-off starts." },
+  { icon: BadgeCheck, title: "Licensed & insured", desc: "Fully bonded roofers, workers' comp on every crew." },
+  { icon: ShieldCheck, title: "Warranty backed", desc: "Manufacturer materials plus a written workmanship warranty." },
 ];
 
 export const testimonials = [
   {
     quote:
-      "They repainted our whole exterior in three days. Taped, masked and pressure-washed before a drop of paint went on, and the price matched the quote exactly.",
+      "They tore off and replaced our whole roof in two days. Dumpster placed carefully, yard magnet-swept every evening, and the price matched the quote exactly.",
     name: "Marisol R.",
     place: "Redlands",
   },
   {
     quote:
-      "Interior of the whole house, ceilings included. Crew laid drop cloths every morning and left it cleaner than they found it.",
+      "We had a leak over the kitchen for months. They found it at a bad flashing joint the first visit and it has been dry through two winters.",
     name: "Dan K.",
     place: "Yucaipa",
   },
   {
     quote:
-      "Our kitchen cabinets look factory sprayed — no brush marks anywhere. Saved us thousands over a full replacement.",
+      "Our clay tile roof looked done for. They replaced the underlayment, reused most of the tile and saved us thousands over a full replacement.",
     name: "Priya S.",
     place: "Loma Linda",
   },
   {
     quote:
-      "They patched years of stucco cracks, matched the texture perfectly, then painted. You cannot tell where the old damage was.",
+      "Storm took shingles off at night and they had the roof tarped the next morning. Insurance paperwork was handled without me chasing anyone.",
     name: "Greg T.",
     place: "Mentone",
   },
   {
     quote:
-      "Deck and fence sanded and stained before summer. Two years of Redlands sun later and it still looks new.",
+      "New seamless gutters and attic vents. The upstairs is noticeably cooler and the patio no longer floods when it rains.",
     name: "Ana V.",
     place: "Highland",
   },
   {
     quote:
-      "Helped us pick the color, brought real samples, and never once made us feel rushed. Polite and on time every day.",
+      "Photos of every problem area before and after, explained in plain English. No pressure to buy a roof I did not need yet.",
     name: "Bill H.",
     place: "San Bernardino",
   },
@@ -85,20 +85,20 @@ export const testimonials = [
 
 export const faqs = [
   {
-    q: "Are estimates free?",
-    a: "Yes. We walk the property, measure, talk through colors and sheens, and email a written flat-rate quote at no cost.",
+    q: "Are roof inspections and estimates free?",
+    a: "Yes. We get on the roof, photograph the problem areas, and email a written flat-rate quote at no cost.",
   },
   {
-    q: "How long does a typical house take?",
-    a: "Most Redlands exteriors take three to five days, and a full interior repaint runs two to four days depending on square footage and ceilings.",
+    q: "How long does a roof replacement take?",
+    a: "Most Redlands homes are torn off and re-roofed in two to four days; tile and larger or steeper roofs can run about a week.",
   },
   {
-    q: "What kind of prep is included?",
-    a: "Pressure washing, scraping, sanding, caulking, patching and full masking are part of every job — prep is most of what makes paint last.",
+    q: "Can you repair instead of replacing?",
+    a: "Often, yes. If the decking and underlayment are sound we repair flashing, tiles or shingles and tell you honestly how many years are left.",
   },
   {
-    q: "Do you warranty your work?",
-    a: "Yes. Prep and workmanship are covered by a written warranty, and we come back at no charge if anything peels or fails.",
+    q: "Do you handle storm damage and insurance claims?",
+    a: "We tarp active leaks the same day, document the damage for your carrier, and meet the adjuster on site.",
   },
 ];
 

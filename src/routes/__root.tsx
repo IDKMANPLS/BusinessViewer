@@ -81,14 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Redlands Painting | House Painters in Redlands, CA" },
+      { title: "Roofing Demo Website | Roofers in Redlands, CA" },
       {
         name: "description",
         content:
-          "Licensed Redlands house painters for interior, exterior, cabinet refinishing and deck staining.",
+          "Licensed Redlands roofers for roof replacement, repair, leak detection, tile and flat roofing.",
       },
-      { name: "author", content: "Redlands Painting" },
-      { property: "og:site_name", content: "Redlands Painting" },
+      { name: "author", content: "Roofing Demo Website" },
+      { property: "og:site_name", content: "Roofing Demo Website" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

@@ -6,16 +6,16 @@ import { testimonials } from "@/lib/site-data";
 export const Route = createFileRoute("/customerreviews")({
   head: () => ({
     meta: [
-      { title: "Customer Reviews | Redlands Painters Rated 4.9/5" },
+      { title: "Customer Reviews | Redlands Roofers Rated 4.9/5" },
       {
         name: "description",
         content:
-          "Read 4.9-star reviews from Redlands, Yucaipa, Loma Linda and Highland homeowners about our interior, exterior and cabinet painting work.",
+          "Read 4.9-star reviews from Redlands, Yucaipa, Loma Linda and Highland homeowners about our roof replacement, repair and leak detection work.",
       },
-      { property: "og:title", content: "Customer Reviews | Redlands Painters Rated 4.9/5" },
+      { property: "og:title", content: "Customer Reviews | Redlands Roofers Rated 4.9/5" },
       {
         property: "og:description",
-        content: "What Inland Empire neighbors say about our painting work.",
+        content: "What Inland Empire neighbors say about our roofing work.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/customerreviews" },
@@ -27,8 +27,8 @@ export const Route = createFileRoute("/customerreviews")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "HousePainter",
-          name: "Redlands Painting",
+          "@type": "RoofingContractor",
+          name: "Roofing Demo Website",
           telephone: "+1111111111",
           areaServed: "Redlands, California",
           address: {
@@ -63,7 +63,7 @@ function ReviewsPage() {
       <PageHero
         eyebrow="Customer reviews"
         title="4.9 out of 5 from 312 local reviews"
-        intro="Neighbors across Redlands and the Inland Empire on what it's like to have our painters in their home."
+        intro="Neighbors across Redlands and the Inland Empire on what it's like to have our roofers on their home."
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
