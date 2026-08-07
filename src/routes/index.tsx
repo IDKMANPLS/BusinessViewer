@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, ShieldCheck, Star, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-painter.jpg";
+import heroImg from "@/assets/hero-roofer.jpg";
 import {
   PHONE_DISPLAY,
   PHONE_HREF,
@@ -14,17 +14,17 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Redlands Painting | House Painters in Redlands, CA" },
+      { title: "Roofing Demo Website | Roofers in Redlands, CA" },
       {
         name: "description",
         content:
-          "Licensed Redlands house painters for interior and exterior painting, cabinet refinishing and deck staining. Call +1 111 111 111 for a free estimate.",
+          "Licensed Redlands roofers for roof replacement, roof repair, leak detection, tile and flat roofing. Call +1 111 111 111 for a free inspection.",
       },
-      { property: "og:title", content: "Redlands Painting | House Painters in Redlands, CA" },
+      { property: "og:title", content: "Roofing Demo Website | Roofers in Redlands, CA" },
       {
         property: "og:description",
         content:
-          "Careful, reliable painting across Redlands and the Inland Empire. Interiors, exteriors, cabinets, decks and stucco repair.",
+          "Careful, reliable roofing across Redlands and the Inland Empire. Re-roofs, repairs, leak detection, tile, flat roofs and gutters.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -37,11 +37,11 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify([
           {
           "@context": "https://schema.org",
-          "@type": "HousePainter",
-          name: "Redlands Painting",
+          "@type": "RoofingContractor",
+          name: "Roofing Demo Website",
           telephone: "+1111111111",
           description:
-            "Licensed Redlands house painters for interior and exterior painting, cabinet refinishing and deck staining.",
+            "Licensed Redlands roofers for roof replacement, roof repair, leak detection, tile and flat roofing.",
           priceRange: "$$",
           areaServed: "Redlands, California",
           address: {
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/")({
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "Redlands Painting",
+            name: "Roofing Demo Website",
             url: "/",
           },
         ]),
@@ -73,7 +73,7 @@ function Index() {
       <section id="top" className="surface-deep relative overflow-hidden">
         <img
           src={heroImg}
-          alt="Licensed painter rolling fresh paint on a home exterior in Redlands, California"
+          alt="Licensed roofer installing shingles on a home roof in Redlands, California"
           width={1600}
           height={1000}
           className="absolute inset-0 size-full object-cover opacity-25"
@@ -84,11 +84,11 @@ function Index() {
             <ShieldCheck className="size-4" /> Licensed · Bonded · Insured
           </span>
           <h1 className="shine-text [--shine-base:var(--brand-foreground)] mt-5 max-w-2xl text-4xl font-extrabold uppercase leading-[1.05] sm:text-6xl">
-            Redlands painting done right the first time
+            Redlands roofing done right the first time
           </h1>
           <p className="mt-4 max-w-xl text-base text-brand-foreground/80 sm:text-lg">
-            Interior and exterior painting with real prep work, honest pricing and clean job sites
-            across the Inland Empire.
+            Roof replacement, repairs and leak detection with honest inspections, flat-rate pricing
+            and clean job sites across the Inland Empire.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button
@@ -106,13 +106,13 @@ function Index() {
               variant="outline"
               className="shine h-14 border-brand-foreground/40 bg-transparent text-base font-semibold text-brand-foreground hover:bg-brand-foreground/10 hover:text-brand-foreground"
             >
-              <Link to="/contact">Get a free estimate</Link>
+              <Link to="/contact">Get a free roof inspection</Link>
             </Button>
           </div>
           <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 text-sm">
             {[
               ["20+", "Years serving Redlands"],
-              ["1,200+", "Homes painted"],
+              ["1,200+", "Roofs installed"],
               ["100%", "Upfront pricing"],
             ].map(([k, v]) => (
               <div key={v}>
@@ -145,8 +145,8 @@ function Index() {
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">What we do</h2>
           <p className="mt-3 max-w-xl text-muted-foreground">
-            Residential and commercial painting, from a single accent wall to a whole exterior
-            repaint.
+            Residential and commercial roofing, from a single cracked tile to a full tear-off and
+            re-roof.
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map(({ icon: Icon, title, desc }) => (
@@ -175,7 +175,7 @@ function Index() {
       <section id="work" className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">Recent work</h2>
         <p className="mt-3 max-w-xl text-muted-foreground">
-          A look at completed paint jobs around Redlands, Loma Linda and Yucaipa.
+          A look at completed roofing jobs around Redlands, Loma Linda and Yucaipa.
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {gallery.map((g) => (
