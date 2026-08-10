@@ -81,14 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Roofing Demo Website | Roofers in Redlands, CA" },
+      { title: "Flooring Demo Website | Flooring Installers in Redlands, CA" },
       {
         name: "description",
         content:
-          "Licensed Redlands roofers for roof replacement, repair, leak detection, tile and flat roofing.",
+          "Licensed Redlands flooring installers for hardwood, refinishing, vinyl plank, tile and carpet.",
       },
-      { name: "author", content: "Roofing Demo Website" },
-      { property: "og:site_name", content: "Roofing Demo Website" },
+      { name: "author", content: "Flooring Demo Website" },
+      { property: "og:site_name", content: "Flooring Demo Website" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
