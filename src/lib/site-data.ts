@@ -1,83 +1,83 @@
 import {
   Home,
   Layers,
-  Wrench,
-  CloudRain,
-  Search,
+  Hammer,
+  Sparkles,
+  Ruler,
   Building2,
   ShieldCheck,
   BadgeCheck,
   Timer,
   Receipt,
 } from "lucide-react";
-import workShingle from "@/assets/work-shingle.jpg";
-import workTile from "@/assets/work-tile.jpg";
-import workFlatRoof from "@/assets/work-flatroof.jpg";
-import workGutters from "@/assets/work-gutters.jpg";
+import workHardwood from "@/assets/work-hardwood.jpg";
+import workTileFloor from "@/assets/work-tilefloor.jpg";
+import workLvp from "@/assets/work-lvp.jpg";
+import workCarpet from "@/assets/work-carpet.jpg";
 
 export const PHONE_DISPLAY = "+1 111 111 111";
 export const PHONE_HREF = "tel:+1111111111";
-export const BUSINESS_NAME = "Roofing Demo Website";
+export const BUSINESS_NAME = "Flooring Demo Website";
 
 export const services = [
-  { icon: Home, title: "Roof Replacement", desc: "Full tear-off and re-roof in architectural shingle, tile or metal with new underlayment." },
-  { icon: Wrench, title: "Roof Repair", desc: "Cracked tiles, lifted shingles, flashing and vent boots fixed fast before the next storm." },
-  { icon: Search, title: "Leak Detection", desc: "We trace the water back to the real entry point instead of guessing and patching." },
-  { icon: Layers, title: "Tile & Shingle Roofing", desc: "Clay and concrete tile restoration plus premium composition shingle systems." },
-  { icon: Building2, title: "Flat & Commercial Roofing", desc: "TPO and modified bitumen membranes for flat roofs, offices, retail and apartments." },
-  { icon: CloudRain, title: "Gutters & Ventilation", desc: "Seamless gutters, downspouts and attic ventilation to move water and heat out." },
+  { icon: Home, title: "Hardwood Flooring", desc: "Solid and engineered oak installed plank by plank, racked for grain and color before a single nail." },
+  { icon: Sparkles, title: "Refinishing & Sanding", desc: "Dustless sanding, stain matching and durable low-VOC finishes that bring tired wood back to life." },
+  { icon: Layers, title: "Luxury Vinyl & Laminate", desc: "Waterproof LVP and laminate systems that handle kids, pets and Inland Empire heat." },
+  { icon: Ruler, title: "Tile & Stone Floors", desc: "Porcelain, ceramic and natural stone set flat and level with proper underlayment and grout." },
+  { icon: Hammer, title: "Carpet & Subfloor Repair", desc: "Plush and Berber carpet, stair runners, plus squeak and level fixes before anything goes down." },
+  { icon: Building2, title: "Commercial Flooring", desc: "Offices, retail and rentals floored on schedule, with after-hours installs to keep you open." },
 ];
 
 export const gallery = [
-  { src: workShingle, alt: "New charcoal architectural shingle roof installed on a Redlands home" },
-  { src: workTile, alt: "Restored terracotta clay tile roof on a Spanish style house" },
-  { src: workFlatRoof, alt: "Flat commercial roof finished with a new white TPO membrane" },
-  { src: workGutters, alt: "New seamless gutters and downspout installed along a roofline" },
+  { src: workHardwood, alt: "New wide-plank white oak hardwood floor installed in a Redlands living room" },
+  { src: workTileFloor, alt: "Large format porcelain tile floor set in a remodeled bathroom" },
+  { src: workLvp, alt: "Waterproof luxury vinyl plank flooring in an open kitchen and dining area" },
+  { src: workCarpet, alt: "Plush neutral carpet newly installed on a staircase and upstairs hallway" },
 ];
 
-export { workTile };
+export { workHardwood };
 
 export const promises = [
-  { icon: Timer, title: "Emergency tarping", desc: "Active leak? We get a crew out and the roof dried in fast." },
-  { icon: Receipt, title: "Flat-rate quotes", desc: "You approve the price before any tear-off starts." },
-  { icon: BadgeCheck, title: "Licensed & insured", desc: "Fully bonded roofers, workers' comp on every crew." },
+  { icon: Timer, title: "On-schedule installs", desc: "Start dates we keep, and rooms back in use when we said." },
+  { icon: Receipt, title: "Flat-rate quotes", desc: "Measured, itemized and approved before any demo starts." },
+  { icon: BadgeCheck, title: "Licensed & insured", desc: "Fully bonded installers, workers' comp on every crew." },
   { icon: ShieldCheck, title: "Warranty backed", desc: "Manufacturer materials plus a written workmanship warranty." },
 ];
 
 export const testimonials = [
   {
     quote:
-      "They tore off and replaced our whole roof in two days. Dumpster placed carefully, yard magnet-swept every evening, and the price matched the quote exactly.",
+      "They pulled up old carpet and laid white oak through the whole downstairs in three days. Furniture moved carefully, floors swept every evening, and the price matched the quote exactly.",
     name: "Marisol R.",
     place: "Redlands",
   },
   {
     quote:
-      "We had a leak over the kitchen for months. They found it at a bad flashing joint the first visit and it has been dry through two winters.",
+      "Our hallway had a bad squeak and dips. They fixed the subfloor first instead of covering it up, and the new planks are dead flat and silent.",
     name: "Dan K.",
     place: "Yucaipa",
   },
   {
     quote:
-      "Our clay tile roof looked done for. They replaced the underlayment, reused most of the tile and saved us thousands over a full replacement.",
+      "Our 1940s oak floors looked done for. They sanded and refinished instead of replacing and saved us thousands — they look brand new.",
     name: "Priya S.",
     place: "Loma Linda",
   },
   {
     quote:
-      "Storm took shingles off at night and they had the roof tarped the next morning. Insurance paperwork was handled without me chasing anyone.",
+      "A washer leak ruined the laundry and hall floors. They had waterproof vinyl plank down within the week and handled the insurance photos for me.",
     name: "Greg T.",
     place: "Mentone",
   },
   {
     quote:
-      "New seamless gutters and attic vents. The upstairs is noticeably cooler and the patio no longer floods when it rains.",
+      "New porcelain tile in both bathrooms. Perfectly level, tight grout lines, and they cleaned up better than they found it.",
     name: "Ana V.",
     place: "Highland",
   },
   {
     quote:
-      "Photos of every problem area before and after, explained in plain English. No pressure to buy a roof I did not need yet.",
+      "They brought samples to the house and let us live with them for a few days. No pressure to buy the most expensive product in the van.",
     name: "Bill H.",
     place: "San Bernardino",
   },
@@ -85,20 +85,20 @@ export const testimonials = [
 
 export const faqs = [
   {
-    q: "Are roof inspections and estimates free?",
-    a: "Yes. We get on the roof, photograph the problem areas, and email a written flat-rate quote at no cost.",
+    q: "Are in-home estimates free?",
+    a: "Yes. We measure every room, bring samples to your house, and email a written flat-rate quote at no cost.",
   },
   {
-    q: "How long does a roof replacement take?",
-    a: "Most Redlands homes are torn off and re-roofed in two to four days; tile and larger or steeper roofs can run about a week.",
+    q: "How long does a flooring install take?",
+    a: "Most Redlands homes are demoed and floored in two to four days; large tile jobs and full hardwood refinishing can run about a week.",
   },
   {
-    q: "Can you repair instead of replacing?",
-    a: "Often, yes. If the decking and underlayment are sound we repair flashing, tiles or shingles and tell you honestly how many years are left.",
+    q: "Can you refinish instead of replacing?",
+    a: "Often, yes. If the wood has enough thickness left we sand and refinish it, and we tell you honestly when replacement is the better value.",
   },
   {
-    q: "Do you handle storm damage and insurance claims?",
-    a: "We tarp active leaks the same day, document the damage for your carrier, and meet the adjuster on site.",
+    q: "Do you move furniture and haul away the old flooring?",
+    a: "Yes. We move standard furniture, tear out the old carpet, tile or plank, and haul all the debris off site when we're done.",
   },
 ];
 

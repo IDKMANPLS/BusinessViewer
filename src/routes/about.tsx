@@ -1,21 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { promises, workTile } from "@/lib/site-data";
+import { promises, workHardwood } from "@/lib/site-data";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Our Redlands Roofing Company | Roofing Demo Website" },
+      { title: "About Our Redlands Flooring Company | Flooring Demo Website" },
       {
         name: "description",
         content:
-          "Family-run, licensed roofers serving Redlands and the Inland Empire for 20+ years with flat-rate pricing and a written workmanship warranty.",
+          "Family-run, licensed flooring installers serving Redlands and the Inland Empire for 20+ years with flat-rate pricing and a written workmanship warranty.",
       },
-      { property: "og:title", content: "About Our Redlands Roofing Company" },
+      { property: "og:title", content: "About Our Redlands Flooring Company" },
       {
         property: "og:description",
-        content: "Licensed, family-owned roofers serving Redlands, CA for over twenty years.",
+        content:
+          "Licensed, family-owned flooring installers serving Redlands, CA for over twenty years.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/about" },
@@ -28,12 +29,12 @@ export const Route = createFileRoute("/about")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "AboutPage",
-          name: "About Our Redlands Roofing Company",
+          name: "About Our Redlands Flooring Company",
           description:
-            "Family-run, licensed roofers serving Redlands and the Inland Empire for 20+ years.",
+            "Family-run, licensed flooring installers serving Redlands and the Inland Empire for 20+ years.",
           mainEntity: {
-            "@type": "RoofingContractor",
-            name: "Roofing Demo Website",
+            "@type": "HomeAndConstructionBusiness",
+            name: "Flooring Demo Website",
             telephone: "+1111111111",
             foundingDate: "2005",
             areaServed: "Redlands, California",
@@ -56,15 +57,15 @@ function AboutPage() {
     <>
       <PageHero
         eyebrow="About us"
-        title="Twenty years of Redlands roofing, one careful crew"
-        intro="Family owned, locally staffed, and straight with you about whether you need a repair or a new roof."
+        title="Twenty years of Redlands flooring, one careful crew"
+        intro="Family owned, locally staffed, and straight with you about whether your floors need a refinish or a full replacement."
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <div className="grid gap-10 md:grid-cols-[1fr_1.1fr] md:items-center">
           <img
-            src={workTile}
-            alt="Clay tile roof restored by our Redlands roofing crew"
+            src={workHardwood}
+            alt="Wide-plank oak floor installed by our Redlands flooring crew"
             width={1024}
             height={768}
             loading="lazy"
@@ -73,17 +74,17 @@ function AboutPage() {
           <div>
             <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">Who we are</h2>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              Roofing Demo Website is a family-run roofing company based right here in Redlands,
+              Flooring Demo Website is a family-run flooring company based right here in Redlands,
               California, serving homeowners and small businesses across the Inland Empire for over
-              twenty years. Every crew is licensed, insured and tied off, and shows up on time with
-              the materials, dumpster and safety gear to keep your job moving.
+              twenty years. Every crew is licensed and insured, and shows up on time with the
+              material, tools and dust control to keep your job moving.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              We give a straight answer, a flat-rate quote before a single shingle comes off, and a
-              warranty you can hold us to. No scare tactics, no surprise line items, no skipped steps.
+              We give a straight answer, a flat-rate quote before a single plank comes up, and a
+              warranty you can hold us to. No scare tactics, no surprise line items, no skipped prep.
             </p>
             <ul className="mt-6 grid gap-2 sm:grid-cols-2">
-              {["Upfront flat-rate pricing", "Free roof inspection", "Workmanship warranty", "Local, family owned"].map((f) => (
+              {["Upfront flat-rate pricing", "Free in-home estimate", "Workmanship warranty", "Local, family owned"].map((f) => (
                 <li key={f} className="flex items-center gap-2 font-medium">
                   <CheckCircle2 className="size-5 shrink-0 text-brand" /> {f}
                 </li>
@@ -93,7 +94,7 @@ function AboutPage() {
               to="/contact"
               className="mt-8 inline-flex items-center gap-2 font-semibold text-brand hover:underline"
             >
-              Book a free roof inspection <ArrowRight className="size-4" />
+              Book a free in-home estimate <ArrowRight className="size-4" />
             </Link>
           </div>
         </div>
