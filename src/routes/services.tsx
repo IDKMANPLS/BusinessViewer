@@ -7,16 +7,16 @@ import { services, faqs, PHONE_DISPLAY, PHONE_HREF } from "@/lib/site-data";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Flooring Services in Redlands, CA | Flooring Demo Website" },
+      { title: "Roofing Services in Redlands, CA | Roofing Demo Website" },
       {
         name: "description",
         content:
-          "Hardwood installation, refinishing, luxury vinyl plank, laminate, tile and stone, carpet and commercial flooring across Redlands and the Inland Empire.",
+          "Roof replacement, roof repair, leak detection, tile and shingle roofing, flat commercial roofing, gutters and ventilation across Redlands and the Inland Empire.",
       },
-      { property: "og:title", content: "Flooring Services in Redlands, CA" },
+      { property: "og:title", content: "Roofing Services in Redlands, CA" },
       {
         property: "og:description",
-        content: "Full residential and commercial flooring services with flat-rate pricing.",
+        content: "Full residential and commercial roofing services with flat-rate pricing.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/services" },
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/services")({
           {
             "@context": "https://schema.org",
             "@type": "OfferCatalog",
-            name: "Flooring services in Redlands, CA",
+            name: "Roofing services in Redlands, CA",
             itemListElement: services.map((s, i) => ({
               "@type": "Offer",
               position: i + 1,
@@ -50,8 +50,8 @@ export const Route = createFileRoute("/services")({
                 serviceType: s.title,
                 areaServed: "Redlands, California",
                 provider: {
-                  "@type": "HomeAndConstructionBusiness",
-                  name: "Flooring Demo Website",
+                  "@type": "RoofingContractor",
+                  name: "Roofing Demo Website",
                 },
               },
             })),
@@ -68,8 +68,8 @@ function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Everything from one squeaky hallway to a whole new floor"
-        intro="Residential and commercial flooring, quoted flat-rate before we pull up a single board."
+        title="Everything from one lifted shingle to a whole new roof"
+        intro="Residential and commercial roofing, quoted flat-rate before we pull a single shingle."
       >
         <Button asChild size="lg" className="shine mt-8 h-14 bg-copper text-base font-bold text-copper-foreground hover:bg-copper/90">
           <a href={PHONE_HREF}>

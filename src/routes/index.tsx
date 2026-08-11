@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, ShieldCheck, Star, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-flooring.jpg";
+import heroImg from "@/assets/hero-roofer.jpg";
 import {
   PHONE_DISPLAY,
   PHONE_HREF,
@@ -14,17 +14,17 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Flooring Demo Website | Flooring Installers in Redlands, CA" },
+      { title: "Roofing Demo Website | Roofers in Redlands, CA" },
       {
         name: "description",
         content:
-          "Licensed Redlands flooring installers for hardwood, refinishing, luxury vinyl plank, tile and carpet. Call +1 111 111 111 for a free estimate.",
+          "Licensed Redlands roofers for roof replacement, repair, leak detection, tile and flat roofing. Call +1 111 111 111 for a free inspection.",
       },
-      { property: "og:title", content: "Flooring Demo Website | Flooring Installers in Redlands, CA" },
+      { property: "og:title", content: "Roofing Demo Website | Roofers in Redlands, CA" },
       {
         property: "og:description",
         content:
-          "Careful, reliable flooring across Redlands and the Inland Empire. Hardwood, refinishing, vinyl plank, laminate, tile and carpet.",
+          "Careful, reliable roofing across Redlands and the Inland Empire. Replacement, repair, leak detection, tile, flat roofs and gutters.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -37,11 +37,11 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify([
           {
           "@context": "https://schema.org",
-          "@type": "HomeAndConstructionBusiness",
-          name: "Flooring Demo Website",
+          "@type": "RoofingContractor",
+          name: "Roofing Demo Website",
           telephone: "+1111111111",
           description:
-            "Licensed Redlands flooring installers for hardwood, refinishing, luxury vinyl plank, tile and carpet.",
+            "Licensed Redlands roofers for roof replacement, repair, leak detection, tile and flat roofing.",
           priceRange: "$$",
           areaServed: "Redlands, California",
           address: {
@@ -56,7 +56,7 @@ export const Route = createFileRoute("/")({
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "Flooring Demo Website",
+            name: "Roofing Demo Website",
             url: "/",
           },
         ]),
@@ -73,21 +73,21 @@ function Index() {
       <section id="top" className="surface-deep relative overflow-hidden">
         <img
           src={heroImg}
-          alt="Flooring installer laying wide-plank oak hardwood in a Redlands, California home"
+          alt="Roofer installing architectural shingles on a home in Redlands, California"
           width={1600}
           height={1000}
-          className="absolute inset-0 size-full object-cover opacity-25"
+          className="absolute inset-0 size-full object-cover opacity-35"
         />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_15%_10%,transparent,color-mix(in_oklab,var(--brand-deep)_75%,transparent))]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_80%_at_15%_10%,transparent,color-mix(in_oklab,var(--brand-deep)_80%,transparent))]" />
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28">
           <span className="inline-flex items-center gap-2 rounded-full border border-brand-foreground/25 px-3 py-1 text-xs font-semibold uppercase tracking-widest">
             <ShieldCheck className="size-4" /> Licensed · Bonded · Insured
           </span>
           <h1 className="shine-text [--shine-base:var(--brand-foreground)] mt-5 max-w-2xl text-4xl font-extrabold uppercase leading-[1.05] sm:text-6xl">
-            Redlands flooring done right the first time
+            Redlands roofing done right the first time
           </h1>
-          <p className="mt-4 max-w-xl text-base text-brand-foreground/80 sm:text-lg">
-            Hardwood, luxury vinyl plank, tile and carpet installed with real subfloor prep,
+          <p className="mt-4 max-w-xl text-base text-brand-foreground/85 sm:text-lg">
+            Roof replacement, repair and leak detection with real flashing and underlayment work,
             flat-rate pricing and clean job sites across the Inland Empire.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -106,13 +106,13 @@ function Index() {
               variant="outline"
               className="shine h-14 border-brand-foreground/40 bg-transparent text-base font-semibold text-brand-foreground hover:bg-brand-foreground/10 hover:text-brand-foreground"
             >
-              <Link to="/contact">Get a free in-home estimate</Link>
+              <Link to="/contact">Get a free roof inspection</Link>
             </Button>
           </div>
           <dl className="mt-10 grid max-w-lg grid-cols-3 gap-4 text-sm">
             {[
               ["20+", "Years serving Redlands"],
-              ["1,200+", "Floors installed"],
+              ["1,200+", "Roofs completed"],
               ["100%", "Upfront pricing"],
             ].map(([k, v]) => (
               <div key={v}>
@@ -145,16 +145,15 @@ function Index() {
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">What we do</h2>
           <p className="mt-3 max-w-xl text-muted-foreground">
-            Residential and commercial flooring, from one squeaky hallway to every room in the
-            house.
+            Residential and commercial roofing, from a single leak to a full tear-off and re-roof.
           </p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="shine rounded-xl border border-border bg-card p-6 transition-shadow hover:shadow-lift"
+                className="shine card-pop rounded-xl border border-border bg-card p-6"
               >
-                <span className="inline-flex size-11 items-center justify-center rounded-lg bg-brand/10 text-brand">
+                <span className="inline-flex size-11 items-center justify-center rounded-lg bg-copper/15 text-brand">
                   <Icon className="size-6" />
                 </span>
                 <h3 className="mt-4 text-xl font-bold uppercase">{title}</h3>
@@ -175,11 +174,11 @@ function Index() {
       <section id="work" className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">Recent work</h2>
         <p className="mt-3 max-w-xl text-muted-foreground">
-          A look at completed flooring jobs around Redlands, Loma Linda and Yucaipa.
+          A look at completed roofing jobs around Redlands, Loma Linda and Yucaipa.
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {gallery.map((g) => (
-            <figure key={g.alt} className="overflow-hidden rounded-xl border border-border bg-card">
+            <figure key={g.alt} className="media-pop overflow-hidden rounded-xl bg-card">
               <img
                 src={g.src}
                 alt={g.alt}
