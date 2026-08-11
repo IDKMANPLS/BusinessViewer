@@ -5,16 +5,16 @@ import { gallery } from "@/lib/site-data";
 export const Route = createFileRoute("/ourwork")({
   head: () => ({
     meta: [
-      { title: "Our Work | Redlands Flooring Photo Gallery" },
+      { title: "Our Work | Redlands Roofing Photo Gallery" },
       {
         name: "description",
         content:
-          "Photos of completed flooring jobs around Redlands, Loma Linda and Yucaipa: hardwood installs, refinishing, luxury vinyl plank, tile and new carpet.",
+          "Photos of completed roofing jobs around Redlands, Loma Linda and Yucaipa: shingle re-roofs, tile roofing, flat commercial membranes and new gutters.",
       },
-      { property: "og:title", content: "Our Work | Redlands Flooring Photo Gallery" },
+      { property: "og:title", content: "Our Work | Redlands Roofing Photo Gallery" },
       {
         property: "og:description",
-        content: "See completed flooring projects across Redlands and the Inland Empire.",
+        content: "See completed roofing projects across Redlands and the Inland Empire.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/ourwork" },
@@ -27,10 +27,10 @@ export const Route = createFileRoute("/ourwork")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ImageGallery",
-          name: "Our Work | Redlands Flooring Photo Gallery",
+          name: "Our Work | Redlands Roofing Photo Gallery",
           description:
-            "Photos of completed flooring jobs around Redlands, Loma Linda and Yucaipa.",
-          about: { "@type": "HomeAndConstructionBusiness", name: "Flooring Demo Website" },
+            "Photos of completed roofing jobs around Redlands, Loma Linda and Yucaipa.",
+          about: { "@type": "RoofingContractor", name: "Roofing Demo Website" },
           associatedMedia: gallery.map((g) => ({
             "@type": "ImageObject",
             name: g.alt,
@@ -48,14 +48,14 @@ function OurWorkPage() {
     <>
       <PageHero
         eyebrow="Our work"
-        title="Recent flooring jobs around the Inland Empire"
-        intro="A look at finished hardwood installs, refinished oak, luxury vinyl plank, tile and carpet in Redlands, Loma Linda, Yucaipa and Mentone."
+        title="Recent roofing jobs around the Inland Empire"
+        intro="A look at finished shingle re-roofs, tile roofing, flat commercial membranes and new gutters in Redlands, Loma Linda, Yucaipa and Mentone."
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {gallery.map((g) => (
-            <figure key={g.alt} className="overflow-hidden rounded-xl border border-border bg-card">
+            <figure key={g.alt} className="media-pop overflow-hidden rounded-xl bg-card">
               <img
                 src={g.src}
                 alt={g.alt}
