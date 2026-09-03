@@ -1,76 +1,49 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
-import { ContactForm } from "@/components/site/ContactForm";
-import { PHONE_DISPLAY, PHONE_HREF } from "@/lib/site-data";
+import { EstimateForm } from "@/components/site/EstimateForm";
+import {
+  BUSINESS_NAME,
+  PHONE_DISPLAY,
+  PHONE_HREF,
+  EMAIL,
+  ADDRESS_STREET,
+  ADDRESS_CITY,
+  ADDRESS_STATE,
+  ADDRESS_ZIP,
+  hours,
+  serviceAreas,
+  localBusinessSchema,
+  SITE_URL,
+} from "@/lib/site-data";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Us | Redlands Roofing · +1 111 111 111" },
+      { title: "Contact Jim's Paving | Free Estimate | (707) 477-3291" },
       {
         name: "description",
         content:
-          "Call +1 111 111 111 or send a message for a free roof inspection in Redlands, Loma Linda, Yucaipa, Mentone, Highland and San Bernardino.",
+          "Request a free asphalt paving estimate in Santa Rosa and Sonoma County. Call (707) 477-3291 or send the online estimate form — we reply within 1 business day.",
       },
-      { property: "og:title", content: "Contact Us | Redlands Roofing" },
+      { property: "og:title", content: "Contact Jim's Paving | Free Paving Estimates" },
       {
         property: "og:description",
-        content: "Phone, hours and service area for our Redlands roofing team.",
+        content:
+          "Call (707) 477-3291 or request a free, no-obligation estimate online. Santa Rosa, CA — serving all of Sonoma County.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/contact" },
+      { property: "og:url", content: SITE_URL + "/contact" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: SITE_URL + "/contact" }],
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          name: "Contact Us | Redlands Roofing",
-          mainEntity: {
-            "@type": "RoofingContractor",
-            name: "Roofing Demo Website",
-            telephone: "+1111111111",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Redlands",
-              addressRegion: "CA",
-              addressCountry: "US",
-            },
-            areaServed: [
-              "Redlands",
-              "Loma Linda",
-              "Yucaipa",
-              "Mentone",
-              "Highland",
-              "San Bernardino",
-            ].map((n) => ({ "@type": "City", name: n })),
-            openingHoursSpecification: [
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                opens: "07:00",
-                closes: "18:00",
-              },
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: "Saturday",
-                opens: "08:00",
-                closes: "16:00",
-              },
-            ],
-            contactPoint: {
-              "@type": "ContactPoint",
-              telephone: "+1111111111",
-              contactType: "customer service",
-              areaServed: "US",
-              availableLanguage: "English",
-            },
-          },
-        }),
+        children: JSON.stringify([
+          { "@context": "https://schema.org", "@type": "ContactPage", url: SITE_URL + "/contact" },
+          localBusinessSchema,
+        ]),
       },
     ],
   }),
@@ -82,52 +55,62 @@ function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Get a free roof inspection and estimate"
-        intro="Calling is the fastest way to reach us — otherwise send a message and we'll respond within the hour during business hours."
+        title="Request your free estimate"
+        intro="Call us or send the form below. Jim will come out, measure the site and give you an honest written price with no obligation."
       />
 
-      <section className="bg-secondary/60 py-16 sm:py-24">
-        <div className="mx-auto grid max-w-6xl gap-10 px-4 md:grid-cols-2">
-          <div>
-            <h2 className="shine-text inline-block text-3xl font-extrabold uppercase sm:text-4xl">Reach us</h2>
-            <div className="mt-8 space-y-4">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+          <div className="space-y-8">
+            <div>
+              <h2 className="rule-copper text-2xl font-extrabold uppercase sm:text-3xl">
+                Talk to {BUSINESS_NAME}
+              </h2>
               <a
                 href={PHONE_HREF}
-                className="shine flex items-center gap-4 rounded-xl border border-border bg-card p-5 shadow-lift"
+                className="mt-6 flex items-center gap-3 font-display text-3xl font-extrabold text-copper"
               >
-                <Phone className="size-6 shrink-0 text-brand" />
-                <span className="min-w-0">
-                  <span className="block text-xs uppercase tracking-widest text-muted-foreground">
-                    Call us
-                  </span>
-                  <span className="block truncate font-display text-2xl font-extrabold">
-                    {PHONE_DISPLAY}
-                  </span>
-                </span>
+                <Phone className="size-7" /> {PHONE_DISPLAY}
               </a>
-              <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-5">
-                <MapPin className="size-6 shrink-0 text-brand" />
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                    Service area
-                  </p>
-                  <p className="font-semibold">
-                    Redlands, Loma Linda, Yucaipa, Mentone, Highland, San Bernardino & surrounding
-                    Inland Empire
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4 rounded-xl border border-border bg-card p-5">
-                <Clock className="size-6 shrink-0 text-brand" />
-                <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">Hours</p>
-                  <p className="font-semibold">Mon–Fri 7am–6pm · Sat 8am–4pm · Free inspections</p>
-                </div>
-              </div>
+              <a
+                href={`mailto:${EMAIL}`}
+                className="mt-4 flex items-center gap-3 font-medium hover:text-copper"
+              >
+                <Mail className="size-5 text-copper" /> {EMAIL}
+              </a>
+              <address className="mt-4 flex items-start gap-3 not-italic">
+                <MapPin className="mt-0.5 size-5 shrink-0 text-copper" />
+                <span>
+                  {ADDRESS_STREET}
+                  <br />
+                  {ADDRESS_CITY}, {ADDRESS_STATE} {ADDRESS_ZIP}
+                </span>
+              </address>
+            </div>
+
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h3 className="inline-flex items-center gap-2 text-lg font-bold uppercase">
+                <Clock className="size-5 text-copper" /> Hours
+              </h3>
+              <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
+                {hours.map((h) => (
+                  <li key={h.day}>
+                    <span className="font-semibold text-foreground">{h.day}:</span> {h.time}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-xl border border-border bg-secondary/60 p-6">
+              <h3 className="text-lg font-bold uppercase">Service area</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{serviceAreas.join(" · ")}</p>
+              <p className="mt-3 text-sm text-muted-foreground">
+                Not listed? Call us — we may still service your area.
+              </p>
             </div>
           </div>
 
-          <ContactForm />
+          <EstimateForm />
         </div>
       </section>
     </>
