@@ -81,14 +81,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Roofing Demo Website | Roofers in Redlands, CA" },
+      { title: "Jim's Paving | Asphalt Paving in Santa Rosa & Sonoma County" },
       {
         name: "description",
         content:
-          "Licensed Redlands roofers for roof replacement, repair, leak detection, tile and flat roofing.",
+          "Asphalt paving contractor in Santa Rosa, CA. Driveways, resurfacing, sealcoating and commercial parking lots. BBB A+ accredited since 1989.",
       },
-      { name: "author", content: "Roofing Demo Website" },
-      { property: "og:site_name", content: "Roofing Demo Website" },
+      { name: "author", content: "Jim's Paving" },
+      { property: "og:site_name", content: "Jim's Paving" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
