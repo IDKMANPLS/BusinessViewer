@@ -294,23 +294,29 @@
   &::after {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -50%;
     z-index: 1;
     pointer-events: none;
     background: linear-gradient(
-      100deg,
-      transparent 25%,
-      color-mix(in oklab, white 55%, transparent) 50%,
-      transparent 75%
+      105deg,
+      transparent 30%,
+      color-mix(in oklab, white 70%, transparent) 48%,
+      color-mix(in oklab, white 45%, transparent) 52%,
+      transparent 70%
     );
-    transform: translateX(-120%) skewX(-18deg);
+    transform: translateX(-140%) skewX(-22deg);
     opacity: 0;
   }
 
   &:hover::after,
   &:focus-visible::after {
     opacity: 1;
-    animation: sheen-sweep 0.85s ease-out;
+    animation: sheen-sweep 0.9s ease-out;
+  }
+
+  &:hover,
+  &:focus-visible {
+    box-shadow: 0 10px 28px -10px color-mix(in oklab, var(--brand-deep) 45%, transparent);
   }
 }
 
