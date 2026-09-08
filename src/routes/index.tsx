@@ -133,7 +133,7 @@ function Home() {
                   }
                 >
                   <dt className="font-display text-3xl font-extrabold leading-none text-copper sm:text-[2.6rem]">
-                    <AnimatedCounter value={s.n} text={s.t} />
+                    <AnimatedCounter value={s.n} text={s.t} duration={s.n !== undefined ? 2200 : undefined} />
                   </dt>
                   <dd className="mt-2 text-xs leading-snug text-brand-foreground/60 sm:text-sm">
                     {s.label}
