@@ -60,6 +60,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  const { ui } = useLang();
+  const { services, gallery, trustPoints, whyChoose, steps, testimonials } = useSite();
+
   return (
     <>
       {/* Hero */}
@@ -74,14 +77,13 @@ function Home() {
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,color-mix(in_oklab,var(--brand-deep)_92%,transparent),color-mix(in_oklab,var(--brand-deep)_45%,transparent))]" />
         <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-24">
           <span className="inline-flex items-center gap-2 rounded-sm border border-copper/60 bg-copper/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-copper">
-            <BadgeCheck className="size-4" /> BBB A+ Accredited · Licensed &amp; Insured
+            <BadgeCheck className="size-4" /> {ui.home.badge}
           </span>
           <h1 className="mt-5 max-w-3xl text-4xl font-extrabold uppercase leading-[1.05] sm:text-6xl">
-            Quality Asphalt Paving. {YEARS_IN_BUSINESS} Years. Sonoma County.
+            {ui.home.h1}
           </h1>
           <p className="mt-5 max-w-2xl text-base text-brand-foreground/85 sm:text-lg">
-            Professional driveway &amp; parking lot installation from a trusted, BBB A+ accredited
-            contractor. Family-owned in Santa Rosa since {FOUNDED_YEAR}.
+            {ui.home.sub}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button
@@ -89,7 +91,7 @@ function Home() {
               size="lg"
               className="h-14 bg-copper text-base font-bold text-copper-foreground shadow-lift hover:bg-copper/90"
             >
-              <Link to="/contact">Request Free Estimate</Link>
+              <Link to="/contact">{ui.home.primaryCta}</Link>
             </Button>
             <Button
               asChild
@@ -98,15 +100,15 @@ function Home() {
               className="h-14 border-brand-foreground/40 bg-transparent text-base font-semibold text-brand-foreground hover:bg-brand-foreground/10 hover:text-brand-foreground"
             >
               <a href={PHONE_HREF}>
-                <Phone className="size-5" /> Call {BUSINESS_NAME} · {PHONE_DISPLAY}
+                <Phone className="size-5" /> {ui.home.callPrefix} {BUSINESS_NAME} · {PHONE_DISPLAY}
               </a>
             </Button>
           </div>
           <dl className="mt-12 grid max-w-xl grid-cols-3 gap-4 text-sm">
             {[
-              [`${YEARS_IN_BUSINESS}`, "Years in business"],
-              ["A+", "BBB accredited rating"],
-              ["Free", "On-site estimates"],
+              [`${YEARS_IN_BUSINESS}`, ui.home.statYears],
+              ["A+", ui.home.statRating],
+              [ui.home.statFreeValue, ui.home.statFree],
             ].map(([k, v]) => (
               <div key={v}>
                 <dt className="font-display text-3xl font-extrabold text-copper">{k}</dt>
@@ -118,7 +120,7 @@ function Home() {
       </section>
 
       {/* Trust strip */}
-      <section aria-label="Why you can trust Jim's Paving" className="border-b border-border bg-card">
+      <section aria-label={ui.home.trustAria} className="border-b border-border bg-card">
         <div className="mx-auto grid max-w-6xl gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
           {trustPoints.map(({ icon: Icon, title, desc }) => (
             <div key={title} className="flex items-start gap-3 bg-card px-5 py-7">
@@ -131,14 +133,14 @@ function Home() {
           ))}
         </div>
         <div className="mx-auto max-w-6xl px-4 py-4 text-center text-sm text-muted-foreground">
-          Verify our record:{" "}
+          {ui.home.verify}{" "}
           <a
             href={BBB_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="font-semibold text-brand underline hover:text-copper"
           >
-            view our Better Business Bureau profile
+            {ui.home.verifyLink}
           </a>
         </div>
       </section>
@@ -146,11 +148,10 @@ function Home() {
       {/* Services */}
       <section className="bg-secondary/60 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">Our services</h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            Residential driveways and commercial pavement — installation, repair and the
-            maintenance that keeps them out of trouble.
-          </p>
+          <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
+            {ui.home.servicesTitle}
+          </h2>
+          <p className="mt-4 max-w-2xl text-muted-foreground">{ui.home.servicesIntro}</p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map(({ icon: Icon, title, short, slug }) => (
               <div key={slug} className="card-pop flex flex-col rounded-xl border border-border bg-card p-6">
@@ -164,7 +165,7 @@ function Home() {
                   params={{ slug }}
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-brand hover:text-copper"
                 >
-                  Learn more <ArrowRight className="size-4" />
+                  {ui.home.learnMore} <ArrowRight className="size-4" />
                 </Link>
               </div>
             ))}
@@ -177,19 +178,15 @@ function Home() {
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-              Why choose {BUSINESS_NAME}
+              {ui.home.whyTitle} {BUSINESS_NAME}
             </h2>
-            <p className="mt-4 text-muted-foreground">
-              Jim Todorovitch Jr. has been paving Sonoma County driveways and lots since{" "}
-              {FOUNDED_YEAR}. He handles the estimates himself, and the same small crew does the
-              work — no rotating subcontractors, no pressure, no surprises on the invoice.
-            </p>
+            <p className="mt-4 text-muted-foreground">{ui.home.whyBody}</p>
             <Button
               asChild
               size="lg"
               className="mt-8 h-12 bg-copper font-bold text-copper-foreground hover:bg-copper/90"
             >
-              <Link to="/contact">Get my free estimate</Link>
+              <Link to="/contact">{ui.home.whyCta}</Link>
             </Button>
           </div>
           <ul className="space-y-3">
@@ -207,11 +204,9 @@ function Home() {
       <section className="bg-secondary/60 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-            Recent projects
+            {ui.home.recentTitle}
           </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            Driveways, parking lots and site work completed across Sonoma County.
-          </p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">{ui.home.recentIntro}</p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {gallery.slice(0, 3).map((g) => (
               <figure key={g.type} className="media-pop overflow-hidden rounded-xl bg-card">
@@ -236,14 +231,16 @@ function Home() {
             to="/gallery"
             className="mt-8 inline-flex items-center gap-2 font-bold uppercase tracking-wide text-brand hover:text-copper"
           >
-            View the full gallery <ArrowRight className="size-4" />
+            {ui.home.viewGallery} <ArrowRight className="size-4" />
           </Link>
         </div>
       </section>
 
       {/* Process */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-        <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">How it works</h2>
+        <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
+          {ui.home.howTitle}
+        </h2>
         <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((s) => (
             <li key={s.n} className="rounded-xl border border-border bg-card p-6">
@@ -260,7 +257,9 @@ function Home() {
       {/* Testimonials */}
       <section className="surface-deep py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">What customers say</h2>
+          <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">
+            {ui.home.testimonialsTitle}
+          </h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {testimonials.map((t) => (
               <figure
@@ -290,7 +289,7 @@ function Home() {
       {/* Service areas */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-          We proudly serve
+          {ui.home.areasTitle}
         </h2>
         <ul className="mt-8 flex flex-wrap gap-2">
           {serviceAreas.map((a) => (
@@ -303,18 +302,15 @@ function Home() {
           ))}
         </ul>
         <p className="mt-6 text-muted-foreground">
-          Not listed?{" "}
+          {ui.home.notListed}{" "}
           <a href={PHONE_HREF} className="font-semibold text-brand hover:text-copper">
-            Call us at {PHONE_DISPLAY}
+            {ui.home.callUsAt} {PHONE_DISPLAY}
           </a>{" "}
-          — we may service your area.
+          {ui.home.mayServe}
         </p>
       </section>
 
-      <CtaBand
-        title="Let's pave the way forward"
-        body={`Contact ${BUSINESS_NAME} today for a free, honest estimate on your driveway or parking lot.`}
-      />
+      <CtaBand title={ui.home.ctaTitle} body={ui.home.ctaBody} />
     </>
   );
 }
