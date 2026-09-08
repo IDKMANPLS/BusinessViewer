@@ -500,3 +500,30 @@ export const localBusinessSchema = {
     reviewCount: "7",
   },
 };
+
+export const areaHighlights = [
+  {
+    city: "Santa Rosa",
+    body: "Our home base. Driveway installation, resurfacing and commercial lots throughout Santa Rosa, from Roseland to Fountaingrove.",
+  },
+  {
+    city: "Petaluma",
+    body: "Asphalt driveways and parking lot maintenance for Petaluma homes, wineries and light-industrial properties.",
+  },
+  {
+    city: "Sonoma & Sonoma Valley",
+    body: "Long rural driveways, private lanes and hospitality parking built for seasonal traffic.",
+  },
+  {
+    city: "Windsor & Healdsburg",
+    body: "New driveways, overlays and sealcoating on properties where winter runoff needs to be managed.",
+  },
+  {
+    city: "Rohnert Park & Cotati",
+    body: "Commercial paving, striping and ADA-compliant parking layouts for local businesses.",
+  },
+  {
+    city: "Sebastopol & west county",
+    body: "Grading, base rock and paving for rural drives on soft, water-holding soils.",
+  },
+];

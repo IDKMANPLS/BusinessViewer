@@ -9,24 +9,21 @@ import {
   ADDRESS_CITY,
   ADDRESS_STATE,
   ADDRESS_ZIP,
-  FOUNDED_YEAR,
-  YEARS_IN_BUSINESS,
   BBB_URL,
-  hours,
   serviceAreas,
-  navLinks,
 } from "@/lib/site-data";
+import { LanguageToggle, useLang, useSite } from "@/lib/i18n";
 
 export function SiteFooter() {
+  const { ui } = useLang();
+  const { hours, navLinks } = useSite();
+
   return (
     <footer className="surface-deep">
       <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <h2 className="font-display text-2xl font-extrabold uppercase">{BUSINESS_NAME}</h2>
-          <p className="mt-2 text-sm text-brand-foreground/75">
-            Asphalt paving contractor serving Sonoma County since {FOUNDED_YEAR} —{" "}
-            {YEARS_IN_BUSINESS} years. Licensed, bonded and insured.
-          </p>
+          <p className="mt-2 text-sm text-brand-foreground/75">{ui.footer.about}</p>
           <a
             href={PHONE_HREF}
             className="mt-4 inline-flex items-center gap-2 font-display text-2xl font-bold text-copper"
@@ -47,27 +44,34 @@ export function SiteFooter() {
               {ADDRESS_CITY}, {ADDRESS_STATE} {ADDRESS_ZIP}
             </span>
           </address>
+          <LanguageToggle className="mt-4 border-brand-foreground/30 text-brand-foreground/85" />
         </div>
 
         <div>
-          <h3 className="text-sm font-bold uppercase tracking-widest text-copper">Hours</h3>
+          <h3 className="text-sm font-bold uppercase tracking-widest text-copper">
+            {ui.footer.hours}
+          </h3>
           <ul className="mt-3 space-y-1 text-sm text-brand-foreground/80">
             {hours.map((h) => (
               <li key={h.day}>
                 {h.day}: {h.time}
               </li>
             ))}
-            <li className="pt-1">Free estimates by appointment</li>
+            <li className="pt-1">{ui.footer.byAppointment}</li>
           </ul>
         </div>
 
         <div>
-          <h3 className="text-sm font-bold uppercase tracking-widest text-copper">Service area</h3>
+          <h3 className="text-sm font-bold uppercase tracking-widest text-copper">
+            {ui.footer.serviceArea}
+          </h3>
           <p className="mt-3 text-sm text-brand-foreground/80">{serviceAreas.join(" · ")}</p>
         </div>
 
         <div>
-          <h3 className="text-sm font-bold uppercase tracking-widest text-copper">Quick links</h3>
+          <h3 className="text-sm font-bold uppercase tracking-widest text-copper">
+            {ui.footer.quickLinks}
+          </h3>
           <ul className="mt-3 space-y-1 text-sm text-brand-foreground/80">
             {navLinks.map((l) => (
               <li key={l.to}>
@@ -78,19 +82,17 @@ export function SiteFooter() {
             ))}
           </ul>
           <p className="mt-4 text-sm text-brand-foreground/80">
-            BBB A+ Accredited ·{" "}
+            {ui.footer.bbb}{" "}
             <a
               href={BBB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-copper"
             >
-              View BBB profile
+              {ui.footer.viewBbb}
             </a>
           </p>
-          <p className="mt-1 text-xs text-brand-foreground/60">
-            Licensed &amp; insured California contractor
-          </p>
+          <p className="mt-1 text-xs text-brand-foreground/60">{ui.footer.licensed}</p>
         </div>
       </div>
 
