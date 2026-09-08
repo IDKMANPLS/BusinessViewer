@@ -90,8 +90,9 @@ const en = {
     statCrewValue: "Entire crew",
     statCrew: "on the job, owner on every project",
     statFounded: "Family-owned since",
-    ownerQuote: "We don't cut corners on the base, and we don't walk away from a job until it's done right. That's the only way we know how to work.",
-    ownerSignature: "— Jim's Paving",
+    ownerQuote: "Family owned and operated in Sonoma County since 1989 — licensed, insured, BBB A+ accredited, with the owner on every job site.",
+    ownerSignature: "Serving Santa Rosa & Sonoma County since 1989",
+
     guaranteeLabel: "Hardwork Guaranteed",
     trustAria: "Why you can trust Jim's Paving",
     verify: "Verify our record:",
@@ -263,8 +264,9 @@ const es: UiCopy = {
     statCrewValue: "Todo el equipo",
     statCrew: "en la obra, el dueño en cada proyecto",
     statFounded: "Empresa familiar desde",
-    ownerQuote: "No recortamos en la base, y no nos vamos de una obra hasta que quede bien hecha. Es la única forma que conocemos de trabajar.",
-    ownerSignature: "— Jim's Paving",
+    ownerQuote: "Negocio familiar en el Condado de Sonoma desde 1989: con licencia, asegurado, acreditado BBB A+ y con el dueño presente en cada obra.",
+    ownerSignature: "Sirviendo a Santa Rosa y el Condado de Sonoma desde 1989",
+
     guaranteeLabel: "Trabajo Garantizado",
     trustAria: "Por qué puede confiar en Jim's Paving",
     verify: "Verifique nuestro historial:",
