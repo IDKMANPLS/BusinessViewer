@@ -78,7 +78,7 @@ function Home() {
             aria-hidden="true"
             width={1725}
             height={660}
-            className="size-full scale-[1.12] object-cover object-center opacity-[0.45]"
+            className="size-full scale-[1.03] object-cover object-[62%_42%] opacity-[0.5]"
           />
         </Parallax>
         {/* layer 2 — ambient amber pool + tonal wash */}
@@ -86,7 +86,7 @@ function Home() {
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--asphalt)_92%,transparent)_0%,color-mix(in_oklab,var(--asphalt)_74%,transparent)_58%,color-mix(in_oklab,var(--asphalt)_55%,transparent)_100%)]" />
 
         {/* layer 3 — content */}
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:py-28 lg:py-36">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:py-24 lg:py-28">
           <div className="max-w-3xl">
             <span className="stage stage-1 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-copper">
               <BadgeCheck className="size-3.5" /> {ui.home.badge}
