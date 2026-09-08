@@ -71,14 +71,22 @@ function Home() {
     <>
       {/* ---------------- HERO: layered depth stack ---------------- */}
       <section className="surface-deep grain relative overflow-hidden">
-        {/* layer 1 — soft asphalt texture wash */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_15%_10%,color-mix(in_oklab,var(--graphite)_70%,transparent)_0%,transparent_70%)]" />
+        {/* layer 1 — Jim's truck, full-bleed behind the headline */}
+        <Parallax speed={0.14} className="absolute inset-0">
+          <img
+            src={truckAsset.url}
+            alt={`${BUSINESS_NAME} paving truck in ${ADDRESS_CITY}, California`}
+            width={1725}
+            height={660}
+            className="size-full object-cover object-[58%_45%]"
+          />
+        </Parallax>
         {/* layer 2 — ambient amber pool + tonal wash */}
-        <div className="ambient-amber pointer-events-none absolute inset-0 opacity-70" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--asphalt)_92%,transparent)_0%,color-mix(in_oklab,var(--asphalt)_74%,transparent)_58%,color-mix(in_oklab,var(--asphalt)_55%,transparent)_100%)]" />
+        <div className="ambient-amber pointer-events-none absolute inset-0 opacity-50" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--asphalt)_88%,transparent)_0%,color-mix(in_oklab,var(--asphalt)_66%,transparent)_55%,color-mix(in_oklab,var(--asphalt)_42%,transparent)_100%)]" />
 
         {/* layer 3 — content */}
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:py-24 lg:grid-cols-[1.02fr_0.98fr] lg:py-28">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:py-24 lg:py-32">
           <div>
             <span className="stage stage-1 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-copper">
               <BadgeCheck className="size-3.5" /> {ui.home.badge}
@@ -134,28 +142,6 @@ function Home() {
               ))}
             </dl>
           </div>
-
-          {/* the truck — Jim's own rig */}
-          <Parallax speed={-0.08}>
-            <figure className="mask-reveal relative overflow-hidden rounded-3xl border border-brand-foreground/12 shadow-[0_40px_80px_-50px_color-mix(in_oklab,var(--asphalt)_90%,transparent)]">
-              <img
-                src={truckAsset.url}
-                alt={`${BUSINESS_NAME} dump truck in Santa Rosa, California`}
-                width={1725}
-                height={660}
-                className="aspect-[4/3] w-full object-cover object-center transition-transform duration-[1200ms] ease-out hover:scale-[1.03] sm:aspect-[16/10]"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_50%,color-mix(in_oklab,var(--asphalt)_80%,transparent)_100%)]" />
-              <figcaption className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
-                <p className="font-display text-lg font-bold uppercase tracking-wide text-brand-foreground">
-                  {BUSINESS_NAME}
-                </p>
-                <p className="text-sm text-brand-foreground/70">
-                  {ADDRESS_CITY}, CA · {ui.home.callPrefix} {PHONE_DISPLAY}
-                </p>
-              </figcaption>
-            </figure>
-          </Parallax>
 
         </div>
 
