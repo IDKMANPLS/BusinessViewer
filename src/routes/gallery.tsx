@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBand } from "@/components/site/CtaBand";
 import { gallery, SITE_URL, BUSINESS_NAME } from "@/lib/site-data";
+import { useLang, useSite } from "@/lib/i18n";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
