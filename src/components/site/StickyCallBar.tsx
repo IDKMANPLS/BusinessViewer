@@ -8,7 +8,7 @@ export function StickyCallBar() {
   const { ui } = useLang();
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 p-3 shadow-float backdrop-blur md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background p-3 shadow-float md:hidden">
       <div className="grid grid-cols-2 gap-2">
         <Button
           asChild
