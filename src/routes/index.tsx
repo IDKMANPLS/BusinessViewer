@@ -77,7 +77,7 @@ function Home() {
         />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,color-mix(in_oklab,var(--brand-deep)_92%,transparent),color-mix(in_oklab,var(--brand-deep)_45%,transparent))]" />
         <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-24">
-          <span className="inline-flex items-center gap-2 rounded-sm border border-copper/60 bg-copper/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-copper">
+          <span className="inline-flex max-w-full flex-wrap items-center gap-2 rounded-sm border border-copper/60 bg-copper/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-copper transition-colors duration-300 hover:bg-copper/25 sm:tracking-widest">
             <BadgeCheck className="size-4" /> {ui.home.badge}
           </span>
           <h1 className="mt-5 max-w-3xl text-4xl font-extrabold uppercase leading-[1.05] sm:text-6xl">
