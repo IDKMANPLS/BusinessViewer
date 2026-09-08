@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, BadgeCheck, Check, ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-paving.jpg";
+import truckAsset from "@/assets/jims-truck.png.asset.json";
 import { CtaBand } from "@/components/site/CtaBand";
 import {
   BUSINESS_NAME,
@@ -73,17 +73,17 @@ function Home() {
         {/* layer 1 — photograph, drifts slower than the page */}
         <Parallax speed={0.18} className="absolute inset-0">
           <img
-            src={heroImg}
+            src={truckAsset.url}
             alt=""
             aria-hidden="true"
-            width={1600}
-            height={1008}
-            className="size-full scale-[1.12] object-cover opacity-[0.22]"
+            width={1725}
+            height={660}
+            className="size-full scale-[1.12] object-cover object-center opacity-[0.45]"
           />
         </Parallax>
         {/* layer 2 — ambient amber pool + tonal wash */}
         <div className="ambient-amber pointer-events-none absolute inset-0 opacity-70" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--asphalt)_92%,transparent)_0%,color-mix(in_oklab,var(--asphalt)_74%,transparent)_58%,color-mix(in_oklab,var(--asphalt)_40%,transparent)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--asphalt)_92%,transparent)_0%,color-mix(in_oklab,var(--asphalt)_74%,transparent)_58%,color-mix(in_oklab,var(--asphalt)_55%,transparent)_100%)]" />
 
         {/* layer 3 — content */}
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:py-28 lg:py-36">
