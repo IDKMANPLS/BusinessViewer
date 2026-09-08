@@ -56,7 +56,7 @@ export function SiteFooter() {
               {ADDRESS_CITY}, {ADDRESS_STATE} {ADDRESS_ZIP}
             </span>
           </address>
-          <LanguageToggle className="mt-6 !border-brand-foreground/20 !bg-brand-foreground/5" />
+          <LanguageToggle className="mt-6 !border-brand-foreground/20 !bg-brand-foreground/5 !text-brand-foreground hover:!text-copper" />
         </div>
 
         <div>
