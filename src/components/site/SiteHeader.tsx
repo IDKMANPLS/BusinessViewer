@@ -43,7 +43,7 @@ export function SiteHeader() {
           }`}
         >
           <Link to="/" className="group min-w-0">
-            <span className="block truncate font-display text-2xl font-extrabold uppercase tracking-tight transition-colors duration-300 group-hover:text-copper">
+            <span className="block truncate font-display text-xl sm:text-2xl font-extrabold uppercase tracking-tight transition-colors duration-300 group-hover:text-copper">
               {BUSINESS_NAME}
             </span>
             <span className="block truncate text-[0.7rem] uppercase tracking-[0.16em] text-muted-foreground">
@@ -64,7 +64,7 @@ export function SiteHeader() {
                 </Link>
               ))}
             </div>
-            <LanguageToggle className="hidden sm:inline-flex" />
+            <span className="hidden sm:inline-flex"><LanguageToggle /></span>
             <Button
               asChild
               className="hidden bg-copper font-bold text-copper-foreground hover:bg-copper/90 sm:inline-flex"
