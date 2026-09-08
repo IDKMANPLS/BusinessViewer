@@ -21,6 +21,7 @@ export function AnimatedCounter({
   const { ref, inView } = useInView<HTMLSpanElement>("-5%");
   const [n, setN] = useState(0);
 
+
   useEffect(() => {
     if (!inView || value === undefined) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -40,9 +41,18 @@ export function AnimatedCounter({
     return () => cancelAnimationFrame(raf);
   }, [inView, value, duration]);
 
+  // Text stats (A+, Free) get a matching entrance instead of a count-up.
+  if (text !== undefined) {
+    return (
+      <span ref={ref} className={className}>
+        <span className={inView ? "stat-pop" : "opacity-0"}>{text}</span>
+      </span>
+    );
+  }
+
   return (
     <span ref={ref} className={className}>
-      {text ?? `${n}${suffix}`}
+      <span className={inView ? "stat-pop" : ""}>{`${n}${suffix}`}</span>
     </span>
   );
 }

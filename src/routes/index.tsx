@@ -87,7 +87,7 @@ function Home() {
 
         {/* layer 3 — content */}
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:py-24 lg:py-32">
-          <div>
+          <div className="max-w-3xl">
             <span className="stage stage-1 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-copper">
               <BadgeCheck className="size-3.5" /> {ui.home.badge}
             </span>
