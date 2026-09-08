@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Phone, BadgeCheck, Check, ArrowRight } from "lucide-react";
+import { Phone, BadgeCheck, Check, ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-paving.jpg";
+import driveImg from "@/assets/work-driveway.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
 import {
   BUSINESS_NAME,
@@ -10,21 +11,19 @@ import {
   FOUNDED_YEAR,
   YEARS_IN_BUSINESS,
   BBB_URL,
-  services,
-  gallery,
-  trustPoints,
-  whyChoose,
-  steps,
-  testimonials,
+  OWNER,
+  CREW_SIZE,
+  ADDRESS_CITY,
   serviceAreas,
   localBusinessSchema,
   SITE_URL,
 } from "@/lib/site-data";
 import { useLang, useSite } from "@/lib/i18n";
 import { Reveal } from "@/components/site/Reveal";
-import { AnimatedCounter, Meter } from "@/components/site/AnimatedCounter";
+import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ProjectCarousel } from "@/components/site/ProjectCarousel";
 import { TestimonialRotator } from "@/components/site/TestimonialRotator";
+import { Parallax } from "@/components/site/Parallax";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -35,7 +34,10 @@ export const Route = createFileRoute("/")({
         content:
           "Asphalt paving contractor in Santa Rosa serving Sonoma County since 1989. Driveway installation, resurfacing, sealcoating and commercial parking lots. BBB A+. Free estimates.",
       },
-      { property: "og:title", content: "Asphalt Paving in Santa Rosa & Sonoma County | Jim's Paving" },
+      {
+        property: "og:title",
+        content: "Asphalt Paving in Santa Rosa & Sonoma County | Jim's Paving",
+      },
       {
         property: "og:description",
         content:
@@ -66,173 +68,290 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const { ui } = useLang();
-  const { services, gallery, trustPoints, whyChoose, steps, testimonials } = useSite();
+  const { services, gallery, trustPoints, whyChoose, steps, testimonials, faqs } = useSite();
 
   return (
     <>
-      {/* Hero */}
-      <section className="surface-deep relative overflow-hidden">
-        <img
-          src={heroImg}
-          alt="Freshly paved asphalt driveway at a home in Santa Rosa, California"
-          width={1600}
-          height={1008}
-          className="float-slow absolute inset-0 size-full scale-110 object-cover opacity-40"
-        />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,color-mix(in_oklab,var(--brand-deep)_92%,transparent),color-mix(in_oklab,var(--brand-deep)_45%,transparent))]" />
-        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-24">
-          <span className="inline-flex max-w-full flex-wrap items-center gap-2 rounded-sm border border-copper/60 bg-copper/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-copper transition-colors duration-300 hover:bg-copper/25 sm:tracking-widest">
-            <BadgeCheck className="size-4" /> {ui.home.badge}
-          </span>
-          <h1 className="mt-5 max-w-3xl text-4xl font-extrabold uppercase leading-[1.05] sm:text-6xl">
-            {ui.home.h1}
-          </h1>
-          <p className="mt-5 max-w-2xl text-base text-brand-foreground/85 sm:text-lg">
-            {ui.home.sub}
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button
-              asChild
-              size="lg"
-              className="cta-glow h-14 bg-copper text-base font-bold tracking-wide text-copper-foreground shadow-lift hover:bg-copper/90"
-            >
-              <Link to="/contact">{ui.home.primaryCta}</Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="h-14 border-brand-foreground/40 bg-transparent text-base font-semibold text-brand-foreground hover:bg-brand-foreground/10 hover:text-brand-foreground"
-            >
-              <a href={PHONE_HREF}>
-                <Phone className="size-5" /> {ui.home.callPrefix} {BUSINESS_NAME} · {PHONE_DISPLAY}
-              </a>
-            </Button>
+      {/* ---------------- HERO: layered depth stack ---------------- */}
+      <section className="surface-deep grain relative overflow-hidden">
+        {/* layer 1 — photograph, drifts slower than the page */}
+        <Parallax speed={0.18} className="absolute inset-0">
+          <img
+            src={heroImg}
+            alt=""
+            aria-hidden="true"
+            width={1600}
+            height={1008}
+            className="size-full scale-[1.12] object-cover opacity-[0.22]"
+          />
+        </Parallax>
+        {/* layer 2 — ambient amber pool + tonal wash */}
+        <div className="ambient-amber pointer-events-none absolute inset-0 opacity-70" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--asphalt)_94%,transparent)_0%,color-mix(in_oklab,var(--asphalt)_72%,transparent)_52%,transparent_100%)]" />
+
+        {/* layer 3 — content */}
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:py-28 lg:grid-cols-[1.05fr_0.95fr] lg:py-32">
+          <div>
+            <span className="stage stage-1 inline-flex items-center gap-2 border border-copper/40 bg-copper/10 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-copper">
+              <BadgeCheck className="size-3.5" /> {ui.home.badge}
+            </span>
+            <h1 className="display-xl stage stage-2 mt-7 text-[2.6rem] sm:text-6xl lg:text-[4.2rem]">
+              {ui.home.h1}
+            </h1>
+            <p className="stage stage-3 mt-6 max-w-xl text-base leading-relaxed text-brand-foreground/75 sm:text-lg">
+              {ui.home.sub}
+            </p>
+            <div className="stage stage-4 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Button
+                asChild
+                size="lg"
+                className="h-14 bg-copper px-7 text-base font-bold tracking-wide text-copper-foreground hover:bg-copper"
+              >
+                <Link to="/contact">{ui.home.primaryCta}</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-14 border-brand-foreground/25 bg-transparent px-6 text-base font-semibold text-brand-foreground hover:border-brand-foreground/50 hover:bg-brand-foreground/5 hover:text-brand-foreground"
+              >
+                <a href={PHONE_HREF}>
+                  <Phone className="size-5" /> {PHONE_DISPLAY}
+                </a>
+              </Button>
+            </div>
+
+            {/* layer 4 — foreground micro-detail: stat row on hairlines */}
+            <dl className="stage stage-5 mt-14 grid max-w-lg grid-cols-3 border-t border-brand-foreground/15 pt-6">
+              {[
+                { n: YEARS_IN_BUSINESS, label: ui.home.statYears },
+                { t: "A+", label: ui.home.statRating },
+                { t: ui.home.statFreeValue, label: ui.home.statFree },
+              ].map((s, i) => (
+                <div
+                  key={s.label}
+                  className={
+                    i === 0
+                      ? "pr-4"
+                      : "border-l border-brand-foreground/15 pl-4 sm:pl-6"
+                  }
+                >
+                  <dt className="font-display text-3xl font-extrabold leading-none text-copper sm:text-[2.6rem]">
+                    <AnimatedCounter value={s.n} text={s.t} />
+                  </dt>
+                  <dd className="mt-2 text-xs leading-snug text-brand-foreground/60 sm:text-sm">
+                    {s.label}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </div>
-          <dl className="mt-12 grid max-w-xl grid-cols-3 gap-4 text-sm">
-            {[
-              { n: YEARS_IN_BUSINESS, label: ui.home.statYears, pct: 100 },
-              { t: "A+", label: ui.home.statRating, pct: 100 },
-              { t: ui.home.statFreeValue, label: ui.home.statFree, pct: 100 },
-            ].map((s, i) => (
-              <Reveal key={s.label} dir="up" delay={i * 120}>
-                <dt className="font-display text-3xl font-extrabold text-copper sm:text-4xl">
-                  <AnimatedCounter value={s.n} text={s.t} />
-                </dt>
-                <dd className="text-brand-foreground/75">{s.label}</dd>
-                <Meter percent={s.pct} className="mt-3 max-w-24" />
-              </Reveal>
-            ))}
-          </dl>
+
+          {/* centrepiece — masked photo plate, drifts opposite the background */}
+          <div className="relative hidden lg:block">
+            <Parallax speed={-0.1}>
+              <figure className="mask-reveal relative overflow-hidden border border-brand-foreground/12">
+                <img
+                  src={driveImg}
+                  alt="Newly installed asphalt driveway in Sonoma County"
+                  width={1200}
+                  height={900}
+                  className="aspect-[4/5] w-full object-cover"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,color-mix(in_oklab,var(--asphalt)_82%,transparent)_100%)]" />
+                <figcaption className="absolute inset-x-0 bottom-0 p-6">
+                  <p className="eyebrow">{ADDRESS_CITY}, CA</p>
+                  <p className="mt-1 font-display text-xl font-bold uppercase text-brand-foreground">
+                    {OWNER}
+                  </p>
+                  <p className="text-sm text-brand-foreground/70">
+                    {ui.home.callPrefix} · {PHONE_DISPLAY}
+                  </p>
+                </figcaption>
+              </figure>
+            </Parallax>
+          </div>
+        </div>
+
+        <div className="relative mx-auto hidden max-w-6xl px-4 pb-8 lg:block">
+          <ChevronDown className="float-soft size-5 text-brand-foreground/35" />
         </div>
       </section>
 
-      {/* Trust strip */}
+      {/* ---------------- TRUST STRIP ---------------- */}
       <section aria-label={ui.home.trustAria} className="border-b border-border bg-card">
-        <div className="mx-auto grid max-w-6xl gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
-          {trustPoints.map(({ icon: Icon, title, desc }) => (
-            <div
+        <div className="mx-auto grid max-w-6xl divide-y divide-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+          {trustPoints.map(({ icon: Icon, title, desc }, i) => (
+            <Reveal
               key={title}
-              className="group flex items-start gap-3 bg-card px-5 py-7 transition-colors duration-300 hover:bg-secondary/50"
+              dir="up"
+              delay={i * 80}
+              className="group flex items-start gap-3.5 px-6 py-7 transition-colors duration-300 hover:bg-secondary/45"
             >
-              <Icon className="float-soft mt-0.5 size-7 shrink-0 text-copper transition-transform duration-300 group-hover:scale-110" />
+              <Icon className="mt-0.5 size-6 shrink-0 text-copper transition-transform duration-500 ease-out group-hover:-translate-y-0.5" />
               <div className="min-w-0">
-                <p className="font-display text-lg font-bold uppercase leading-tight">{title}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
+                <p className="font-display text-base font-bold uppercase leading-tight tracking-wide">
+                  {title}
+                </p>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{desc}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
-        <div className="mx-auto max-w-6xl px-4 py-4 text-center text-sm text-muted-foreground">
-          {ui.home.verify}{" "}
+        <div className="mx-auto flex max-w-6xl items-center justify-center px-4 pb-7">
           <a
             href={BBB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-brand underline hover:text-copper"
+            className="group inline-flex items-center gap-2.5 border border-border bg-background px-4 py-2.5 text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-copper/60"
           >
-            {ui.home.verifyLink}
+            <BadgeCheck className="size-4 text-copper" />
+            <span className="text-muted-foreground">{ui.home.verify}</span>
+            <span className="font-semibold text-foreground transition-colors duration-300 group-hover:text-copper">
+              {ui.home.verifyLink}
+            </span>
+            <ArrowUpRight className="size-4 text-copper transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="bg-secondary/60 py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4">
-          <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-            {ui.home.servicesTitle}
-          </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">{ui.home.servicesIntro}</p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map(({ icon: Icon, title, short, slug }, i) => (
-              <Reveal
-                key={slug}
-                dir={i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : "up"}
-                delay={(i % 3) * 90}
-                className="group flex h-full flex-col rounded-xl p-6 glass-card"
+      {/* ---------------- CORE VALUE PROPOSITION (editorial) ---------------- */}
+      <section className="mx-auto max-w-6xl px-4 py-24 sm:py-32">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+          <Reveal dir="left">
+            <p className="eyebrow">{ui.home.whyTitle}</p>
+            <h2 className="display-xl mt-4 text-4xl sm:text-5xl">{BUSINESS_NAME}</h2>
+          </Reveal>
+          <Reveal dir="right" delay={90}>
+            <p className="text-xl leading-relaxed text-foreground/85 sm:text-[1.4rem] sm:leading-[1.5]">
+              {ui.home.whyBody}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-border pt-6">
+              <span className="text-sm text-muted-foreground">
+                <strong className="font-display text-2xl font-extrabold text-foreground">
+                  <AnimatedCounter value={CREW_SIZE} />
+                </strong>{" "}
+                {ui.home.statCrew}
+              </span>
+              <span className="text-sm text-muted-foreground">
+                <strong className="font-display text-2xl font-extrabold text-foreground">
+                  {FOUNDED_YEAR}
+                </strong>{" "}
+                {ui.home.statFounded}
+              </span>
+              <Button
+                asChild
+                className="h-11 bg-foreground font-bold text-background hover:bg-foreground/90"
               >
-                <span className="inline-flex size-11 items-center justify-center rounded-md bg-copper/15 text-copper transition-all duration-500 group-hover:-translate-y-0.5 group-hover:bg-copper group-hover:text-copper-foreground">
-                  <Icon className="size-6" />
-                </span>
-                <h3 className="mt-4 text-xl font-bold uppercase tracking-wide transition-colors duration-300 group-hover:text-copper">
-                  {title}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{short}</p>
-                <Link
-                  to="/services/$slug"
-                  params={{ slug }}
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-brand transition-colors duration-300 hover:text-copper"
-                >
-                  {ui.home.learnMore}{" "}
-                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </Reveal>
-            ))}
-          </div>
+                <Link to="/contact">{ui.home.whyCta}</Link>
+              </Button>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      {/* Why choose */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-        <div className="grid gap-10 lg:grid-cols-2">
-          <div>
-            <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-              {ui.home.whyTitle} {BUSINESS_NAME}
-            </h2>
-            <p className="mt-4 text-muted-foreground">{ui.home.whyBody}</p>
-            <Button
-              asChild
-              size="lg"
-              className="mt-8 h-12 bg-copper font-bold text-copper-foreground hover:bg-copper/90"
-            >
-              <Link to="/contact">{ui.home.whyCta}</Link>
-            </Button>
+      {/* ---------------- SERVICES (asymmetric rows, not a card wall) ---------------- */}
+      <section className="border-y border-border bg-secondary/45 py-24 sm:py-32">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end">
+            <div>
+              <p className="eyebrow">{ui.home.servicesTitle}</p>
+              <h2 className="display-xl rule-amber mt-4 text-4xl sm:text-5xl">
+                {ui.home.servicesTitle}
+              </h2>
+            </div>
+            <p className="max-w-xl text-muted-foreground lg:pb-2">{ui.home.servicesIntro}</p>
           </div>
-          <ul className="space-y-3">
-            {whyChoose.map((w, i) => (
+
+          <ul className="mt-14 border-t border-border">
+            {services.map(({ icon: Icon, title, short, slug }, i) => (
               <Reveal
                 as="li"
-                key={w}
-                dir="right"
-                delay={i * 70}
-                className="flex items-start gap-3 rounded-lg p-4 glass-card"
+                key={slug}
+                dir="up"
+                delay={i * 60}
+                className="border-b border-border"
               >
-                <Check className="mt-0.5 size-5 shrink-0 text-copper" />
-                <span className="text-sm font-medium">{w}</span>
+                <Link
+                  to="/services/$slug"
+                  params={{ slug }}
+                  className="hover-row group grid grid-cols-[auto_1fr_auto] items-center gap-5 px-2 py-7 sm:gap-8 sm:px-4"
+                >
+                  <span className="font-display text-sm font-bold text-concrete sm:text-base">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div className="min-w-0 sm:grid sm:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] sm:items-center sm:gap-8">
+                    <h3 className="flex items-center gap-3 font-display text-xl font-bold uppercase tracking-wide transition-colors duration-300 group-hover:text-copper sm:text-2xl">
+                      <Icon className="size-5 text-copper transition-transform duration-500 ease-out group-hover:scale-110" />
+                      {title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:mt-0">
+                      {short}
+                    </p>
+                  </div>
+                  <ArrowRight className="size-5 text-concrete transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:text-copper" />
+                </Link>
               </Reveal>
             ))}
           </ul>
         </div>
       </section>
 
-      {/* Gallery */}
-      <section className="bg-secondary/60 py-16 sm:py-24">
+      {/* ---------------- DIFFERENTIATION (full-bleed dark) ---------------- */}
+      <section className="surface-deep grain relative overflow-hidden py-24 sm:py-32">
+        <div className="ambient-amber pointer-events-none absolute inset-0 opacity-50" />
+        <div className="relative mx-auto grid max-w-6xl gap-14 px-4 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+          <Reveal dir="left">
+            <p className="eyebrow">{ui.home.howTitle}</p>
+            <h2 className="display-xl mt-4 text-4xl sm:text-5xl">{ui.home.ctaTitle}</h2>
+            <p className="mt-6 max-w-md text-brand-foreground/70">{ui.home.ctaBody}</p>
+            <Button
+              asChild
+              size="lg"
+              className="mt-8 h-13 bg-copper px-7 font-bold text-copper-foreground hover:bg-copper"
+            >
+              <a href={PHONE_HREF}>
+                <Phone className="size-5" /> {PHONE_DISPLAY}
+              </a>
+            </Button>
+          </Reveal>
+          <ul className="grid gap-px bg-brand-foreground/12 sm:grid-cols-2">
+            {whyChoose.map((w, i) => (
+              <Reveal
+                as="li"
+                key={w}
+                dir="up"
+                delay={i * 60}
+                className="group flex items-start gap-3 bg-asphalt/80 p-6 transition-colors duration-500 hover:bg-graphite/70"
+              >
+                <Check className="mt-0.5 size-4 shrink-0 text-copper transition-transform duration-500 group-hover:scale-110" />
+                <span className="text-sm leading-relaxed text-brand-foreground/85">{w}</span>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ---------------- VISUAL SHOWCASE ---------------- */}
+      <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-            {ui.home.recentTitle}
-          </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">{ui.home.recentIntro}</p>
-          <div className="mt-10">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="eyebrow">{ui.home.recentTitle}</p>
+              <h2 className="display-xl rule-amber mt-4 text-4xl sm:text-5xl">
+                {ui.home.recentTitle}
+              </h2>
+            </div>
+            <Link
+              to="/gallery"
+              className="group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.14em] transition-colors duration-300 hover:text-copper"
+            >
+              {ui.home.viewGallery}
+              <ArrowRight className="size-4 text-copper transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </div>
+          <p className="mt-5 max-w-xl text-muted-foreground">{ui.home.recentIntro}</p>
+          <div className="mt-12">
             <ProjectCarousel
               items={gallery}
               prevLabel={ui.home.prevSlide}
@@ -240,76 +359,106 @@ function Home() {
               goLabel={ui.home.goToSlide}
             />
           </div>
-          <Link
-            to="/gallery"
-            className="mt-8 inline-flex items-center gap-2 font-bold uppercase tracking-wide text-brand hover:text-copper"
-          >
-            {ui.home.viewGallery} <ArrowRight className="size-4" />
-          </Link>
         </div>
       </section>
 
-      {/* Process */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-        <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-          {ui.home.howTitle}
-        </h2>
-        <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, i) => (
-            <Reveal
-              as="li"
-              key={step.n}
-              dir={i % 2 === 0 ? "left" : "right"}
-              delay={i * 100}
-              className="group rounded-xl p-6 glass-card"
-            >
-              <span className="inline-flex size-10 items-center justify-center rounded-md bg-brand-deep font-display text-lg font-extrabold text-copper transition-transform duration-500 group-hover:scale-110">
-                {step.n}
-              </span>
-              <h3 className="mt-4 text-lg font-bold uppercase leading-tight tracking-wide">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
-              <Meter percent={((i + 1) / steps.length) * 100} className="mt-5" />
-            </Reveal>
-          ))}
-        </ol>
+      {/* ---------------- PROCESS (numbered timeline) ---------------- */}
+      <section className="border-y border-border bg-secondary/45 py-24 sm:py-32">
+        <div className="mx-auto max-w-6xl px-4">
+          <p className="eyebrow">{ui.home.howTitle}</p>
+          <h2 className="display-xl rule-amber mt-4 max-w-xl text-4xl sm:text-5xl">
+            {ui.home.howTitle}
+          </h2>
+          <ol className="mt-14 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map((step, i) => (
+              <Reveal
+                as="li"
+                key={step.n}
+                dir="up"
+                delay={i * 90}
+                className="group relative bg-background p-7 transition-colors duration-500 hover:bg-card"
+              >
+                <span className="absolute right-6 top-6 font-display text-5xl font-extrabold leading-none text-foreground/5 transition-colors duration-500 group-hover:text-copper/20">
+                  {step.n}
+                </span>
+                <span className="inline-flex h-8 items-center border-b-2 border-copper font-display text-sm font-bold uppercase tracking-[0.18em] text-copper">
+                  {ui.home.howTitle.slice(0, 0)}
+                  {String(step.n).padStart(2, "0")}
+                </span>
+                <h3 className="mt-5 font-display text-lg font-bold uppercase leading-tight tracking-wide">
+                  {step.title}
+                </h3>
+                <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="surface-deep py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">
+      {/* ---------------- TESTIMONIALS ---------------- */}
+      <section className="py-24 sm:py-32">
+        <div className="mx-auto max-w-5xl px-4">
+          <p className="eyebrow text-center">{ui.home.testimonialsTitle}</p>
+          <h2 className="display-xl mt-4 text-center text-4xl sm:text-5xl">
             {ui.home.testimonialsTitle}
           </h2>
-          <div className="mt-10">
+          <div className="mt-12">
             <TestimonialRotator items={testimonials} goLabel={ui.home.goToReview} />
           </div>
         </div>
       </section>
 
-      {/* Service areas */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-        <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-          {ui.home.areasTitle}
-        </h2>
-        <ul className="mt-8 flex flex-wrap gap-2">
-          {serviceAreas.map((a) => (
-            <li
-              key={a}
-              className="rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:border-copper hover:text-copper hover:shadow-lift"
-            >
-              {a}
-            </li>
-          ))}
-        </ul>
-        <p className="mt-6 text-muted-foreground">
-          {ui.home.notListed}{" "}
-          <a href={PHONE_HREF} className="font-semibold text-brand hover:text-copper">
-            {ui.home.callUsAt} {PHONE_DISPLAY}
-          </a>{" "}
-          {ui.home.mayServe}
-        </p>
+      {/* ---------------- FAQ + SERVICE AREAS ---------------- */}
+      <section className="border-t border-border bg-secondary/45 py-24 sm:py-32">
+        <div className="mx-auto grid max-w-6xl gap-16 px-4 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+          <div>
+            <p className="eyebrow">{ui.services.faqTitle}</p>
+            <h2 className="display-xl rule-amber mt-4 text-3xl sm:text-4xl">
+              {ui.services.faqTitle}
+            </h2>
+            <div className="mt-10 border-t border-border">
+              {faqs.slice(0, 5).map((f) => (
+                <details key={f.q} className="faq-row group border-b border-border py-5">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 font-semibold [&::-webkit-details-marker]:hidden">
+                    {f.q}
+                    <ChevronDown className="size-4 shrink-0 text-copper transition-transform duration-500 ease-out group-open:rotate-180" />
+                  </summary>
+                  <p className="faq-answer mt-3 max-w-prose text-sm leading-relaxed text-muted-foreground">
+                    {f.a}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="eyebrow">{ui.home.areasTitle}</p>
+            <h2 className="display-xl rule-amber mt-4 text-3xl sm:text-4xl">
+              {ui.home.areasTitle}
+            </h2>
+            <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-px">
+              {serviceAreas.map((a) => (
+                <li
+                  key={a}
+                  className="group flex items-center gap-2.5 border-b border-border py-3 text-sm font-medium transition-colors duration-300 hover:text-copper"
+                >
+                  <span className="size-1.5 shrink-0 bg-copper/50 transition-colors duration-300 group-hover:bg-copper" />
+                  {a}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-sm leading-relaxed text-muted-foreground">
+              {ui.home.notListed}{" "}
+              <a
+                href={PHONE_HREF}
+                className="font-semibold text-foreground underline decoration-copper decoration-2 underline-offset-4 transition-colors duration-300 hover:text-copper"
+              >
+                {ui.home.callUsAt} {PHONE_DISPLAY}
+              </a>{" "}
+              {ui.home.mayServe}
+            </p>
+          </div>
+        </div>
       </section>
 
       <CtaBand title={ui.home.ctaTitle} body={ui.home.ctaBody} />
