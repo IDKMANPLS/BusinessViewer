@@ -807,7 +807,7 @@
   & > select:focus + label,
   & > input:not(:placeholder-shown) + label,
   & > textarea:not(:placeholder-shown) + label,
-  & > select[data-filled="true"] + label {
+  & > select + label {
     top: -0.55rem;
     font-size: 0.6875rem;
     font-weight: 700;
