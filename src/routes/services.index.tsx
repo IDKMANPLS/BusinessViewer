@@ -107,7 +107,7 @@ function ServicesIndex() {
               <details key={f.q} className="faq-row group rounded-lg py-4">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">
                   {f.q}
-                  <ChevronDown className="size-5 shrink-0 text-copper transition-transform group-open:rotate-180" />
+                  <ChevronDown className="size-5 shrink-0 text-copper transition-transform duration-500 ease-out group-open:rotate-180" />
                 </summary>
                 <p className="faq-answer mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
               </details>
