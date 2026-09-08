@@ -67,13 +67,12 @@ export const Route = createFileRoute("/service-areas")({
 });
 
 function ServiceAreasPage() {
+  const { ui } = useLang();
+  const { areaHighlights } = useSite();
+
   return (
     <>
-      <PageHero
-        eyebrow="Service areas"
-        title="Paving Sonoma County for 37 years"
-        intro="We proudly serve the following communities — and we know the soil, drainage and weather in each of them."
-      />
+      <PageHero eyebrow={ui.areas.eyebrow} title={ui.areas.title} intro={ui.areas.intro} />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <ul className="flex flex-wrap gap-2">
@@ -88,7 +87,7 @@ function ServiceAreasPage() {
         </ul>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {highlights.map((h) => (
+          {areaHighlights.map((h) => (
             <div key={h.city} className="card-pop rounded-xl border border-border bg-card p-6">
               <h2 className="text-xl font-bold uppercase">{h.city}</h2>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{h.body}</p>
@@ -97,12 +96,8 @@ function ServiceAreasPage() {
         </div>
 
         <div className="mt-12 rounded-xl border border-border bg-secondary/60 p-6 sm:p-8">
-          <h2 className="text-2xl font-bold uppercase">Not listed? Call us.</h2>
-          <p className="mt-2 max-w-2xl text-muted-foreground">
-            After {YEARS_IN_BUSINESS} years we travel well beyond the city limits, including parts
-            of Napa and Mendocino counties. Tell us where the property is and we'll tell you
-            straight whether we can serve it.
-          </p>
+          <h2 className="text-2xl font-bold uppercase">{ui.areas.notListedTitle}</h2>
+          <p className="mt-2 max-w-2xl text-muted-foreground">{ui.areas.notListedBody}</p>
           <Button
             asChild
             size="lg"
