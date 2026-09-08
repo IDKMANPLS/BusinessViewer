@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, BadgeCheck, Check, ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-paving.jpg";
-import driveImg from "@/assets/work-driveway.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
 import {
   BUSINESS_NAME,
@@ -11,8 +10,6 @@ import {
   FOUNDED_YEAR,
   YEARS_IN_BUSINESS,
   BBB_URL,
-  OWNER_NAME,
-  ADDRESS_CITY,
   serviceAreas,
   localBusinessSchema,
   SITE_URL,
@@ -81,16 +78,16 @@ function Home() {
             aria-hidden="true"
             width={1600}
             height={1008}
-            className="size-full scale-[1.12] object-cover opacity-[0.22]"
+            className="size-full scale-[1.12] object-cover opacity-[0.38]"
           />
         </Parallax>
         {/* layer 2 — ambient amber pool + tonal wash */}
         <div className="ambient-amber pointer-events-none absolute inset-0 opacity-70" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--asphalt)_94%,transparent)_0%,color-mix(in_oklab,var(--asphalt)_72%,transparent)_52%,transparent_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--asphalt)_92%,transparent)_0%,color-mix(in_oklab,var(--asphalt)_74%,transparent)_58%,color-mix(in_oklab,var(--asphalt)_40%,transparent)_100%)]" />
 
         {/* layer 3 — content */}
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:py-28 lg:grid-cols-[1.05fr_0.95fr] lg:py-32">
-          <div>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:py-28 lg:py-36">
+          <div className="max-w-3xl">
             <span className="stage stage-1 inline-flex items-center gap-2 border border-copper/40 bg-copper/10 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-copper">
               <BadgeCheck className="size-3.5" /> {ui.home.badge}
             </span>
@@ -146,30 +143,6 @@ function Home() {
             </dl>
           </div>
 
-          {/* centrepiece — masked photo plate, drifts opposite the background */}
-          <div className="relative hidden lg:block">
-            <Parallax speed={-0.1}>
-              <figure className="mask-reveal relative overflow-hidden border border-brand-foreground/12">
-                <img
-                  src={driveImg}
-                  alt="Newly installed asphalt driveway in Sonoma County"
-                  width={1200}
-                  height={900}
-                  className="aspect-[4/5] w-full object-cover"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,color-mix(in_oklab,var(--asphalt)_82%,transparent)_100%)]" />
-                <figcaption className="absolute inset-x-0 bottom-0 p-6">
-                  <p className="eyebrow">{ADDRESS_CITY}, CA</p>
-                  <p className="mt-1 font-display text-xl font-bold uppercase text-brand-foreground">
-                    {OWNER_NAME}
-                  </p>
-                  <p className="text-sm text-brand-foreground/70">
-                    {ui.home.callPrefix} · {PHONE_DISPLAY}
-                  </p>
-                </figcaption>
-              </figure>
-            </Parallax>
-          </div>
         </div>
 
         <div className="relative mx-auto hidden max-w-6xl px-4 pb-8 lg:block">
