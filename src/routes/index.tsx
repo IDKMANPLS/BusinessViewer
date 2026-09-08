@@ -88,7 +88,7 @@ function Home() {
         {/* layer 3 — content */}
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:py-28 lg:py-36">
           <div className="max-w-3xl">
-            <span className="stage stage-1 inline-flex items-center gap-2 border border-copper/40 bg-copper/10 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-copper">
+            <span className="stage stage-1 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-copper">
               <BadgeCheck className="size-3.5" /> {ui.home.badge}
             </span>
             <h1 className="display-xl stage stage-2 mt-7 text-[2.6rem] sm:text-6xl lg:text-[4.2rem]">
@@ -175,7 +175,7 @@ function Home() {
             href={BBB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2.5 border border-border bg-background px-4 py-2.5 text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-copper/60"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-border bg-background px-4 py-2.5 text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-copper/60"
           >
             <BadgeCheck className="size-4 text-copper" />
             <span className="text-muted-foreground">{ui.home.verify}</span>

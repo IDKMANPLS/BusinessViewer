@@ -72,7 +72,7 @@
 }
 
 :root {
-  --radius: 0.375rem;
+  --radius: 0.85rem;
 
   /* Asphalt palette: black #17191C, graphite #292D32, concrete #8D9399,
      warm white #F4F3EF, safety amber #F2A900 */
