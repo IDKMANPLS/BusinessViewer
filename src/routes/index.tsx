@@ -78,7 +78,7 @@ function Home() {
             aria-hidden="true"
             width={1600}
             height={1008}
-            className="size-full scale-[1.12] object-cover opacity-[0.38]"
+            className="size-full scale-[1.12] object-cover opacity-[0.22]"
           />
         </Parallax>
         {/* layer 2 — ambient amber pool + tonal wash */}
