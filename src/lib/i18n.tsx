@@ -417,13 +417,30 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   }, [lang]);
 
   const setLang = useCallback((l: Lang) => {
+    // Preserve the reader's place: language changes swap words, never scroll.
+    const y = typeof window !== "undefined" ? window.scrollY : 0;
+    const html = typeof document !== "undefined" ? document.documentElement : null;
+    const prevBehavior = html?.style.scrollBehavior;
+    if (html) html.style.scrollBehavior = "auto";
+
     setLangState(l);
     try {
       localStorage.setItem(STORAGE_KEY, l);
     } catch {
       /* ignore */
     }
+
+    if (typeof window !== "undefined") {
+      let frames = 0;
+      const hold = () => {
+        if (Math.abs(window.scrollY - y) > 1) window.scrollTo(0, y);
+        if (++frames < 30) requestAnimationFrame(hold);
+        else if (html) html.style.scrollBehavior = prevBehavior ?? "";
+      };
+      requestAnimationFrame(hold);
+    }
   }, []);
+
 
   const value = useMemo<Ctx>(
     () => ({
