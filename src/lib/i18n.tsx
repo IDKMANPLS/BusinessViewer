@@ -494,9 +494,9 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
       onClick={toggle}
       aria-label={ui.langToggle.aria}
       title={ui.langToggle.aria}
-      className={`group inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 font-display text-xs font-bold uppercase tracking-[0.14em] text-foreground transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-copper/60 hover:text-copper ${className}`}
+      className={`group inline-flex items-center gap-2 rounded-full bg-copper px-4 py-2 font-display text-xs font-bold uppercase tracking-[0.14em] !text-white shadow-[0_8px_20px_-14px_color-mix(in_oklab,var(--copper)_80%,transparent)] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:bg-copper/90 ${className}`}
     >
-      <Globe className="size-3.5 text-copper transition-transform duration-500 ease-out group-hover:rotate-12" />
+      <Globe className="size-3.5 text-white transition-transform duration-500 ease-out group-hover:rotate-12" />
       <span key={lang} className="fade-swap">
         {ui.langToggle.label}
       </span>

@@ -319,8 +319,8 @@
     background: linear-gradient(
       105deg,
       transparent 34%,
-      color-mix(in oklab, white 20%, transparent) 48%,
-      color-mix(in oklab, white 12%, transparent) 55%,
+      color-mix(in oklab, var(--copper) 16%, transparent) 48%,
+      color-mix(in oklab, var(--copper) 8%, transparent) 55%,
       transparent 70%
     );
     transform: translateX(-140%) skewX(-22deg);
@@ -449,9 +449,9 @@
   font-size: 0.875rem;
   font-weight: 600;
   transition:
-    background-color 0.2s ease-out,
-    color 0.2s ease-out,
-    transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 
   &:hover,
   &:focus-visible {
@@ -465,7 +465,7 @@
 
 @utility nav-link {
   position: relative;
-  transition: color 0.2s ease-out;
+  transition: color 0.32s cubic-bezier(0.22, 1, 0.36, 1);
 
   &::after {
     content: "";
@@ -478,7 +478,7 @@
     background: var(--copper);
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   &:hover,
@@ -636,8 +636,8 @@
     box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 
   &:hover {
-    background: color-mix(in oklab, white 11%, transparent);
-    backdrop-filter: blur(16px) saturate(140%);
+    background: color-mix(in oklab, var(--copper) 7%, transparent);
+    backdrop-filter: blur(14px);
     border-color: color-mix(in oklab, var(--copper) 55%, transparent);
     transform: translateY(-4px);
     box-shadow: 0 28px 60px -34px black;
@@ -695,9 +695,8 @@
     border-radius: inherit;
     background: linear-gradient(
       120deg,
-      color-mix(in oklab, white 16%, transparent),
-      transparent 45%,
-      color-mix(in oklab, black 12%, transparent)
+      color-mix(in oklab, var(--copper) 14%, transparent),
+      transparent 60%
     );
     opacity: 0;
     transition: opacity 0.35s ease-out;
@@ -1053,5 +1052,34 @@
     filter: none !important;
     transform: none !important;
     clip-path: none !important;
+  }
+}
+
+/* ---------- Stat value entrance (numbers + short text stats) ---------- */
+@keyframes stat-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+    filter: blur(4px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.04);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility stat-pop {
+  animation: stat-pop 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-pop {
+    animation: none !important;
   }
 }
