@@ -1,7 +1,12 @@
 # Roadmap
 
-- [x] English/Spanish toggle wired through every page and component
-- [ ] Polish pass: smoother transitions everywhere, animated mobile menu + dropdown items
-- [ ] Scroll-reveal / entrance animations on all sections
-- [ ] Cleaner, better language switch (pill-style EN|ES) and clearer wording
-- [ ] Simple, detailed, consistent hover/interaction feel across buttons, cards, links, images
+- [x] Smooth toggles, menu and section animations
+- [x] Premium animation layer: staggered page-load fades, scroll reveals, floating hero/icons, CTA glow
+- [x] Button hover: gradient shift, scale 1.05, deeper shadow, shine sweep
+- [x] Gradient background + glassmorphism cards
+- [x] Animated counters and progress meters on scroll
+- [x] Project carousel with swipe, arrows, dots
+- [x] Auto-rotating testimonials with fade + dots
+- [x] Accordion FAQ with rotating arrow
+- [x] Form floating labels + animated focus borders
+- [x] Language switch fades content in/out
