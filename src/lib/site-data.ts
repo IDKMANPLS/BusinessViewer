@@ -394,24 +394,29 @@ export const steps = [
 export const testimonials = [
   {
     quote:
-      "I couldn't be happier with the work from Jim's Paving! Our driveway had been cracked for years and the new surface looks better than the original.",
-    name: "Google review",
-    place: "Santa Rosa, CA",
+      "I couldn't be happier with the work from Jim's Paving! From start to finish, their team was professional, courteous, and incredibly detail-oriented. Jim himself took the time to walk me through every step of the process.",
+    name: "Samuel Oakes",
+    place: "Google review",
     date: "2025",
   },
   {
     quote:
-      "Jim came out himself, measured everything and explained exactly what our base needed. No pressure, no upsell, and the price on the estimate is what we paid.",
-    name: "Verified customer",
-    place: "Petaluma, CA",
-    date: "2024",
+      "Thank you for the beautiful driveway... now I can park my car and not step in mud after the rain.",
+    name: "Office Manager",
+    place: "Google review",
+    date: "2025",
   },
   {
-    quote:
-      "They sealed and re-striped our office parking lot over a weekend so we never lost a business day. Lines are straight and the lot looks sharp.",
-    name: "Property manager",
-    place: "Rohnert Park, CA",
-    date: "2024",
+    quote: "Very professional and I would definitely hire them again!!",
+    name: "Jaime",
+    place: "Google review",
+    date: "2025",
+  },
+  {
+    quote: "Great company! Thanks....",
+    name: "BB Torliatt",
+    place: "Google review",
+    date: "2025",
   },
 ];
 
