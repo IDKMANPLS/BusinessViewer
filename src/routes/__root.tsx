@@ -131,17 +131,19 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-background text-foreground">
-        <SiteHeader />
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <main>
-          <PageTransition>
-            <Outlet />
-          </PageTransition>
-        </main>
-        <SiteFooter />
-        <StickyCallBar />
-      </div>
+      <LanguageProvider>
+        <div className="min-h-screen bg-background text-foreground">
+          <SiteHeader />
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <main>
+            <PageTransition>
+              <Outlet />
+            </PageTransition>
+          </main>
+          <SiteFooter />
+          <StickyCallBar />
+        </div>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }
