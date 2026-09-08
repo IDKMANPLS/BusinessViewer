@@ -218,7 +218,7 @@ function Home() {
       <section className="mx-auto max-w-6xl px-4 py-24 sm:py-32">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <Reveal dir="left">
-            <p className="eyebrow">{ui.home.whyTitle}</p>
+            <p className="eyebrow">{ui.home.ebWhy}</p>
             <h2 className="display-xl mt-4 text-4xl sm:text-5xl">{BUSINESS_NAME}</h2>
           </Reveal>
           <Reveal dir="right" delay={90}>
@@ -254,7 +254,7 @@ function Home() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-end">
             <div>
-              <p className="eyebrow">{ui.home.servicesTitle}</p>
+              <p className="eyebrow">{ui.home.ebServices}</p>
               <h2 className="display-xl rule-amber mt-4 text-4xl sm:text-5xl">
                 {ui.home.servicesTitle}
               </h2>
@@ -301,13 +301,13 @@ function Home() {
         <div className="ambient-amber pointer-events-none absolute inset-0 opacity-50" />
         <div className="relative mx-auto grid max-w-6xl gap-14 px-4 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <Reveal dir="left">
-            <p className="eyebrow">{ui.home.howTitle}</p>
+            <p className="eyebrow">{ui.home.ebWhy}</p>
             <h2 className="display-xl mt-4 text-4xl sm:text-5xl">{ui.home.ctaTitle}</h2>
             <p className="mt-6 max-w-md text-brand-foreground/70">{ui.home.ctaBody}</p>
             <Button
               asChild
               size="lg"
-              className="mt-8 h-13 bg-copper px-7 font-bold text-copper-foreground hover:bg-copper"
+              className="mt-8 h-14 bg-copper px-7 font-bold text-copper-foreground hover:bg-copper"
             >
               <a href={PHONE_HREF}>
                 <Phone className="size-5" /> {PHONE_DISPLAY}
@@ -336,7 +336,7 @@ function Home() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <p className="eyebrow">{ui.home.recentTitle}</p>
+              <p className="eyebrow">{ui.home.ebProjects}</p>
               <h2 className="display-xl rule-amber mt-4 text-4xl sm:text-5xl">
                 {ui.home.recentTitle}
               </h2>
@@ -364,7 +364,7 @@ function Home() {
       {/* ---------------- PROCESS (numbered timeline) ---------------- */}
       <section className="border-y border-border bg-secondary/45 py-24 sm:py-32">
         <div className="mx-auto max-w-6xl px-4">
-          <p className="eyebrow">{ui.home.howTitle}</p>
+          <p className="eyebrow">{ui.home.ebProcess}</p>
           <h2 className="display-xl rule-amber mt-4 max-w-xl text-4xl sm:text-5xl">
             {ui.home.howTitle}
           </h2>
@@ -381,7 +381,6 @@ function Home() {
                   {step.n}
                 </span>
                 <span className="inline-flex h-8 items-center border-b-2 border-copper font-display text-sm font-bold uppercase tracking-[0.18em] text-copper">
-                  {ui.home.howTitle.slice(0, 0)}
                   {String(step.n).padStart(2, "0")}
                 </span>
                 <h3 className="mt-5 font-display text-lg font-bold uppercase leading-tight tracking-wide">
@@ -397,7 +396,7 @@ function Home() {
       {/* ---------------- TESTIMONIALS ---------------- */}
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-5xl px-4">
-          <p className="eyebrow text-center">{ui.home.testimonialsTitle}</p>
+          <p className="eyebrow text-center">{ui.home.ebReviews}</p>
           <h2 className="display-xl mt-4 text-center text-4xl sm:text-5xl">
             {ui.home.testimonialsTitle}
           </h2>
@@ -411,7 +410,7 @@ function Home() {
       <section className="border-t border-border bg-secondary/45 py-24 sm:py-32">
         <div className="mx-auto grid max-w-6xl gap-16 px-4 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
           <div>
-            <p className="eyebrow">{ui.services.faqTitle}</p>
+            <p className="eyebrow">{ui.home.ebFaq}</p>
             <h2 className="display-xl rule-amber mt-4 text-3xl sm:text-4xl">
               {ui.services.faqTitle}
             </h2>
@@ -431,7 +430,7 @@ function Home() {
           </div>
 
           <div>
-            <p className="eyebrow">{ui.home.areasTitle}</p>
+            <p className="eyebrow">{ui.home.ebAreas}</p>
             <h2 className="display-xl rule-amber mt-4 text-3xl sm:text-4xl">
               {ui.home.areasTitle}
             </h2>
