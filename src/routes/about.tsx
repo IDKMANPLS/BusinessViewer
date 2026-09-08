@@ -3,20 +3,8 @@ import { Check, BadgeCheck } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBand } from "@/components/site/CtaBand";
 import heroImg from "@/assets/hero-paving.jpg";
-import {
-  BUSINESS_NAME,
-  OWNER_NAME,
-  FOUNDED_YEAR,
-  YEARS_IN_BUSINESS,
-  ADDRESS_FULL,
-  BBB_URL,
-  trustPoints,
-  whyChoose,
-  steps,
-  testimonials,
-  localBusinessSchema,
-  SITE_URL,
-} from "@/lib/site-data";
+import { BBB_URL, localBusinessSchema, SITE_URL } from "@/lib/site-data";
+import { useLang, useSite } from "@/lib/i18n";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
