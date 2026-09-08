@@ -136,7 +136,9 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
+
   body {
     font-family: var(--font-sans);
     overflow-x: clip;
