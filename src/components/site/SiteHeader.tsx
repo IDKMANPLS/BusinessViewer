@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Phone, MapPin, BadgeCheck, Menu, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,14 @@ import { LanguageToggle, useLang, useSite } from "@/lib/i18n";
 export function SiteHeader() {
   const { ui } = useLang();
   const { navLinks } = useSite();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
@@ -21,13 +30,23 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-3">
+      <header
+        className={`sticky top-0 z-40 border-b transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-out ${
+          scrolled
+            ? "border-border bg-background/85 shadow-[0_10px_30px_-24px_color-mix(in_oklab,var(--asphalt)_60%,transparent)] backdrop-blur-md"
+            : "border-transparent bg-background"
+        }`}
+      >
+        <div
+          className={`mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 transition-[padding] duration-500 ease-out ${
+            scrolled ? "py-2.5" : "py-4"
+          }`}
+        >
           <Link to="/" className="group min-w-0">
-            <span className="block truncate font-display text-2xl font-extrabold uppercase tracking-tight text-brand-deep transition-colors duration-300 group-hover:text-copper">
+            <span className="block truncate font-display text-2xl font-extrabold uppercase tracking-tight transition-colors duration-300 group-hover:text-copper">
               {BUSINESS_NAME}
             </span>
-            <span className="block truncate text-xs text-muted-foreground">
+            <span className="block truncate text-[0.7rem] uppercase tracking-[0.16em] text-muted-foreground">
               {ui.header.tagline}
             </span>
           </Link>
