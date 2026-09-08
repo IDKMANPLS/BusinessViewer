@@ -74,7 +74,7 @@ export const esServiceDetails: Record<ServiceSlug, EsDetail> = {
       },
       {
         heading: "Nuestro compromiso con el trabajo",
-        body: `Respondemos por lo que instalamos. Si algo que colocamos no está bien, llámenos y vamos a revisarlo. Así es como un taller de 3 personas lleva ${YEARS_IN_BUSINESS} años en el negocio y mantiene una acreditación BBB A+.`,
+        body: `Respondemos por lo que instalamos. Si algo que colocamos no está bien, llámenos y vamos a revisarlo. Así es como un taller familiar pequeño lleva ${YEARS_IN_BUSINESS} años en el negocio y mantiene una acreditación BBB A+.`,
       },
     ],
   },
@@ -252,7 +252,7 @@ export const esTrustPoints = [
   },
   {
     title: "Local y familiar",
-    desc: `Jim y una cuadrilla de 3 personas, sirviendo al condado de Sonoma desde ${FOUNDED_YEAR}.`,
+    desc: `Jim y todo el equipo, sirviendo al condado de Sonoma desde ${FOUNDED_YEAR}.`,
   },
   {
     title: "Presupuestos gratis",
@@ -265,7 +265,7 @@ export const esWhyChoose = [
   "Acreditados BBB A+: una verificación independiente que usted mismo puede consultar",
   "Jim hace los presupuestos en persona y le explica todo el proceso",
   "Presupuestos gratis y honestos: le diremos cuándo conviene reparar en lugar de reemplazar",
-  "Una cuadrilla pequeña y experimentada de 3 personas, no subcontratistas rotativos",
+  "La misma cuadrilla pequeña y experimentada en cada obra, no subcontratistas rotativos",
   "Con licencia, fianza y seguro completo para trabajos residenciales y comerciales",
   "Conocimiento local del suelo, el drenaje y el clima del condado de Sonoma",
   "Trabajo de calidad que protege el valor de su propiedad",

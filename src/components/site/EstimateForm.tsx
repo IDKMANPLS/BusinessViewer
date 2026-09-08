@@ -17,7 +17,7 @@ export function EstimateForm() {
   return (
     <div
       id="estimate"
-      className="rounded-2xl border border-border bg-card/85 p-6 shadow-lift backdrop-blur-sm sm:p-8"
+      className="rounded-2xl border border-border bg-card/85 p-6 shadow-lift sm:p-8"
     >
       {sent ? (
         <div className="fade-swap flex flex-col items-center justify-center py-12 text-center">

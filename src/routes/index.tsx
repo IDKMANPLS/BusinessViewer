@@ -200,8 +200,8 @@ function Home() {
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-border pt-6">
               <span className="text-sm text-muted-foreground">
-                <strong className="font-display text-2xl font-extrabold text-foreground">
-                  <AnimatedCounter value={3} />
+                <strong className="stat-pop font-display text-2xl font-extrabold text-foreground">
+                  {ui.home.statCrewValue}
                 </strong>{" "}
                 {ui.home.statCrew}
               </span>
