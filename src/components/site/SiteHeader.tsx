@@ -31,10 +31,11 @@ export function SiteHeader() {
       </div>
 
       <header
-        className={`sticky top-0 z-40 border-b transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-out ${
+        className={`sticky top-0 z-40 border-b backdrop-blur-md transition-[background-color,border-color,box-shadow] duration-500 ease-out ${
           scrolled
-            ? "border-border bg-background/85 shadow-[0_10px_30px_-24px_color-mix(in_oklab,var(--asphalt)_60%,transparent)] backdrop-blur-md"
+            ? "border-border bg-background/95 shadow-[0_10px_30px_-24px_color-mix(in_oklab,var(--asphalt)_60%,transparent)]"
             : "border-transparent bg-background"
+
         }`}
       >
         <div
