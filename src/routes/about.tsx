@@ -19,7 +19,7 @@ export const Route = createFileRoute("/about")({
       {
         property: "og:description",
         content:
-          "A 3-person, family-owned paving crew in Santa Rosa. Licensed, bonded, insured and BBB A+ accredited since 1989.",
+          "A family-owned paving crew in Santa Rosa. Licensed, bonded, insured and BBB A+ accredited since 1989.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL + "/about" },

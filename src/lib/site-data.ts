@@ -136,7 +136,7 @@ export const serviceDetails: Record<
       },
       {
         heading: "Our workmanship commitment",
-        body: "We stand behind the work we install. If something we placed isn't right, call us and we'll come look at it. That's how a 3-person shop stays in business for 37 years and holds a BBB A+ accreditation.",
+        body: "We stand behind the work we install. If something we placed isn't right, call us and we'll come look at it. That's how a small family shop stays in business for 37 years and holds a BBB A+ accreditation.",
       },
     ],
   },
@@ -348,7 +348,7 @@ export const trustPoints = [
   {
     icon: Users,
     title: "Local & Family-Owned",
-    desc: `Jim and a 3-person crew, serving Sonoma County since ${FOUNDED_YEAR}.`,
+    desc: `Jim and the entire crew, serving Sonoma County since ${FOUNDED_YEAR}.`,
   },
   {
     icon: Receipt,
@@ -362,7 +362,7 @@ export const whyChoose = [
   "BBB A+ accredited: third-party verification you can check yourself",
   "Jim handles estimates personally and walks you through the whole process",
   "Free, honest estimates — we'll tell you when a repair beats a replacement",
-  "A small, experienced 3-person crew, not rotating subcontractors",
+  "The same small, experienced crew on every job, not rotating subcontractors",
   "Licensed, bonded and fully insured for residential and commercial work",
   "Local knowledge of Sonoma County soil, drainage and weather",
   "Quality workmanship that protects the value of your property",
