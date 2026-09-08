@@ -1,4 +1,4 @@
-import type { ElementType, ReactNode } from "react";
+import type { CSSProperties, ElementType, ReactNode } from "react";
 import { useInView } from "@/lib/use-in-view";
 
 type Dir = "left" | "right" | "up";
@@ -25,12 +25,14 @@ export function Reveal({
 }) {
   const { ref, inView } = useInView<HTMLDivElement>();
 
+  const style: CSSProperties = { transitionDelay: `${delay}ms` };
+  if (inView) {
+    style.opacity = 1;
+    style.transform = "none";
+  }
+
   return (
-    <As
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`${base[dir]} ${inView ? "reveal-in" : ""} ${className}`}
-    >
+    <As ref={ref} style={style} className={`${base[dir]} ${className}`}>
       {children}
     </As>
   );
