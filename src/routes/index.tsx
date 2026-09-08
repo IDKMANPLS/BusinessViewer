@@ -11,8 +11,7 @@ import {
   FOUNDED_YEAR,
   YEARS_IN_BUSINESS,
   BBB_URL,
-  OWNER,
-  CREW_SIZE,
+  OWNER_NAME,
   ADDRESS_CITY,
   serviceAreas,
   localBusinessSchema,
@@ -162,7 +161,7 @@ function Home() {
                 <figcaption className="absolute inset-x-0 bottom-0 p-6">
                   <p className="eyebrow">{ADDRESS_CITY}, CA</p>
                   <p className="mt-1 font-display text-xl font-bold uppercase text-brand-foreground">
-                    {OWNER}
+                    {OWNER_NAME}
                   </p>
                   <p className="text-sm text-brand-foreground/70">
                     {ui.home.callPrefix} · {PHONE_DISPLAY}
@@ -229,7 +228,7 @@ function Home() {
             <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-border pt-6">
               <span className="text-sm text-muted-foreground">
                 <strong className="font-display text-2xl font-extrabold text-foreground">
-                  <AnimatedCounter value={CREW_SIZE} />
+                  <AnimatedCounter value={3} />
                 </strong>{" "}
                 {ui.home.statCrew}
               </span>
