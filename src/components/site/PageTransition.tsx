@@ -1,5 +1,6 @@
 import { useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, type ReactNode } from "react";
+import { useLang } from "@/lib/i18n";
 
 /**
  * Re-mounts on every navigation so the page-load reveal animation replays,
@@ -7,6 +8,7 @@ import { useEffect, useRef, type ReactNode } from "react";
  */
 export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { lang } = useLang();
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,10 +40,10 @@ export function PageTransition({ children }: { children: ReactNode }) {
 
     targets.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, [pathname]);
+  }, [pathname, lang]);
 
   return (
-    <div key={pathname} ref={ref} className="page-enter">
+    <div key={`${pathname}-${lang}`} ref={ref} className="page-enter">
       {children}
     </div>
   );

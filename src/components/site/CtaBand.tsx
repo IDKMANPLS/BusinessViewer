@@ -18,7 +18,7 @@ export function CtaBand({ title, body }: { title?: string; body?: string }) {
           <Button
             asChild
             size="lg"
-            className="h-14 bg-copper text-base font-bold text-copper-foreground hover:bg-copper/90"
+            className="cta-glow h-14 bg-copper text-base font-bold tracking-wide text-copper-foreground hover:bg-copper/90"
           >
             <a href={PHONE_HREF}>
               <Phone className="size-5" /> {ui.cta.call} {PHONE_DISPLAY}

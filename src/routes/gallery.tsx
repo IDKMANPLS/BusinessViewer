@@ -3,6 +3,7 @@ import { PageHero } from "@/components/site/PageHero";
 import { CtaBand } from "@/components/site/CtaBand";
 import { gallery, SITE_URL, BUSINESS_NAME } from "@/lib/site-data";
 import { useLang, useSite } from "@/lib/i18n";
+import { Reveal } from "@/components/site/Reveal";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -50,22 +51,30 @@ function GalleryPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {localGallery.map((g) => (
-            <figure key={g.type} className="media-pop overflow-hidden rounded-xl bg-card">
+          {localGallery.map((g, i) => (
+            <Reveal
+              as="figure"
+              key={g.type}
+              dir={i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : "up"}
+              delay={(i % 3) * 90}
+              className="media-pop group overflow-hidden rounded-xl bg-card"
+            >
               <img
                 src={g.src}
                 alt={g.alt}
                 width={1024}
                 height={768}
                 loading="lazy"
-                className="aspect-[4/3] w-full object-cover"
+                className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
               />
               <figcaption className="p-4">
-                <p className="font-display text-lg font-bold uppercase leading-tight">{g.type}</p>
+                <p className="font-display text-lg font-bold uppercase leading-tight transition-colors duration-300 group-hover:text-copper">
+                  {g.type}
+                </p>
                 <p className="mt-1 text-sm text-muted-foreground">{g.city}</p>
                 <p className="text-sm text-muted-foreground">{g.date}</p>
               </figcaption>
-            </figure>
+            </Reveal>
           ))}
         </div>
         <p className="mt-8 max-w-2xl text-sm text-muted-foreground">{ui.gallery.footnote}</p>

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Phone, BadgeCheck, Check, ArrowRight, Star } from "lucide-react";
+import { Phone, BadgeCheck, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-paving.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
@@ -21,6 +21,10 @@ import {
   SITE_URL,
 } from "@/lib/site-data";
 import { useLang, useSite } from "@/lib/i18n";
+import { Reveal } from "@/components/site/Reveal";
+import { AnimatedCounter, Meter } from "@/components/site/AnimatedCounter";
+import { ProjectCarousel } from "@/components/site/ProjectCarousel";
+import { TestimonialRotator } from "@/components/site/TestimonialRotator";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -73,7 +77,7 @@ function Home() {
           alt="Freshly paved asphalt driveway at a home in Santa Rosa, California"
           width={1600}
           height={1008}
-          className="absolute inset-0 size-full object-cover opacity-40"
+          className="float-slow absolute inset-0 size-full scale-110 object-cover opacity-40"
         />
         <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,color-mix(in_oklab,var(--brand-deep)_92%,transparent),color-mix(in_oklab,var(--brand-deep)_45%,transparent))]" />
         <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-24">
@@ -90,7 +94,7 @@ function Home() {
             <Button
               asChild
               size="lg"
-              className="h-14 bg-copper text-base font-bold text-copper-foreground shadow-lift hover:bg-copper/90"
+              className="cta-glow h-14 bg-copper text-base font-bold tracking-wide text-copper-foreground shadow-lift hover:bg-copper/90"
             >
               <Link to="/contact">{ui.home.primaryCta}</Link>
             </Button>
@@ -107,14 +111,17 @@ function Home() {
           </div>
           <dl className="mt-12 grid max-w-xl grid-cols-3 gap-4 text-sm">
             {[
-              [`${YEARS_IN_BUSINESS}`, ui.home.statYears],
-              ["A+", ui.home.statRating],
-              [ui.home.statFreeValue, ui.home.statFree],
-            ].map(([k, v]) => (
-              <div key={v}>
-                <dt className="font-display text-3xl font-extrabold text-copper">{k}</dt>
-                <dd className="text-brand-foreground/75">{v}</dd>
-              </div>
+              { n: YEARS_IN_BUSINESS, label: ui.home.statYears, pct: 100 },
+              { t: "A+", label: ui.home.statRating, pct: 100 },
+              { t: ui.home.statFreeValue, label: ui.home.statFree, pct: 100 },
+            ].map((s, i) => (
+              <Reveal key={s.label} dir="up" delay={i * 120}>
+                <dt className="font-display text-3xl font-extrabold text-copper sm:text-4xl">
+                  <AnimatedCounter value={s.n} text={s.t} />
+                </dt>
+                <dd className="text-brand-foreground/75">{s.label}</dd>
+                <Meter percent={s.pct} className="mt-3 max-w-24" />
+              </Reveal>
             ))}
           </dl>
         </div>
@@ -124,8 +131,11 @@ function Home() {
       <section aria-label={ui.home.trustAria} className="border-b border-border bg-card">
         <div className="mx-auto grid max-w-6xl gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
           {trustPoints.map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="flex items-start gap-3 bg-card px-5 py-7">
-              <Icon className="mt-0.5 size-7 shrink-0 text-copper" />
+            <div
+              key={title}
+              className="group flex items-start gap-3 bg-card px-5 py-7 transition-colors duration-300 hover:bg-secondary/50"
+            >
+              <Icon className="float-soft mt-0.5 size-7 shrink-0 text-copper transition-transform duration-300 group-hover:scale-110" />
               <div className="min-w-0">
                 <p className="font-display text-lg font-bold uppercase leading-tight">{title}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{desc}</p>
@@ -154,21 +164,29 @@ function Home() {
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">{ui.home.servicesIntro}</p>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map(({ icon: Icon, title, short, slug }) => (
-              <div key={slug} className="card-pop flex flex-col rounded-xl border border-border bg-card p-6">
-                <span className="inline-flex size-11 items-center justify-center rounded-md bg-copper/15 text-copper">
+            {services.map(({ icon: Icon, title, short, slug }, i) => (
+              <Reveal
+                key={slug}
+                dir={i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : "up"}
+                delay={(i % 3) * 90}
+                className="group flex h-full flex-col rounded-xl p-6 glass-card"
+              >
+                <span className="inline-flex size-11 items-center justify-center rounded-md bg-copper/15 text-copper transition-all duration-500 group-hover:-translate-y-0.5 group-hover:bg-copper group-hover:text-copper-foreground">
                   <Icon className="size-6" />
                 </span>
-                <h3 className="mt-4 text-xl font-bold uppercase">{title}</h3>
+                <h3 className="mt-4 text-xl font-bold uppercase tracking-wide transition-colors duration-300 group-hover:text-copper">
+                  {title}
+                </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{short}</p>
                 <Link
                   to="/services/$slug"
                   params={{ slug }}
-                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-brand hover:text-copper"
+                  className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-brand transition-colors duration-300 hover:text-copper"
                 >
-                  {ui.home.learnMore} <ArrowRight className="size-4" />
+                  {ui.home.learnMore}{" "}
+                  <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Link>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -191,11 +209,17 @@ function Home() {
             </Button>
           </div>
           <ul className="space-y-3">
-            {whyChoose.map((w) => (
-              <li key={w} className="flex items-start gap-3 rounded-lg border border-border bg-card p-4">
+            {whyChoose.map((w, i) => (
+              <Reveal
+                as="li"
+                key={w}
+                dir="right"
+                delay={i * 70}
+                className="flex items-start gap-3 rounded-lg p-4 glass-card"
+              >
                 <Check className="mt-0.5 size-5 shrink-0 text-copper" />
                 <span className="text-sm font-medium">{w}</span>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>
@@ -208,25 +232,13 @@ function Home() {
             {ui.home.recentTitle}
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground">{ui.home.recentIntro}</p>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {gallery.slice(0, 3).map((g) => (
-              <figure key={g.type} className="media-pop overflow-hidden rounded-xl bg-card">
-                <img
-                  src={g.src}
-                  alt={g.alt}
-                  width={1024}
-                  height={768}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover"
-                />
-                <figcaption className="p-4">
-                  <p className="font-display text-lg font-bold uppercase leading-tight">{g.type}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {g.city} · {g.date}
-                  </p>
-                </figcaption>
-              </figure>
-            ))}
+          <div className="mt-10">
+            <ProjectCarousel
+              items={gallery}
+              prevLabel={ui.home.prevSlide}
+              nextLabel={ui.home.nextSlide}
+              goLabel={ui.home.goToSlide}
+            />
           </div>
           <Link
             to="/gallery"
@@ -243,14 +255,23 @@ function Home() {
           {ui.home.howTitle}
         </h2>
         <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((s) => (
-            <li key={s.n} className="rounded-xl border border-border bg-card p-6">
-              <span className="inline-flex size-10 items-center justify-center rounded-md bg-brand-deep font-display text-lg font-extrabold text-copper">
-                {s.n}
+          {steps.map((step, i) => (
+            <Reveal
+              as="li"
+              key={step.n}
+              dir={i % 2 === 0 ? "left" : "right"}
+              delay={i * 100}
+              className="group rounded-xl p-6 glass-card"
+            >
+              <span className="inline-flex size-10 items-center justify-center rounded-md bg-brand-deep font-display text-lg font-extrabold text-copper transition-transform duration-500 group-hover:scale-110">
+                {step.n}
               </span>
-              <h3 className="mt-4 text-lg font-bold uppercase leading-tight">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-            </li>
+              <h3 className="mt-4 text-lg font-bold uppercase leading-tight tracking-wide">
+                {step.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.desc}</p>
+              <Meter percent={((i + 1) / steps.length) * 100} className="mt-5" />
+            </Reveal>
           ))}
         </ol>
       </section>
@@ -261,28 +282,8 @@ function Home() {
           <h2 className="text-3xl font-extrabold uppercase sm:text-4xl">
             {ui.home.testimonialsTitle}
           </h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <figure
-                key={t.quote}
-                className="flex h-full flex-col rounded-xl border border-brand-foreground/15 bg-brand-foreground/5 p-6"
-              >
-                <div className="flex gap-1 text-copper">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="size-4 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-brand-foreground/85">
-                  “{t.quote}”
-                </blockquote>
-                <figcaption className="mt-5 text-sm font-bold uppercase tracking-wide">
-                  {t.name}{" "}
-                  <span className="font-normal text-brand-foreground/60">
-                    · {t.place} · {t.date}
-                  </span>
-                </figcaption>
-              </figure>
-            ))}
+          <div className="mt-10">
+            <TestimonialRotator items={testimonials} goLabel={ui.home.goToReview} />
           </div>
         </div>
       </section>
@@ -296,7 +297,7 @@ function Home() {
           {serviceAreas.map((a) => (
             <li
               key={a}
-              className="rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold"
+              className="rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:border-copper hover:text-copper hover:shadow-lift"
             >
               {a}
             </li>
