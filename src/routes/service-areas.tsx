@@ -11,6 +11,7 @@ import {
   YEARS_IN_BUSINESS,
   localBusinessSchema,
 } from "@/lib/site-data";
+import { useLang, useSite } from "@/lib/i18n";
 
 const highlights = [
   {
