@@ -97,7 +97,7 @@ export function SiteFooter() {
             href={BBB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mt-5 inline-flex items-center gap-2 border border-brand-foreground/20 px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-copper/60 hover:text-copper"
+            className="group mt-5 inline-flex items-center gap-2 rounded-full border border-brand-foreground/20 px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-copper/60 hover:text-copper"
           >
             <BadgeCheck className="size-4 text-copper" /> {ui.footer.viewBbb}
           </a>

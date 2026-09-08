@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, BadgeCheck, Check, ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-paving.jpg";
+import truckAsset from "@/assets/jims-truck.png.asset.json";
 import { CtaBand } from "@/components/site/CtaBand";
 import {
   BUSINESS_NAME,
@@ -10,6 +10,7 @@ import {
   FOUNDED_YEAR,
   YEARS_IN_BUSINESS,
   BBB_URL,
+  ADDRESS_CITY,
   serviceAreas,
   localBusinessSchema,
   SITE_URL,
@@ -70,25 +71,16 @@ function Home() {
     <>
       {/* ---------------- HERO: layered depth stack ---------------- */}
       <section className="surface-deep grain relative overflow-hidden">
-        {/* layer 1 — photograph, drifts slower than the page */}
-        <Parallax speed={0.18} className="absolute inset-0">
-          <img
-            src={heroImg}
-            alt=""
-            aria-hidden="true"
-            width={1600}
-            height={1008}
-            className="size-full scale-[1.12] object-cover opacity-[0.22]"
-          />
-        </Parallax>
+        {/* layer 1 — soft asphalt texture wash */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_15%_10%,color-mix(in_oklab,var(--graphite)_70%,transparent)_0%,transparent_70%)]" />
         {/* layer 2 — ambient amber pool + tonal wash */}
         <div className="ambient-amber pointer-events-none absolute inset-0 opacity-70" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--asphalt)_92%,transparent)_0%,color-mix(in_oklab,var(--asphalt)_74%,transparent)_58%,color-mix(in_oklab,var(--asphalt)_40%,transparent)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(100deg,color-mix(in_oklab,var(--asphalt)_92%,transparent)_0%,color-mix(in_oklab,var(--asphalt)_74%,transparent)_58%,color-mix(in_oklab,var(--asphalt)_55%,transparent)_100%)]" />
 
         {/* layer 3 — content */}
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:py-28 lg:py-36">
-          <div className="max-w-3xl">
-            <span className="stage stage-1 inline-flex items-center gap-2 border border-copper/40 bg-copper/10 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-copper">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:py-24 lg:grid-cols-[1.02fr_0.98fr] lg:py-28">
+          <div>
+            <span className="stage stage-1 inline-flex items-center gap-2 rounded-full border border-copper/40 bg-copper/10 px-3 py-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.18em] text-copper">
               <BadgeCheck className="size-3.5" /> {ui.home.badge}
             </span>
             <h1 className="display-xl stage stage-2 mt-7 text-[2.6rem] sm:text-6xl lg:text-[4.2rem]">
@@ -143,6 +135,28 @@ function Home() {
             </dl>
           </div>
 
+          {/* the truck — Jim's own rig */}
+          <Parallax speed={-0.08}>
+            <figure className="mask-reveal relative overflow-hidden rounded-3xl border border-brand-foreground/12 shadow-[0_40px_80px_-50px_color-mix(in_oklab,var(--asphalt)_90%,transparent)]">
+              <img
+                src={truckAsset.url}
+                alt={`${BUSINESS_NAME} dump truck in Santa Rosa, California`}
+                width={1725}
+                height={660}
+                className="aspect-[4/3] w-full object-cover object-center transition-transform duration-[1200ms] ease-out hover:scale-[1.03] sm:aspect-[16/10]"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,transparent_50%,color-mix(in_oklab,var(--asphalt)_80%,transparent)_100%)]" />
+              <figcaption className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                <p className="font-display text-lg font-bold uppercase tracking-wide text-brand-foreground">
+                  {BUSINESS_NAME}
+                </p>
+                <p className="text-sm text-brand-foreground/70">
+                  {ADDRESS_CITY}, CA · {ui.home.callPrefix} {PHONE_DISPLAY}
+                </p>
+              </figcaption>
+            </figure>
+          </Parallax>
+
         </div>
 
         <div className="relative mx-auto hidden max-w-6xl px-4 pb-8 lg:block">
@@ -175,7 +189,7 @@ function Home() {
             href={BBB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2.5 border border-border bg-background px-4 py-2.5 text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-copper/60"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-border bg-background px-4 py-2.5 text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-copper/60"
           >
             <BadgeCheck className="size-4 text-copper" />
             <span className="text-muted-foreground">{ui.home.verify}</span>
