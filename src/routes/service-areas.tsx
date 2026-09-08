@@ -8,37 +8,9 @@ import {
   PHONE_DISPLAY,
   PHONE_HREF,
   SITE_URL,
-  YEARS_IN_BUSINESS,
   localBusinessSchema,
 } from "@/lib/site-data";
 import { useLang, useSite } from "@/lib/i18n";
-
-const highlights = [
-  {
-    city: "Santa Rosa",
-    body: "Our home base. Driveway installation, resurfacing and commercial lots throughout Santa Rosa, from Roseland to Fountaingrove.",
-  },
-  {
-    city: "Petaluma",
-    body: "Asphalt driveways and parking lot maintenance for Petaluma homes, wineries and light-industrial properties.",
-  },
-  {
-    city: "Sonoma & Sonoma Valley",
-    body: "Long rural driveways, private lanes and hospitality parking built for seasonal traffic.",
-  },
-  {
-    city: "Windsor & Healdsburg",
-    body: "New driveways, overlays and sealcoating on properties where winter runoff needs to be managed.",
-  },
-  {
-    city: "Rohnert Park & Cotati",
-    body: "Commercial paving, striping and ADA-compliant parking layouts for local businesses.",
-  },
-  {
-    city: "Sebastopol & west county",
-    body: "Grading, base rock and paving for rural drives on soft, water-holding soils.",
-  },
-];
 
 export const Route = createFileRoute("/service-areas")({
   head: () => ({
