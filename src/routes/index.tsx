@@ -193,6 +193,19 @@ function Home() {
           <Reveal dir="left">
             <p className="eyebrow">{ui.home.ebWhy}</p>
             <h2 className="display-xl mt-4 text-4xl sm:text-5xl">{BUSINESS_NAME}</h2>
+            <blockquote className="quote-card mt-10">
+              <p className="font-display text-xl font-medium leading-snug text-foreground/90 sm:text-2xl">
+                “{ui.home.ownerQuote}”
+              </p>
+              <footer className="mt-5 flex flex-wrap items-center gap-3">
+                <span className="text-sm font-semibold text-foreground/70">
+                  {ui.home.ownerSignature}
+                </span>
+                <span className="inline-flex items-center rounded-full bg-copper/10 px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-wider text-copper">
+                  {ui.home.guaranteeLabel}
+                </span>
+              </footer>
+            </blockquote>
           </Reveal>
           <Reveal dir="right" delay={90}>
             <p className="text-xl leading-relaxed text-foreground/85 sm:text-[1.4rem] sm:leading-[1.5]">
