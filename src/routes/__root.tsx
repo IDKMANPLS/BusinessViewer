@@ -15,6 +15,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { StickyCallBar } from "@/components/site/StickyCallBar";
 import { PageTransition } from "@/components/site/PageTransition";
+import { LanguageProvider } from "@/lib/i18n";
 
 function NotFoundComponent() {
   return (
