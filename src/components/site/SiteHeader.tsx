@@ -45,7 +45,7 @@ export function SiteHeader() {
                 </Link>
               ))}
             </div>
-            <LanguageToggle />
+            <LanguageToggle className="hidden sm:inline-flex" />
             <Button
               asChild
               className="hidden bg-copper font-bold text-copper-foreground hover:bg-copper/90 sm:inline-flex"
@@ -77,6 +77,12 @@ export function SiteHeader() {
                     <ChevronRight className="size-4 opacity-50" />
                   </Link>
                 ))}
+                <div className="mt-1 flex items-center justify-between gap-2 border-t border-border px-3 pt-3 sm:hidden">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                    {ui.header.language}
+                  </span>
+                  <LanguageToggle />
+                </div>
               </div>
             </details>
           </nav>
