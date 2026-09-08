@@ -20,6 +20,7 @@ import {
   localBusinessSchema,
   SITE_URL,
 } from "@/lib/site-data";
+import { useLang, useSite } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({
