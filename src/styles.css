@@ -24,6 +24,9 @@
   --color-brand: var(--brand);
   --color-brand-deep: var(--brand-deep);
   --color-brand-foreground: var(--brand-foreground);
+  --color-asphalt: var(--asphalt);
+  --color-graphite: var(--graphite);
+  --color-concrete: var(--concrete);
   --color-copper: var(--copper);
   --color-copper-foreground: var(--copper-foreground);
   --radius-sm: calc(var(--radius) - 4px);
