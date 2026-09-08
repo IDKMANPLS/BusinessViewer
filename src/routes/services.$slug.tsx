@@ -11,6 +11,7 @@ import {
   SITE_URL,
   type ServiceSlug,
 } from "@/lib/site-data";
+import { useLang, useSite } from "@/lib/i18n";
 
 function isSlug(slug: string): slug is ServiceSlug {
   return slug in serviceDetails;
@@ -76,8 +77,11 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServiceDetail() {
-  const { detail, slug } = Route.useLoaderData();
-  const others = services.filter((s) => s.slug !== slug).slice(0, 3);
+  const { slug } = Route.useLoaderData();
+  const { ui } = useLang();
+  const { serviceDetails: localDetails, services: localServices } = useSite();
+  const detail = localDetails[slug];
+  const others = localServices.filter((s) => s.slug !== slug).slice(0, 3);
 
   return (
     <>
@@ -85,7 +89,7 @@ function ServiceDetail() {
         <div className="mx-auto max-w-6xl px-4 py-14 sm:py-20">
           <nav aria-label="Breadcrumb" className="text-xs font-bold uppercase tracking-widest text-copper">
             <Link to="/services" className="hover:underline">
-              Services
+              {ui.services.breadcrumb}
             </Link>{" "}
             / {detail.title}
           </nav>
@@ -101,7 +105,7 @@ function ServiceDetail() {
               size="lg"
               className="h-14 bg-copper text-base font-bold text-copper-foreground hover:bg-copper/90"
             >
-              <Link to="/contact">Request Free Estimate</Link>
+              <Link to="/contact">{ui.services.detailCta}</Link>
             </Button>
             <Button
               asChild
@@ -155,7 +159,7 @@ function ServiceDetail() {
               </figcaption>
             </figure>
             <div className="rounded-xl border border-border bg-card p-6">
-              <h2 className="text-xl font-bold uppercase">Other services</h2>
+              <h2 className="text-xl font-bold uppercase">{ui.services.otherServices}</h2>
               <ul className="mt-4 space-y-3">
                 {others.map((o) => (
                   <li key={o.slug}>
