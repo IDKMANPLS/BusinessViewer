@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Phone, MapPin, BadgeCheck, Menu, ChevronRight } from "lucide-react";
+import { Phone, MapPin, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BUSINESS_NAME, PHONE_DISPLAY, PHONE_HREF } from "@/lib/site-data";
 import { LanguageToggle, useLang, useSite } from "@/lib/i18n";
