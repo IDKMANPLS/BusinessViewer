@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Phone, BadgeCheck, Check, ArrowRight, Star } from "lucide-react";
+import { Phone, BadgeCheck, Check, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImg from "@/assets/hero-paving.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
