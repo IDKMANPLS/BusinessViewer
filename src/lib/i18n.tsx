@@ -50,6 +50,7 @@ const en = {
     tagline: "Asphalt Paving Contractor · Santa Rosa, CA",
     call: "Call",
     openMenu: "Open menu",
+    language: "Language",
   },
   footer: {
     about: `Asphalt paving contractor serving Sonoma County since ${FOUNDED_YEAR} — ${YEARS_IN_BUSINESS} years. Licensed, bonded and insured.`,
@@ -205,6 +206,7 @@ const es: UiCopy = {
     tagline: "Contratista de pavimento asfáltico · Santa Rosa, CA",
     call: "Llamar",
     openMenu: "Abrir menú",
+    language: "Idioma",
   },
   footer: {
     about: `Contratista de pavimento asfáltico al servicio del condado de Sonoma desde ${FOUNDED_YEAR} — ${YEARS_IN_BUSINESS} años. Con licencia, fianza y seguro.`,
@@ -463,16 +465,28 @@ export function LanguageToggle({ className = "" }: { className?: string }) {
     <button
       type="button"
       onClick={toggle}
+      role="switch"
+      aria-checked={lang === "es"}
       aria-label={ui.langToggle.aria}
       title={ui.langToggle.label}
-      className={`inline-flex h-9 items-center gap-1.5 rounded-md border border-border px-2.5 text-xs font-bold uppercase tracking-wide transition-colors hover:border-copper hover:text-copper ${className}`}
+      className={`lang-switch ${className}`}
     >
-      <span aria-hidden="true">{lang === "en" ? "EN" : "ES"}</span>
-      <span aria-hidden="true" className="opacity-40">
-        /
+      <span
+        aria-hidden="true"
+        className="lang-thumb"
+        style={{ transform: `translateX(${lang === "en" ? "0" : "100%"})` }}
+      />
+      <span
+        aria-hidden="true"
+        className={`lang-option ${lang === "en" ? "text-copper-foreground" : "text-muted-foreground"}`}
+      >
+        EN
       </span>
-      <span aria-hidden="true" className="opacity-70">
-        {ui.langToggle.short}
+      <span
+        aria-hidden="true"
+        className={`lang-option ${lang === "es" ? "text-copper-foreground" : "text-muted-foreground"}`}
+      >
+        ES
       </span>
     </button>
   );

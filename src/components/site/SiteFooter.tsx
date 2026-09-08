@@ -32,7 +32,7 @@ export function SiteFooter() {
           </a>
           <a
             href={`mailto:${EMAIL}`}
-            className="mt-2 flex items-center gap-2 text-sm text-brand-foreground/80 hover:text-copper"
+            className="mt-2 flex items-center gap-2 text-sm text-brand-foreground/80 transition-colors duration-300 hover:text-copper"
           >
             <Mail className="size-4" /> {EMAIL}
           </a>
@@ -44,7 +44,7 @@ export function SiteFooter() {
               {ADDRESS_CITY}, {ADDRESS_STATE} {ADDRESS_ZIP}
             </span>
           </address>
-          <LanguageToggle className="mt-4 border-brand-foreground/30 text-brand-foreground/85" />
+          <LanguageToggle className="mt-4 !bg-brand-foreground/10 !border-brand-foreground/25" />
         </div>
 
         <div>
@@ -75,7 +75,7 @@ export function SiteFooter() {
           <ul className="mt-3 space-y-1 text-sm text-brand-foreground/80">
             {navLinks.map((l) => (
               <li key={l.to}>
-                <Link to={l.to} className="hover:text-copper">
+                <Link to={l.to} className="inline-block transition-all duration-300 hover:translate-x-1 hover:text-copper">
                   {l.label}
                 </Link>
               </li>
@@ -87,7 +87,7 @@ export function SiteFooter() {
               href={BBB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-copper"
+              className="underline transition-colors duration-300 hover:text-copper"
             >
               {ui.footer.viewBbb}
             </a>

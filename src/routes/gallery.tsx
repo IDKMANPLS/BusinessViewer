@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBand } from "@/components/site/CtaBand";
 import { gallery, SITE_URL, BUSINESS_NAME } from "@/lib/site-data";
+import { useLang, useSite } from "@/lib/i18n";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -40,17 +41,16 @@ export const Route = createFileRoute("/gallery")({
 });
 
 function GalleryPage() {
+  const { ui } = useLang();
+  const { gallery: localGallery } = useSite();
+
   return (
     <>
-      <PageHero
-        eyebrow="Project gallery"
-        title="Our work, on real Sonoma County properties"
-        intro="Driveways, parking lots, repairs and site prep — with the city, project type and completion date for each job."
-      />
+      <PageHero eyebrow={ui.gallery.eyebrow} title={ui.gallery.title} intro={ui.gallery.intro} />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {gallery.map((g) => (
+          {localGallery.map((g) => (
             <figure key={g.type} className="media-pop overflow-hidden rounded-xl bg-card">
               <img
                 src={g.src}
@@ -68,10 +68,7 @@ function GalleryPage() {
             </figure>
           ))}
         </div>
-        <p className="mt-8 max-w-2xl text-sm text-muted-foreground">
-          Want to see a project like yours? Ask when Jim comes out for your estimate — he can point
-          you to comparable work nearby.
-        </p>
+        <p className="mt-8 max-w-2xl text-sm text-muted-foreground">{ui.gallery.footnote}</p>
       </section>
 
       <CtaBand />

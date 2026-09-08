@@ -3,6 +3,7 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBand } from "@/components/site/CtaBand";
 import { services, faqs, localBusinessSchema, SITE_URL, BUSINESS_NAME } from "@/lib/site-data";
+import { useLang, useSite } from "@/lib/i18n";
 
 export const Route = createFileRoute("/services/")({
   head: () => ({
@@ -64,17 +65,20 @@ export const Route = createFileRoute("/services/")({
 });
 
 function ServicesIndex() {
+  const { ui } = useLang();
+  const { services: localServices, faqs: localFaqs } = useSite();
+
   return (
     <>
       <PageHero
-        eyebrow="Services"
-        title="Asphalt paving, repair and maintenance"
-        intro="Residential and commercial asphalt work across Sonoma County, quoted in writing before anything starts."
+        eyebrow={ui.services.eyebrow}
+        title={ui.services.title}
+        intro={ui.services.intro}
       />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ icon: Icon, title, short, slug }) => (
+          {localServices.map(({ icon: Icon, title, short, slug }) => (
             <div key={slug} className="card-pop flex flex-col rounded-xl border border-border bg-card p-6">
               <span className="inline-flex size-11 items-center justify-center rounded-md bg-copper/15 text-copper">
                 <Icon className="size-6" />
@@ -86,7 +90,7 @@ function ServicesIndex() {
                 params={{ slug }}
                 className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-brand hover:text-copper"
               >
-                Learn more <ArrowRight className="size-4" />
+                {ui.home.learnMore} <ArrowRight className="size-4" />
               </Link>
             </div>
           ))}
@@ -96,16 +100,16 @@ function ServicesIndex() {
       <section className="bg-secondary/60 py-16 sm:py-24">
         <div className="mx-auto max-w-3xl px-4">
           <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-            Common questions
+            {ui.services.faqTitle}
           </h2>
           <div className="mt-8 divide-y divide-border border-y border-border">
-            {faqs.map((f) => (
-              <details key={f.q} className="group py-4">
+            {localFaqs.map((f) => (
+              <details key={f.q} className="faq-row group rounded-lg py-4">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">
                   {f.q}
                   <ChevronDown className="size-5 shrink-0 text-copper transition-transform group-open:rotate-180" />
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                <p className="faq-answer mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
               </details>
             ))}
           </div>

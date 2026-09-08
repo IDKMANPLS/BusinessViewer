@@ -15,6 +15,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { StickyCallBar } from "@/components/site/StickyCallBar";
 import { PageTransition } from "@/components/site/PageTransition";
+import { LanguageProvider } from "@/lib/i18n";
 
 function NotFoundComponent() {
   return (
@@ -131,17 +132,19 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-background text-foreground">
-        <SiteHeader />
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <main>
-          <PageTransition>
-            <Outlet />
-          </PageTransition>
-        </main>
-        <SiteFooter />
-        <StickyCallBar />
-      </div>
+      <LanguageProvider>
+        <div className="min-h-screen bg-background text-foreground">
+          <SiteHeader />
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <main>
+            <PageTransition>
+              <Outlet />
+            </PageTransition>
+          </main>
+          <SiteFooter />
+          <StickyCallBar />
+        </div>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

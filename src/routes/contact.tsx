@@ -16,6 +16,7 @@ import {
   localBusinessSchema,
   SITE_URL,
 } from "@/lib/site-data";
+import { useLang, useSite } from "@/lib/i18n";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -51,20 +52,19 @@ export const Route = createFileRoute("/contact")({
 });
 
 function ContactPage() {
+  const { ui } = useLang();
+  const { hours: localHours } = useSite();
+
   return (
     <>
-      <PageHero
-        eyebrow="Contact"
-        title="Request your free estimate"
-        intro="Call us or send the form below. Jim will come out, measure the site and give you an honest written price with no obligation."
-      />
+      <PageHero eyebrow={ui.contact.eyebrow} title={ui.contact.title} intro={ui.contact.intro} />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
           <div className="space-y-8">
             <div>
               <h2 className="rule-copper text-2xl font-extrabold uppercase sm:text-3xl">
-                Talk to {BUSINESS_NAME}
+                {ui.contact.talkTo} {BUSINESS_NAME}
               </h2>
               <a
                 href={PHONE_HREF}
@@ -90,10 +90,10 @@ function ContactPage() {
 
             <div className="rounded-xl border border-border bg-card p-6">
               <h3 className="inline-flex items-center gap-2 text-lg font-bold uppercase">
-                <Clock className="size-5 text-copper" /> Hours
+                <Clock className="size-5 text-copper" /> {ui.contact.hours}
               </h3>
               <ul className="mt-3 space-y-1 text-sm text-muted-foreground">
-                {hours.map((h) => (
+                {localHours.map((h) => (
                   <li key={h.day}>
                     <span className="font-semibold text-foreground">{h.day}:</span> {h.time}
                   </li>
@@ -102,11 +102,9 @@ function ContactPage() {
             </div>
 
             <div className="rounded-xl border border-border bg-secondary/60 p-6">
-              <h3 className="text-lg font-bold uppercase">Service area</h3>
+              <h3 className="text-lg font-bold uppercase">{ui.contact.serviceArea}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{serviceAreas.join(" · ")}</p>
-              <p className="mt-3 text-sm text-muted-foreground">
-                Not listed? Call us — we may still service your area.
-              </p>
+              <p className="mt-3 text-sm text-muted-foreground">{ui.contact.notListed}</p>
             </div>
           </div>
 

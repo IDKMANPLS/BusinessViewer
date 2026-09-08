@@ -3,20 +3,8 @@ import { Check, BadgeCheck } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBand } from "@/components/site/CtaBand";
 import heroImg from "@/assets/hero-paving.jpg";
-import {
-  BUSINESS_NAME,
-  OWNER_NAME,
-  FOUNDED_YEAR,
-  YEARS_IN_BUSINESS,
-  ADDRESS_FULL,
-  BBB_URL,
-  trustPoints,
-  whyChoose,
-  steps,
-  testimonials,
-  localBusinessSchema,
-  SITE_URL,
-} from "@/lib/site-data";
+import { BBB_URL, localBusinessSchema, SITE_URL } from "@/lib/site-data";
+import { useLang, useSite } from "@/lib/i18n";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -52,54 +40,37 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
+  const { ui } = useLang();
+  const { trustPoints, whyChoose, steps, testimonials } = useSite();
+
   return (
     <>
-      <PageHero
-        eyebrow={`Established ${FOUNDED_YEAR}`}
-        title={`${YEARS_IN_BUSINESS} years paving Sonoma County`}
-        intro={`${BUSINESS_NAME} is a family-owned asphalt contractor based in Santa Rosa. Owner ${OWNER_NAME} still runs the estimates and works alongside the crew.`}
-      />
+      <PageHero eyebrow={ui.about.eyebrow} title={ui.about.title} intro={ui.about.intro} />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <div className="grid items-start gap-10 lg:grid-cols-2">
           <div>
             <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-              A working business serving working people
+              {ui.about.heading}
             </h2>
             <div className="mt-6 space-y-4 leading-relaxed text-muted-foreground">
-              <p>
-                We started paving driveways in Sonoma County in {FOUNDED_YEAR}. Since then the
-                equipment has changed, the crew has stayed small, and the approach hasn't moved:
-                prep the base properly, price the job honestly, and stand behind what we install.
-              </p>
-              <p>
-                Today {BUSINESS_NAME} is a 3-person operation out of {ADDRESS_FULL}. That size is
-                deliberate — Jim looks at every job himself, quotes it himself, and is on site while
-                the work happens. You are never handed off to a salesperson or a subcontractor you've
-                never met.
-              </p>
-              <p>
-                {YEARS_IN_BUSINESS} years in one county teaches you things a national outfit doesn't
-                know: which neighborhoods sit on clay that holds water, where winter runoff collects,
-                how much base rock a rural west-county drive actually needs. That local knowledge is
-                the difference between pavement that lasts decades and pavement that cracks in three
-                winters.
-              </p>
+              <p>{ui.about.p1}</p>
+              <p>{ui.about.p2}</p>
+              <p>{ui.about.p3}</p>
             </div>
             <div className="mt-8 rounded-xl border border-copper/40 bg-copper/10 p-5">
               <p className="inline-flex items-center gap-2 font-display text-xl font-extrabold uppercase">
-                <BadgeCheck className="size-6 text-copper" /> BBB A+ Accredited
+                <BadgeCheck className="size-6 text-copper" /> {ui.about.bbbTitle}
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
-                Our rating with the Better Business Bureau is independently verified — you don't have
-                to take our word for it.{" "}
+                {ui.about.bbbBody}{" "}
                 <a
                   href={BBB_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-brand underline hover:text-copper"
                 >
-                  View our BBB profile
+                  {ui.about.bbbLink}
                 </a>
                 .
               </p>
@@ -115,7 +86,7 @@ function AboutPage() {
               className="aspect-[4/3] w-full object-cover"
             />
             <figcaption className="p-4 text-sm text-muted-foreground">
-              Residential driveway paving in Santa Rosa — clean edges, correct drainage.
+              {ui.about.figCaption}
             </figcaption>
           </figure>
         </div>
@@ -137,7 +108,7 @@ function AboutPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-          What you get working with us
+          {ui.about.whatYouGet}
         </h2>
         <ul className="mt-8 grid gap-3 sm:grid-cols-2">
           {whyChoose.map((w) => (
@@ -152,7 +123,7 @@ function AboutPage() {
       <section className="bg-secondary/60 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">
           <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-            How a project runs
+            {ui.about.howRuns}
           </h2>
           <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((s) => (
@@ -170,7 +141,7 @@ function AboutPage() {
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
-          In our customers' words
+          {ui.about.words}
         </h2>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {testimonials.map((t) => (
