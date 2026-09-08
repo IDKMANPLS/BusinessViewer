@@ -79,35 +79,32 @@ export function SiteHeader() {
                 <Phone className="size-4" /> {ui.header.call}
               </a>
             </Button>
-            <details className="group relative lg:hidden">
-              <summary className="flex size-10 cursor-pointer list-none items-center justify-center rounded-md border border-border text-foreground transition-all duration-300 hover:border-copper hover:text-copper active:scale-95 [&::-webkit-details-marker]:hidden">
-                <Menu className="size-5 transition-transform duration-300 group-open:rotate-90" />
-                <span className="sr-only">{ui.header.openMenu}</span>
-              </summary>
-              <div className="menu-pop absolute right-0 top-12 z-50 w-56 rounded-xl border border-border bg-card p-2 shadow-lift">
-                {navLinks.map((l) => (
-                  <Link
-                    key={l.to}
-                    to={l.to}
-                    activeOptions={{ exact: l.to === "/" }}
-                    activeProps={{ className: "text-copper" }}
-                    className="menu-item"
-                  >
-                    {l.label}
-                    <ChevronRight className="size-4 opacity-50" />
-                  </Link>
-                ))}
-                <div className="mt-1 flex items-center justify-between gap-2 border-t border-border px-3 pt-3 sm:hidden">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    {ui.header.language}
-                  </span>
-                  <LanguageToggle />
-                </div>
-              </div>
-            </details>
           </nav>
         </div>
+
+        {/* Inline sub-page links (no dropdown) — scrollable on small screens */}
+        <div className="border-t border-border/60 lg:hidden">
+          <div className="no-scrollbar mx-auto flex max-w-6xl gap-2 overflow-x-auto px-4 py-2">
+            {navLinks.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                activeOptions={{ exact: l.to === "/" }}
+                activeProps={{
+                  className: "border-copper/60 bg-copper/10 text-copper",
+                }}
+                className="shrink-0 rounded-full border border-border px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-muted-foreground transition-[color,background-color,border-color,transform] duration-300 ease-out hover:-translate-y-0.5 hover:border-copper/50 hover:bg-copper/10 hover:text-copper active:translate-y-0"
+              >
+                {l.label}
+              </Link>
+            ))}
+            <span className="ml-auto shrink-0 sm:hidden">
+              <LanguageToggle />
+            </span>
+          </div>
+        </div>
       </header>
+
     </>
   );
 }
