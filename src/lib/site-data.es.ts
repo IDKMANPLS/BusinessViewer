@@ -293,24 +293,29 @@ export const esSteps = [
 export const esTestimonials = [
   {
     quote:
-      "¡No podría estar más contento con el trabajo de Jim's Paving! Nuestra entrada llevaba años agrietada y la superficie nueva se ve mejor que la original.",
-    name: "Reseña de Google",
-    place: "Santa Rosa, CA",
+      "¡No podría estar más contento con el trabajo de Jim's Paving! De principio a fin, su equipo fue profesional, amable y muy detallista. Jim mismo se tomó el tiempo de explicarme cada paso del proceso.",
+    name: "Samuel Oakes",
+    place: "Reseña de Google",
     date: "2025",
   },
   {
     quote:
-      "Jim vino él mismo, midió todo y explicó exactamente qué necesitaba nuestra base. Sin presión, sin ventas extra, y pagamos el precio del presupuesto.",
-    name: "Cliente verificado",
-    place: "Petaluma, CA",
-    date: "2024",
+      "Gracias por la hermosa entrada... ahora puedo estacionar mi carro y no pisar barro después de la lluvia.",
+    name: "Office Manager",
+    place: "Reseña de Google",
+    date: "2025",
   },
   {
-    quote:
-      "Sellaron y repintaron el estacionamiento de nuestra oficina en un fin de semana, así que no perdimos ni un día de trabajo. Las líneas quedaron rectas y el lugar se ve impecable.",
-    name: "Administrador de propiedad",
-    place: "Rohnert Park, CA",
-    date: "2024",
+    quote: "Muy profesionales y definitivamente los volvería a contratar.",
+    name: "Jaime",
+    place: "Reseña de Google",
+    date: "2025",
+  },
+  {
+    quote: "¡Excelente compañía! Gracias....",
+    name: "BB Torliatt",
+    place: "Reseña de Google",
+    date: "2025",
   },
 ];
 
