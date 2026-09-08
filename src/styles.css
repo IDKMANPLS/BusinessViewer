@@ -536,3 +536,30 @@
     transition: none !important;
   }
 }
+
+/* ---------- Disclosure (FAQ) ---------- */
+
+@utility faq-row {
+  transition: background-color 0.25s ease-out;
+
+  & summary {
+    transition:
+      color 0.2s ease-out,
+      transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  & summary:hover {
+    color: var(--copper);
+    transform: translateX(2px);
+  }
+}
+
+@utility faq-answer {
+  animation: rise-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-answer {
+    animation: none !important;
+  }
+}

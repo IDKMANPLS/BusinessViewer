@@ -104,12 +104,12 @@ function ServicesIndex() {
           </h2>
           <div className="mt-8 divide-y divide-border border-y border-border">
             {localFaqs.map((f) => (
-              <details key={f.q} className="group py-4">
+              <details key={f.q} className="faq-row group rounded-lg py-4">
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold [&::-webkit-details-marker]:hidden">
                   {f.q}
                   <ChevronDown className="size-5 shrink-0 text-copper transition-transform group-open:rotate-180" />
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                <p className="faq-answer mt-3 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
               </details>
             ))}
           </div>
