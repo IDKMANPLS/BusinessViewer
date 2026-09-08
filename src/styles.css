@@ -139,7 +139,9 @@
   }
   body {
     font-family: var(--font-sans);
+    overflow-x: clip;
   }
+
 }
 
 @utility surface-deep {
