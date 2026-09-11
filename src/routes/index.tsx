@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, BadgeCheck, Check, ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import truckAsset from "@/assets/jims-truck.png.asset.json";
+import heroImg from "@/assets/hvac-mini-split.jpg";
 import { CtaBand } from "@/components/site/CtaBand";
 import {
   BUSINESS_NAME,
@@ -9,7 +9,7 @@ import {
   PHONE_HREF,
   FOUNDED_YEAR,
   YEARS_IN_BUSINESS,
-  BBB_URL,
+  LICENSE_URL,
   ADDRESS_CITY,
   serviceAreas,
   localBusinessSchema,
@@ -25,20 +25,20 @@ import { Parallax } from "@/components/site/Parallax";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Asphalt Paving Santa Rosa, CA | Jim's Paving | 37 Years" },
+      { title: "HVAC Contractor Windsor, CA | Franco's Mechanical" },
       {
         name: "description",
         content:
-          "Asphalt paving contractor in Santa Rosa serving Sonoma County since 1989. Driveway installation, resurfacing, sealcoating and commercial parking lots. BBB A+. Free estimates.",
+          "Expert HVAC installation and repair in Windsor, CA. Mini splits, air conditioning, heating, controls and maintenance across Sonoma County.",
       },
       {
         property: "og:title",
-        content: "Asphalt Paving in Santa Rosa & Sonoma County | Jim's Paving",
+        content: "HVAC Installation & Repair | Franco's Mechanical",
       },
       {
         property: "og:description",
         content:
-          "37 years of asphalt driveway and parking lot paving in Sonoma County. BBB A+ accredited, licensed and insured. Free estimates: (707) 477-3291.",
+          "Responsive HVAC service, professional craftsmanship and transparent pricing in Windsor and Sonoma County. Call (707) 695-3726.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL + "/" },
@@ -71,13 +71,13 @@ function Home() {
     <>
       {/* ---------------- HERO: layered depth stack ---------------- */}
       <section className="surface-deep grain relative overflow-hidden">
-        {/* layer 1 — Jim's truck, full-bleed behind the headline */}
+        {/* HVAC installation image, full-bleed behind the headline */}
         <Parallax speed={0.14} className="absolute inset-0">
           <img
-            src={truckAsset.url}
-            alt={`${BUSINESS_NAME} paving truck in ${ADDRESS_CITY}, California`}
-            width={1725}
-            height={660}
+            src={heroImg}
+            alt={`${BUSINESS_NAME} technician installing a mini split in ${ADDRESS_CITY}, California`}
+            width={1600}
+            height={1000}
             className="size-full object-cover object-[58%_45%]"
           />
         </Parallax>
@@ -121,7 +121,7 @@ function Home() {
             <dl className="stage stage-5 mt-14 grid max-w-lg grid-cols-3 border-t border-brand-foreground/15 pt-6">
               {[
                 { n: YEARS_IN_BUSINESS, label: ui.home.statYears },
-                { t: "A+", label: ui.home.statRating },
+                { t: "Active", label: ui.home.statRating },
                 { t: ui.home.statFreeValue, label: ui.home.statFree },
               ].map((s, i) => (
                 <div
@@ -172,7 +172,7 @@ function Home() {
         </div>
         <div className="mx-auto flex max-w-6xl items-center justify-center px-4 pb-7">
           <a
-            href={BBB_URL}
+            href={LICENSE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2.5 rounded-full border border-border bg-background px-4 py-2.5 text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-copper/60"
@@ -380,18 +380,36 @@ function Home() {
         </div>
       </section>
 
-      {/* ---------------- TESTIMONIALS ---------------- */}
       <section className="py-24 sm:py-32">
-        <div className="mx-auto max-w-5xl px-4">
-          <p className="eyebrow text-center">{ui.home.ebReviews}</p>
-          <h2 className="display-xl mt-4 text-center text-4xl sm:text-5xl">
-            {ui.home.testimonialsTitle}
-          </h2>
-          <div className="mt-12">
-            <TestimonialRotator items={testimonials} goLabel={ui.home.goToReview} />
-          </div>
+        <div className="mx-auto grid max-w-6xl gap-12 px-4 lg:grid-cols-2 lg:gap-20">
+          <Reveal dir="left">
+            <p className="eyebrow">{ui.home.ebServices}</p>
+            <h2 className="display-xl rule-amber mt-4 text-3xl sm:text-4xl">{ui.home.systemsTitle}</h2>
+            <p className="mt-6 leading-relaxed text-muted-foreground">{ui.home.systemsBody}</p>
+          </Reveal>
+          <Reveal dir="right" delay={90}>
+            <p className="eyebrow">{ui.home.ebFaq}</p>
+            <h2 className="display-xl rule-amber mt-4 text-3xl sm:text-4xl">{ui.home.seasonalTitle}</h2>
+            <ul className="mt-6 space-y-4">
+              {ui.home.seasonalTips.map((tip) => (
+                <li key={tip} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
+                  <Check className="mt-0.5 size-5 shrink-0 text-copper" /> {tip}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
       </section>
+
+      {testimonials.length > 0 && (
+        <section className="py-24 sm:py-32">
+          <div className="mx-auto max-w-5xl px-4">
+            <p className="eyebrow text-center">{ui.home.ebReviews}</p>
+            <h2 className="display-xl mt-4 text-center text-4xl sm:text-5xl">{ui.home.testimonialsTitle}</h2>
+            <div className="mt-12"><TestimonialRotator items={testimonials} goLabel={ui.home.goToReview} /></div>
+          </div>
+        </section>
+      )}
 
       {/* ---------------- FAQ + SERVICE AREAS ---------------- */}
       <section className="border-t border-border bg-secondary/45 py-24 sm:py-32">

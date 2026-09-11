@@ -25,7 +25,7 @@ export const Route = createFileRoute("/services/$slug")({
   head: ({ params, loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Service unavailable | Jim's Paving" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Service unavailable | Franco's Mechanical" }, { name: "robots", content: "noindex" }],
       };
     }
     const d = loaderData.detail;
@@ -53,9 +53,9 @@ export const Route = createFileRoute("/services/$slug")({
               serviceType: d.title,
               areaServed: "Sonoma County, California",
               provider: {
-                "@type": "GeneralContractor",
+                "@type": "HVACBusiness",
                 name: BUSINESS_NAME,
-                telephone: "+17074773291",
+                telephone: "+17076953726",
               },
               url,
             },

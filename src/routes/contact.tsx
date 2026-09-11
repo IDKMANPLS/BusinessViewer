@@ -21,17 +21,17 @@ import { useLang, useSite } from "@/lib/i18n";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Jim's Paving | Free Estimate | (707) 477-3291" },
+      { title: "Contact Franco's Mechanical | HVAC Service Windsor" },
       {
         name: "description",
         content:
-          "Request a free asphalt paving estimate in Santa Rosa and Sonoma County. Call (707) 477-3291 or send the online estimate form — we reply within 1 business day.",
+          "Request HVAC installation, repair or maintenance in Windsor and Sonoma County. Call Franco's Mechanical at (707) 695-3726.",
       },
-      { property: "og:title", content: "Contact Jim's Paving | Free Paving Estimates" },
+      { property: "og:title", content: "Contact Franco's Mechanical | Windsor HVAC" },
       {
         property: "og:description",
         content:
-          "Call (707) 477-3291 or request a free, no-obligation estimate online. Santa Rosa, CA — serving all of Sonoma County.",
+          "Call (707) 695-3726 for responsive heating, cooling and mechanical service from Windsor across Sonoma County.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL + "/contact" },
@@ -72,12 +72,9 @@ function ContactPage() {
               >
                 <Phone className="size-7" /> {PHONE_DISPLAY}
               </a>
-              <a
-                href={`mailto:${EMAIL}`}
-                className="mt-4 flex items-center gap-3 font-medium hover:text-copper"
-              >
+              {EMAIL && <a href={`mailto:${EMAIL}`} className="mt-4 flex items-center gap-3 font-medium hover:text-copper">
                 <Mail className="size-5 text-copper" /> {EMAIL}
-              </a>
+              </a>}
               <address className="mt-4 flex items-start gap-3 not-italic">
                 <MapPin className="mt-0.5 size-5 shrink-0 text-copper" />
                 <span>

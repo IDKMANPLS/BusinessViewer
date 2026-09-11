@@ -9,7 +9,7 @@ import {
   ADDRESS_CITY,
   ADDRESS_STATE,
   ADDRESS_ZIP,
-  BBB_URL,
+  LICENSE_URL,
   FOUNDED_YEAR,
   serviceAreas,
 } from "@/lib/site-data";
@@ -42,12 +42,9 @@ export function SiteFooter() {
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-brand-foreground/65">
             {ui.footer.about}
           </p>
-          <a
-            href={`mailto:${EMAIL}`}
-            className="mt-5 flex items-center gap-2.5 text-sm text-brand-foreground/75 transition-colors duration-300 hover:text-copper"
-          >
+          {EMAIL && <a href={`mailto:${EMAIL}`} className="mt-5 flex items-center gap-2.5 text-sm text-brand-foreground/75 transition-colors duration-300 hover:text-copper">
             <Mail className="size-4 text-copper" /> {EMAIL}
-          </a>
+          </a>}
           <address className="mt-2.5 flex items-start gap-2.5 text-sm not-italic text-brand-foreground/75">
             <MapPin className="mt-0.5 size-4 shrink-0 text-copper" />
             <span>
@@ -94,7 +91,7 @@ export function SiteFooter() {
             {serviceAreas.join(" · ")}
           </p>
           <a
-            href={BBB_URL}
+            href={LICENSE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="group mt-5 inline-flex items-center gap-2 rounded-full border border-brand-foreground/20 px-3 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-copper/60 hover:text-copper"
