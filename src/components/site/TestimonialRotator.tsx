@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Star, Quote } from "lucide-react";
 
-type Item = { quote: string; name: string; place: string; date: string };
+type Item = { quote: string; name: string; place: string; date: string; stars?: number };
 
 /** Auto-rotating testimonial with fade transitions and clickable dots. */
 export function TestimonialRotator({
@@ -35,11 +35,17 @@ export function TestimonialRotator({
         className="fade-swap glass-dark mx-auto flex max-w-3xl flex-col items-center rounded-2xl p-8 text-center sm:p-12"
       >
         <Quote className="size-8 text-copper" aria-hidden="true" />
-        <div className="mt-5 flex gap-1 text-copper">
-          {Array.from({ length: 5 }).map((_, s) => (
-            <Star key={s} className="size-4 fill-current" />
-          ))}
-        </div>
+        {typeof t.stars === "number" && t.stars > 0 && (
+          <div className="mt-5 flex gap-1 text-copper" aria-label={`${t.stars} out of 5 stars`}>
+            {Array.from({ length: 5 }).map((_, s) => (
+              <Star
+                key={s}
+                className={`size-4 ${s < t.stars ? "fill-current" : "text-brand-foreground/20"}`}
+                aria-hidden="true"
+              />
+            ))}
+          </div>
+        )}
         <blockquote className="mt-6 text-lg leading-relaxed text-brand-foreground/90 sm:text-xl">
           “{t.quote}”
         </blockquote>
