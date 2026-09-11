@@ -8,17 +8,17 @@ import { useLang, useSite } from "@/lib/i18n";
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Paving Services in Sonoma County | Jim's Paving" },
+      { title: "HVAC Services Windsor, CA | Franco's Mechanical" },
       {
         name: "description",
         content:
-          "Asphalt driveway installation, resurfacing and repair, sealcoating, commercial parking lot paving, excavation and grading in Santa Rosa and Sonoma County.",
+          "Mini-split installation, air conditioning, heating, HVAC repair, thermostats and maintenance in Windsor and Sonoma County.",
       },
-      { property: "og:title", content: "Asphalt Paving Services | Jim's Paving, Santa Rosa" },
+      { property: "og:title", content: "Heating & Cooling Services | Franco's Mechanical" },
       {
         property: "og:description",
         content:
-          "Driveways, parking lots, sealcoating, repairs and site grading — 37 years serving Sonoma County. Free estimates.",
+          "Professional HVAC installation, responsive repairs and preventive maintenance for Sonoma County homes and businesses.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL + "/services" },
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/services/")({
           {
             "@context": "https://schema.org",
             "@type": "OfferCatalog",
-            name: "Asphalt paving services in Sonoma County, California",
+            name: "HVAC services in Sonoma County, California",
             itemListElement: services.map((s, i) => ({
               "@type": "Offer",
               position: i + 1,
@@ -42,7 +42,7 @@ export const Route = createFileRoute("/services/")({
                 description: s.short,
                 serviceType: s.title,
                 areaServed: "Sonoma County, California",
-                provider: { "@type": "GeneralContractor", name: BUSINESS_NAME },
+                provider: { "@type": "HVACBusiness", name: BUSINESS_NAME },
                 url: `${SITE_URL}/services/${s.slug}`,
               },
             })),

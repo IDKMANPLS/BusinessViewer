@@ -2,24 +2,24 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Check, BadgeCheck } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBand } from "@/components/site/CtaBand";
-import heroImg from "@/assets/hero-paving.jpg";
-import { BBB_URL, localBusinessSchema, SITE_URL } from "@/lib/site-data";
+import heroImg from "@/assets/hvac-mini-split.jpg";
+import { LICENSE_URL, localBusinessSchema, SITE_URL } from "@/lib/site-data";
 import { useLang, useSite } from "@/lib/i18n";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Jim's Paving | Santa Rosa Paving Since 1989" },
+      { title: "About Franco's Mechanical | Windsor HVAC Contractor" },
       {
         name: "description",
         content:
-          "Jim's Paving is a family-owned, BBB A+ accredited asphalt contractor in Santa Rosa, CA. Owner Jim Todorovitch Jr. has paved Sonoma County since 1989 — 37 years.",
+          "Meet Franco's Mechanical, a Windsor HVAC contractor led by Juan Franco and serving Sonoma County homes and businesses since 2011.",
       },
-      { property: "og:title", content: "About Jim's Paving | 37 Years in Sonoma County" },
+      { property: "og:title", content: "About Franco's Mechanical | Windsor, CA" },
       {
         property: "og:description",
         content:
-          "A family-owned paving crew in Santa Rosa. Licensed, bonded, insured and BBB A+ accredited since 1989.",
+          "Professional HVAC installation, repair and maintenance with clear communication and post-installation support.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL + "/about" },
@@ -65,7 +65,7 @@ function AboutPage() {
               <p className="mt-2 text-sm text-muted-foreground">
                 {ui.about.bbbBody}{" "}
                 <a
-                  href={BBB_URL}
+                   href={LICENSE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-brand underline hover:text-copper"
@@ -79,7 +79,7 @@ function AboutPage() {
           <figure className="media-pop overflow-hidden rounded-xl bg-card">
             <img
               src={heroImg}
-              alt="Completed asphalt driveway paved by Jim's Paving in Santa Rosa, California"
+               alt="HVAC technician installing a ductless mini split"
               width={1600}
               height={1008}
               loading="lazy"
@@ -106,7 +106,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
+      {testimonials.length > 0 && <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
         <h2 className="rule-copper text-3xl font-extrabold uppercase sm:text-4xl">
           {ui.about.whatYouGet}
         </h2>
@@ -118,7 +118,7 @@ function AboutPage() {
             </li>
           ))}
         </ul>
-      </section>
+      </section>}
 
       <section className="bg-secondary/60 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4">

@@ -8,17 +8,17 @@ import { Reveal } from "@/components/site/Reveal";
 export const Route = createFileRoute("/gallery")({
   head: () => ({
     meta: [
-      { title: "Paving Project Gallery | Jim's Paving, Sonoma County" },
+      { title: "HVAC Installation Expertise | Franco's Mechanical" },
       {
         name: "description",
         content:
-          "Photos of completed asphalt work in Sonoma County: residential driveway installations, resurfacing and sealcoating results, commercial parking lots and site grading.",
+          "See the installation, diagnostic and commissioning expertise behind Franco's Mechanical HVAC service in Windsor and Sonoma County.",
       },
-      { property: "og:title", content: "Completed Paving Projects | Jim's Paving" },
+      { property: "og:title", content: "HVAC Installation Expertise | Franco's Mechanical" },
       {
         property: "og:description",
         content:
-          "See finished driveways, parking lots and sealcoating work across Santa Rosa, Petaluma, Windsor and Sonoma County.",
+          "Explore professional mini-split, air conditioning, heating, thermostat and commercial HVAC work.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL + "/gallery" },
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/gallery")({
           "@type": "ImageGallery",
           name: `${BUSINESS_NAME} project gallery`,
           url: SITE_URL + "/gallery",
-          about: "Asphalt paving projects completed in Sonoma County, California",
+          about: "HVAC installation, diagnostics and maintenance expertise in Sonoma County, California",
         }),
       },
     ],

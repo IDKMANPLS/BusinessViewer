@@ -82,14 +82,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Jim's Paving | Asphalt Paving in Santa Rosa & Sonoma County" },
+      { title: "Franco's Mechanical | HVAC in Windsor, CA" },
       {
         name: "description",
         content:
-          "Asphalt paving contractor in Santa Rosa, CA. Driveways, resurfacing, sealcoating and commercial parking lots. BBB A+ accredited since 1989.",
+          "Expert HVAC installation and repair in Windsor, CA. Responsive service, professional craftsmanship and transparent pricing.",
       },
-      { name: "author", content: "Jim's Paving" },
-      { property: "og:site_name", content: "Jim's Paving" },
+      { name: "author", content: "Franco's Mechanical" },
+      { property: "og:site_name", content: "Franco's Mechanical" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -104,7 +104,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
     ],
   }),
   shellComponent: RootShell,
