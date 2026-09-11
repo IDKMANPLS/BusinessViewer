@@ -15,17 +15,17 @@ import { useLang, useSite } from "@/lib/i18n";
 export const Route = createFileRoute("/service-areas")({
   head: () => ({
     meta: [
-      { title: "Service Areas | Paving in Santa Rosa & Sonoma County" },
+      { title: "HVAC Service Areas | Windsor & Sonoma County" },
       {
         name: "description",
         content:
-          "Jim's Paving serves Santa Rosa, Petaluma, Sonoma, Rohnert Park, Windsor, Healdsburg, Sebastopol and parts of Napa and Mendocino counties. Call (707) 477-3291.",
+          "Franco's Mechanical provides HVAC installation and repair from Windsor across Santa Rosa, Healdsburg, Petaluma and Sonoma County. Call (707) 695-3726.",
       },
-      { property: "og:title", content: "Where We Pave | Jim's Paving, Sonoma County" },
+      { property: "og:title", content: "HVAC Service Areas | Franco's Mechanical" },
       {
         property: "og:description",
         content:
-          "Asphalt driveway and parking lot paving across Sonoma County and neighboring communities. Not listed? Call us.",
+          "Heating, cooling, mini-split and HVAC repair service from Windsor across Sonoma County communities.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL + "/service-areas" },
@@ -48,6 +48,25 @@ function ServiceAreasPage() {
       <PageHero eyebrow={ui.areas.eyebrow} title={ui.areas.title} intro={ui.areas.intro} />
 
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
+        <div className="relative mb-12 overflow-hidden rounded-xl border border-border bg-secondary/60 p-8 sm:p-12">
+          <div className="absolute inset-0 opacity-20 [background-image:radial-gradient(circle_at_center,var(--copper)_1px,transparent_1px)] [background-size:24px_24px]" />
+          <div className="relative grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p className="eyebrow">{ui.areas.eyebrow}</p>
+              <h2 className="mt-3 text-3xl font-extrabold uppercase">{ui.areas.mapTitle}</h2>
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{ui.areas.mapBody}</p>
+            </div>
+            <div className="relative min-h-64 border border-border bg-card/70">
+              <div className="absolute left-1/2 top-1/2 size-40 -translate-x-1/2 -translate-y-1/2 rounded-full border border-copper/25" />
+              <div className="absolute left-1/2 top-1/2 size-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-copper/45" />
+              <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center">
+                <MapPin className="size-8 text-copper" />
+                <strong className="mt-1 uppercase">Windsor</strong>
+                <span className="text-xs text-muted-foreground">Sonoma County</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <ul className="flex flex-wrap gap-2">
           {serviceAreas.map((a) => (
             <li
