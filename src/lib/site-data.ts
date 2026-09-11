@@ -1,10 +1,10 @@
 import { Snowflake, Flame, Wind, Wrench, Thermometer, Gauge, BadgeCheck, ShieldCheck, MessagesSquare, ClipboardCheck } from "lucide-react";
-import miniSplit from "@/assets/hvac-mini-split.jpg";
-import acService from "@/assets/hvac-ac-service.jpg";
-import heating from "@/assets/hvac-heating.jpg";
-import thermostat from "@/assets/hvac-thermostat.jpg";
-import maintenance from "@/assets/hvac-maintenance.jpg";
-import commercial from "@/assets/hvac-commercial.jpg";
+import miniSplit from "@/assets/hvac-mini-split.jpg.asset.json";
+import acService from "@/assets/hvac-ac-service.jpg.asset.json";
+import heating from "@/assets/hvac-heating.jpg.asset.json";
+import thermostat from "@/assets/hvac-thermostat.jpg.asset.json";
+import maintenance from "@/assets/hvac-maintenance.jpg.asset.json";
+import commercial from "@/assets/hvac-commercial.jpg.asset.json";
 
 export const BUSINESS_NAME = "Franco's Mechanical";
 export const OWNER_NAME = "Juan Franco";
@@ -43,7 +43,7 @@ export const services: Service[] = [
 type Detail = { title: string; metaTitle: string; metaDescription: string; intro: string; image: string; imageAlt: string; sections: { heading: string; body: string; bullets?: string[] }[] };
 export const serviceDetails: Record<ServiceSlug, Detail> = {
   "mini-split-installation": {
-    title: "Mini-Split Installation", metaTitle: "Mini-Split Installation Windsor, CA | Franco's Mechanical", metaDescription: "Professional ductless mini-split installation in Windsor and Sonoma County. Proper sizing, clean installation and dependable support. Call (707) 695-3726.", intro: "Ductless systems can heat and cool efficiently without major ductwork—but performance depends on correct sizing, placement and commissioning.", image: miniSplit, imageAlt: "HVAC technician carefully installing a ductless mini-split indoor unit",
+    title: "Mini-Split Installation", metaTitle: "Mini-Split Installation Windsor, CA | Franco's Mechanical", metaDescription: "Professional ductless mini-split installation in Windsor and Sonoma County. Proper sizing, clean installation and dependable support. Call (707) 695-3726.", intro: "Ductless systems can heat and cool efficiently without major ductwork—but performance depends on correct sizing, placement and commissioning.", image: miniSplit.url, imageAlt: "HVAC technician carefully installing a ductless mini-split indoor unit",
     sections: [
       { heading: "Is a mini split right for your space?", body: "Mini splits work well for additions, garages, older homes without ducts and rooms that never stay comfortable. We evaluate the room load, insulation, electrical capacity and outdoor-unit location before recommending a configuration." },
       { heading: "What professional installation includes", body: "A complete installation coordinates the indoor head, outdoor condenser, refrigerant line set, condensate drain, electrical connection and system controls.", bullets: ["Load-based equipment sizing", "Thoughtful indoor and outdoor unit placement", "Neat, protected line-set routing", "Pressure testing, evacuation and commissioning", "Owner walkthrough and operating guidance"] },
@@ -52,7 +52,7 @@ export const serviceDetails: Record<ServiceSlug, Detail> = {
     ],
   },
   "air-conditioning": {
-    title: "Air Conditioning", metaTitle: "Air Conditioning Installation Windsor, CA | Franco's", metaDescription: "A/C installation, replacement and service in Windsor and Sonoma County. Expert sizing, airflow checks and transparent recommendations. (707) 695-3726.", intro: "Reliable cooling starts with more than the equipment box. Capacity, airflow, duct condition and installation quality all determine comfort and operating cost.", image: acService, imageAlt: "HVAC technician servicing an outdoor air conditioning condenser",
+    title: "Air Conditioning", metaTitle: "Air Conditioning Installation Windsor, CA | Franco's", metaDescription: "A/C installation, replacement and service in Windsor and Sonoma County. Expert sizing, airflow checks and transparent recommendations. (707) 695-3726.", intro: "Reliable cooling starts with more than the equipment box. Capacity, airflow, duct condition and installation quality all determine comfort and operating cost.", image: acService.url, imageAlt: "HVAC technician servicing an outdoor air conditioning condenser",
     sections: [
       { heading: "Installation and replacement", body: "We assess the existing system, home layout, ductwork and electrical requirements before recommending a replacement. The goal is even cooling and dependable operation—not simply the largest unit available." },
       { heading: "Why correct sizing matters", body: "An oversized system can short-cycle, control humidity poorly and wear components faster. An undersized system may run continuously on hot days. Proper sizing supports comfort, efficiency and equipment life." },
@@ -61,7 +61,7 @@ export const serviceDetails: Record<ServiceSlug, Detail> = {
     ],
   },
   "heating-installation": {
-    title: "Heating Installation", metaTitle: "Heating & Furnace Installation Windsor, CA | Franco's", metaDescription: "Furnace and heat-pump installation in Windsor, CA and Sonoma County. Professional workmanship, system guidance and responsive follow-up.", intro: "A heating system should deliver steady comfort safely and efficiently. We help you understand furnace and heat-pump options before work begins.", image: heating, imageAlt: "HVAC technician commissioning a residential furnace and air handler",
+    title: "Heating Installation", metaTitle: "Heating & Furnace Installation Windsor, CA | Franco's", metaDescription: "Furnace and heat-pump installation in Windsor, CA and Sonoma County. Professional workmanship, system guidance and responsive follow-up.", intro: "A heating system should deliver steady comfort safely and efficiently. We help you understand furnace and heat-pump options before work begins.", image: heating.url, imageAlt: "HVAC technician commissioning a residential furnace and air handler",
     sections: [
       { heading: "Furnace or heat pump?", body: "Furnaces provide familiar forced-air heat. Heat pumps move heat and can provide both heating and cooling. The best choice depends on the building, existing utilities, comfort priorities and budget." },
       { heading: "Installation details matter", body: "Equipment must be matched, connected, vented and configured correctly. We focus on safe installation, clean workmanship, proper airflow and complete startup testing." },
@@ -70,7 +70,7 @@ export const serviceDetails: Record<ServiceSlug, Detail> = {
     ],
   },
   "hvac-repair": {
-    title: "HVAC Repair", metaTitle: "HVAC Repair Windsor, CA | Franco's Mechanical", metaDescription: "Responsive heating and air conditioning repair in Windsor and Sonoma County. Thorough diagnostics and clear repair recommendations. Call (707) 695-3726.", intro: "When comfort stops, you need a clear diagnosis—not guesswork. We inspect the system, explain what failed and discuss practical next steps.", image: maintenance, imageAlt: "HVAC technician using gauges to diagnose an outdoor heat-pump system",
+    title: "HVAC Repair", metaTitle: "HVAC Repair Windsor, CA | Franco's Mechanical", metaDescription: "Responsive heating and air conditioning repair in Windsor and Sonoma County. Thorough diagnostics and clear repair recommendations. Call (707) 695-3726.", intro: "When comfort stops, you need a clear diagnosis—not guesswork. We inspect the system, explain what failed and discuss practical next steps.", image: maintenance.url, imageAlt: "HVAC technician using gauges to diagnose an outdoor heat-pump system",
     sections: [
       { heading: "Problems we diagnose", body: "We troubleshoot common no-cool, no-heat and performance complaints across residential and light commercial systems.", bullets: ["System will not start or repeatedly shuts off", "Air is warm when cooling or cool when heating", "Weak or uneven airflow", "Unusual noise, odor or water near equipment", "Thermostat or control problems", "Unexpected increase in energy use"] },
       { heading: "Repair versus replacement", body: "Age, repair cost, condition, comfort and efficiency all matter. We explain what is repairable and when replacement may be the more responsible long-term choice." },
@@ -79,7 +79,7 @@ export const serviceDetails: Record<ServiceSlug, Detail> = {
     ],
   },
   "thermostats-zoning": {
-    title: "Thermostats & Zoning", metaTitle: "Smart Thermostats & HVAC Zoning Windsor, CA | Franco's", metaDescription: "Thermostat installation, control upgrades and HVAC zoning solutions in Windsor and Sonoma County. Improve comfort and system control.", intro: "Better controls can improve comfort and convenience, but they must be compatible with the equipment and wired correctly.", image: thermostat, imageAlt: "Technician precisely installing a modern smart thermostat",
+    title: "Thermostats & Zoning", metaTitle: "Smart Thermostats & HVAC Zoning Windsor, CA | Franco's", metaDescription: "Thermostat installation, control upgrades and HVAC zoning solutions in Windsor and Sonoma County. Improve comfort and system control.", intro: "Better controls can improve comfort and convenience, but they must be compatible with the equipment and wired correctly.", image: thermostat.url, imageAlt: "Technician precisely installing a modern smart thermostat",
     sections: [
       { heading: "Thermostat installation", body: "We verify equipment compatibility, available wiring and system configuration before installing or replacing a thermostat. Then we test every operating mode." },
       { heading: "Smart controls", body: "Smart thermostats can add schedules, remote adjustments and energy-use insights. We help configure practical settings without making everyday operation complicated." },
@@ -88,7 +88,7 @@ export const serviceDetails: Record<ServiceSlug, Detail> = {
     ],
   },
   "preventive-maintenance": {
-    title: "Preventive Maintenance", metaTitle: "HVAC Maintenance Windsor, CA | Franco's Mechanical", metaDescription: "Seasonal HVAC maintenance and tune-ups in Windsor and Sonoma County. Improve reliability, airflow and efficiency before peak weather.", intro: "Routine maintenance helps equipment run as designed and gives you time to address wear before a peak-season breakdown.", image: commercial, imageAlt: "HVAC technician inspecting commercial heating and cooling equipment",
+    title: "Preventive Maintenance", metaTitle: "HVAC Maintenance Windsor, CA | Franco's Mechanical", metaDescription: "Seasonal HVAC maintenance and tune-ups in Windsor and Sonoma County. Improve reliability, airflow and efficiency before peak weather.", intro: "Routine maintenance helps equipment run as designed and gives you time to address wear before a peak-season breakdown.", image: commercial.url, imageAlt: "HVAC technician inspecting commercial heating and cooling equipment",
     sections: [
       { heading: "What maintenance checks", body: "The visit focuses on operation, cleanliness, airflow and visible wear rather than a quick visual glance.", bullets: ["Filters, coils and accessible drains", "Electrical connections and controls", "Temperature change and airflow", "Refrigerant-circuit operating indicators", "Heating startup and safety-related operation", "Thermostat response and system cycling"] },
       { heading: "Seasonal timing", body: "Cooling systems are best checked in spring before hot weather. Heating systems are best checked in fall before sustained cold. Filters should be inspected more frequently based on use, pets and indoor conditions." },
@@ -99,12 +99,12 @@ export const serviceDetails: Record<ServiceSlug, Detail> = {
 };
 
 export const gallery = [
-  { src: miniSplit, alt: "Technician installing a ductless mini-split indoor unit", city: "Ductless systems", type: "Precise mini-split installation", date: "Sizing · Placement · Commissioning" },
-  { src: acService, alt: "Technician servicing a residential air conditioner", city: "Cooling systems", type: "Air conditioning diagnostics", date: "Airflow · Electrical · Performance" },
-  { src: heating, alt: "Technician testing a furnace installation", city: "Heating systems", type: "Furnace and air-handler setup", date: "Safety · Airflow · Startup testing" },
-  { src: thermostat, alt: "Careful installation of a modern thermostat", city: "Comfort controls", type: "Thermostat installation", date: "Compatibility · Wiring · Configuration" },
-  { src: maintenance, alt: "Technician checking HVAC operating pressures", city: "Repair expertise", type: "Measured system diagnostics", date: "Test · Explain · Repair" },
-  { src: commercial, alt: "Technician inspecting commercial HVAC equipment", city: "Commercial service", type: "Light commercial HVAC support", date: "Reliability · Communication · Follow-through" },
+  { src: miniSplit.url, alt: "Technician installing a ductless mini-split indoor unit", city: "Ductless systems", type: "Precise mini-split installation", date: "Sizing · Placement · Commissioning" },
+  { src: acService.url, alt: "Technician servicing a residential air conditioner", city: "Cooling systems", type: "Air conditioning diagnostics", date: "Airflow · Electrical · Performance" },
+  { src: heating.url, alt: "Technician testing a furnace installation", city: "Heating systems", type: "Furnace and air-handler setup", date: "Safety · Airflow · Startup testing" },
+  { src: thermostat.url, alt: "Careful installation of a modern thermostat", city: "Comfort controls", type: "Thermostat installation", date: "Compatibility · Wiring · Configuration" },
+  { src: maintenance.url, alt: "Technician checking HVAC operating pressures", city: "Repair expertise", type: "Measured system diagnostics", date: "Test · Explain · Repair" },
+  { src: commercial.url, alt: "Technician inspecting commercial HVAC equipment", city: "Commercial service", type: "Light commercial HVAC support", date: "Reliability · Communication · Follow-through" },
 ];
 
 export const trustPoints = [
