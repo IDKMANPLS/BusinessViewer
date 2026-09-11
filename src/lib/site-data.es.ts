@@ -73,7 +73,10 @@ export const esSteps = [
   { title: "Instalar o reparar", desc: "Hacemos el trabajo con cuidado por el equipo, su propiedad y la limpieza." },
   { title: "Probar y dar seguimiento", desc: "Verificamos operación, explicamos controles y seguimos disponibles." },
 ];
-export const esTestimonials: { quote: string; name: string; place: string; date: string }[] = [];
+export const esTestimonials: { quote: string; name: string; place: string; date: string; stars?: number }[] = [
+  { quote: "Franco y su equipo completaron la instalación de nuestro mini split de forma rápida y profesional. Se notó la atención al detalle en la ubicación de la unidad, el tendido eléctrico y la limpieza durante el trabajo. Recomiendo al equipo que me atendió y Franco es agradable para trabajar.", name: "Jeff Lemelin", place: "Windsor, CA", date: "Hace 2 años", stars: 5 },
+  { quote: "Franco's Mechanical es un negocio de buena reputación con base en Windsor, CA, especializado en brindar servicios mecánicos a sus clientes. Con enfoque en calidad de trabajo y satisfacción del cliente, ofrece una variedad de soluciones mecánicas para clientes residenciales y comerciales.", name: "Omar Mendez", place: "Windsor, CA", date: "Hace 9 años" },
+];
 export const esFaqs = [
   { q: "¿Instalan mini splits?", a: "Sí. Evaluamos carga, ubicación, tubería, electricidad y drenaje; luego ponemos en marcha el sistema y explicamos sus controles." },
   { q: "¿Cómo sé si debo reparar o reemplazar?", a: "Consideramos la pieza dañada, edad, condición, comodidad, eficiencia, historial y costo. Explicamos ambos caminos cuando son viables." },

@@ -132,7 +132,10 @@ export const steps = [
   { n: "4", title: "Test & follow through", desc: "We verify operation, explain the controls and stay available for post-service questions." },
 ];
 
-export const testimonials: { quote: string; name: string; place: string; date: string }[] = [];
+export const testimonials: { quote: string; name: string; place: string; date: string; stars?: number }[] = [
+  { quote: "Franco and his team completed our mini split installation quickly and professionally. Attention to detail was evident in craftsmanship in regards to unit location, electrical layout, and cleaning during job. I can suggest the crew I had and Franco is pleasant to work with!", name: "Jeff Lemelin", place: "Windsor, CA", date: "2 years ago", stars: 5 },
+  { quote: "Franco's Mechanical is a reputable business based in Windsor, CA, specializing in providing mechanical services to its clients. With a focus on quality workmanship and customer satisfaction, Franco's Mechanical offers a range of mechanical solutions to meet the needs of residential and commercial customers.", name: "Omar Mendez", place: "Windsor, CA", date: "9 years ago" },
+];
 
 export const serviceAreas = ["Windsor", "Santa Rosa", "Healdsburg", "Sebastopol", "Rohnert Park", "Cotati", "Sonoma", "Petaluma"];
 
