@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Check, BadgeCheck } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { CtaBand } from "@/components/site/CtaBand";
-import heroImg from "@/assets/hvac-mini-split.jpg";
+import heroImg from "@/assets/hvac-mini-split.jpg.asset.json";
 import { LICENSE_URL, localBusinessSchema, SITE_URL } from "@/lib/site-data";
 import { useLang, useSite } from "@/lib/i18n";
 
@@ -78,7 +78,7 @@ function AboutPage() {
           </div>
           <figure className="media-pop overflow-hidden rounded-xl bg-card">
             <img
-              src={heroImg}
+              src={heroImg.url}
                alt="HVAC technician installing a ductless mini split"
               width={1600}
               height={1008}

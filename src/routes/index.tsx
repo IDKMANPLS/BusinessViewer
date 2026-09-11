@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Phone, BadgeCheck, Check, ArrowRight, ArrowUpRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hvac-mini-split.jpg";
+import heroImg from "@/assets/hvac-mini-split.jpg.asset.json";
 import { CtaBand } from "@/components/site/CtaBand";
 import {
   BUSINESS_NAME,
@@ -74,7 +74,7 @@ function Home() {
         {/* HVAC installation image, full-bleed behind the headline */}
         <Parallax speed={0.14} className="absolute inset-0">
           <img
-            src={heroImg}
+            src={heroImg.url}
             alt={`${BUSINESS_NAME} technician installing a mini split in ${ADDRESS_CITY}, California`}
             width={1600}
             height={1000}
